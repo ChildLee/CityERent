@@ -7,7 +7,43 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    markers: [{
+      id: 0,
+      latitude: 32.5056200000,
+      longitude: 111.0965700000,
+      width: 50,
+      height: 50,
+      label: {
+        content: '武当山5A级风景区',
+        padding: 10,
+        borderRadius: 10,
+        bgColor: '#fff'
+      }
+    }, {
+      id: 1,
+      latitude: 32.5016200000,
+      longitude: 111.0965700000,
+      width: 50,
+      height: 50,
+      label: {
+        content: '武当山AAAAA级风景区',
+        padding: 10,
+        borderRadius: 10,
+        bgColor: '#fff'
+      }
+    }, {
+      id: 2,
+      latitude: 32.5099200000,
+      longitude: 111.0905700000,
+      width: 50,
+      height: 50,
+      label: {
+        content: 'AAAAA级风景区',
+        padding: 10,
+        borderRadius: 10,
+        bgColor: '#fff'
+      }
+    }]
   },
 
   /**
