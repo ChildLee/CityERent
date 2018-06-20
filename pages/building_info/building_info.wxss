@@ -1,0 +1,25 @@
+page {
+  background-color: #f2f2f2;
+}
+.header {
+  background-color: #fff;
+}
+.header swiper {
+  height: 400rpx;
+}
+.header swiper image {
+  width: 100%;
+  height: 100%;
+}
+.header .title {
+  padding: 20rpx 30rpx;
+}
+.header .title .title-name {
+  font-size: 40rpx;
+}
+.header .title .title-other {
+  font-size: 28rpx;
+  color: #656565;
+  display: flex;
+  justify-content: space-between;
+}

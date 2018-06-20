@@ -1,0 +1,22 @@
+page {
+    font-size: 32rpx;
+}
+
+@font-face {
+    font-family: 'icon';
+    /* project id 674012 */
+    src: url('//at.alicdn.com/t/font_674012_15s4suzwfjl15rk9.eot');
+    src: url('//at.alicdn.com/t/font_674012_15s4suzwfjl15rk9.eot?#iefix') format('embedded-opentype'), url('//at.alicdn.com/t/font_674012_15s4suzwfjl15rk9.woff') format('woff'), url('//at.alicdn.com/t/font_674012_15s4suzwfjl15rk9.ttf') format('truetype'), url('//at.alicdn.com/t/font_674012_15s4suzwfjl15rk9.svg#icon') format('svg');
+}
+
+.icon {
+    font-family: "icon" !important;
+    font-size: 32rpx;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-loop::after {
+    content: '\e6fd'
+}

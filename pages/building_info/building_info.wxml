@@ -1,0 +1,22 @@
+<!-- pages/building_info/building_info.wxml -->
+<view class="header">
+    <swiper autoplay indicator-dots>
+        <swiper-item>
+            <image class="swiper-image" src="http://placekitten.com/200/300" />
+        </swiper-item>
+        <swiper-item>
+            <image class="swiper-image" src="http://placekitten.com/250/300" />
+        </swiper-item>
+        <swiper-item>
+            <image class="swiper-image" src="http://placekitten.com/200/350" />
+        </swiper-item>
+    </swiper>
+    <view class="title">
+        <view class="title-name">平安金融中心大厦</view>
+        <view class="title-other">
+            <text>购物公园站</text>
+            <text>共200关注</text>
+        </view>
+    </view>
+</view>
+<view class=""></view>
