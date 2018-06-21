@@ -15,3 +15,6 @@
 
   </view>
 </form>
+
+<i-button type="ghost" bind:click="handleDefault">默认提醒</i-button>
+<i-message id="message" />

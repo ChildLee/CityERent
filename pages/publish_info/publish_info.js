@@ -1,6 +1,13 @@
 // pages/publish_info/publish_info.js
-Page({
 
+const { $Message } = require('../../components/base/index');
+
+Page({
+  handleDefault() {
+    $Message({
+      content: '这是一条普通提醒'
+    });
+  },
   /**
    * 页面的初始数据
    */
