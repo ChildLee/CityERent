@@ -161,12 +161,11 @@
     </view>
   </view>
 </view>
-
-<view class='advisory-blank'></view>
+<view class="advisory-blank"></view>
 <view class="advisory">
-  <view class='attention'>
-    <icon class='icon icon-xin'></icon>
+  <view class="attention">
+    <icon class="icon icon-xin"></icon>
     <view>关注</view>
   </view>
-  <button open-type='contact'>咨询客服</button>
+  <button open-type="contact">咨询客服</button>
 </view>

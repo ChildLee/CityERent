@@ -1,7 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/building_info/building_info"
+    "pages/building_info/building_info",
+    "pages/publish_info/publish_info"
   ],
   "window": {
     "backgroundTextStyle": "light",

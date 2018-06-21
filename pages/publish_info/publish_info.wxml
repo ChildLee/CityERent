@@ -1,0 +1,17 @@
+<!-- pages/publish_info/publish_info.wxml -->
+<form>
+  <view class="publish_box">
+
+    <view class="publish_cell">
+
+      <view class="publish-name">房屋类型</view>
+      <view class="publish-value">
+        <picker bindchange="bindHouseType" value="{{houseType.index}}" range="{{houseType.list}}">
+          {{houseType.list[houseType.index]}}
+        </picker>
+      </view>
+
+    </view>
+
+  </view>
+</form>

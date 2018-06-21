@@ -2,6 +2,10 @@ page {
   font-size: 32rpx;
 }
 
+.border-none {
+  border: none !important;
+}
+
 @font-face {
   font-family: "icon";
   src: url('//at.alicdn.com/t/font_715192_y273pa892o.eot?t=1529554044479'); /* IE9*/
