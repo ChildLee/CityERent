@@ -33,7 +33,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
 					"id": -1,
@@ -44,7 +44,8 @@
 				{
 					"id": -1,
 					"name": "发布信息",
-					"pathName": "pages/publish_info/publish_info"
+					"pathName": "pages/publish_info/publish_info",
+					"query": ""
 				}
 			]
 		}

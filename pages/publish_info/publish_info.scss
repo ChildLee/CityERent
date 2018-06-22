@@ -1,0 +1,25 @@
+@function rpx($rpx) {
+  @return $rpx*1rpx;
+}
+
+.publish_box {
+  padding: 0 rpx(30);
+
+  .publish_cell {
+    display: flex;
+    .publish-name {
+      flex: none;
+      width: rpx(200);
+      text-align: right;
+    }
+
+    .publish-value {
+      flex: 1;
+      margin-left: rpx(40);
+      border: rpx(1) solid red;
+      picker {
+
+      }
+    }
+  }
+}

@@ -1,0 +1,131 @@
+@function rpx($rpx) {
+  @return $rpx*1rpx;
+}
+
+page {
+  background-color: #f2f2f2;
+}
+
+.header {
+  background-color: #fff;
+  swiper {
+
+    height: rpx(400);
+    image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .title {
+    padding: rpx(20) rpx(30);
+    .title-name {
+      font-size: rpx(40);
+    }
+    .title-other {
+      font-size: rpx(28);
+      color: #656565;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
+
+.building-box {
+  background-color: #fff;
+  margin-top: rpx(20);
+  .building-title {
+    padding: rpx(20) rpx(30);
+    font-size: rpx(40);
+    border-bottom: rpx(1) solid #e0e0e0;
+  }
+  .building-info {
+    padding: 0 rpx(30);
+    color: #333333;
+    view {
+      padding: rpx(20) 0;
+      &:not(:last-child) {
+        border-bottom: rpx(1) solid #e0e0e0;
+      }
+      text:first-child {
+        display: inline-block;
+        text-align: justify;
+        text-align-last: justify;
+        white-space: nowrap;
+        width: rpx(160);
+      }
+    }
+  }
+  map {
+    width: 100%;
+    height: rpx(350);
+  }
+  .building-list {
+    padding: 0 rpx(30);
+    .building-item {
+      padding: rpx(25) 0;
+      display: flex;
+      align-items: center;
+      &:not(:last-child) {
+        border-bottom: rpx(1) solid #e0e0e0;
+      }
+      image {
+        width: rpx(222);
+        height: rpx(150);
+        border-radius: rpx(10);
+      }
+      > view {
+        margin-left: rpx(30);
+        line-height: 1.5;
+        > view:nth-child(1) {
+          font-size: rpx(36);
+        }
+        > view:nth-child(2) {
+          color: #656565;
+        }
+        > view:nth-child(3) {
+          font-size: rpx(36);
+          text:first-child {
+            color: red;
+          }
+          text:last-child {
+            color: #656565;
+          }
+        }
+      }
+    }
+  }
+}
+
+.advisory-blank {
+  height: rpx(90);
+}
+
+.advisory {
+  border-top: rpx(1) solid #e0e0e0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  height: rpx(90);
+  background-color: #fff;
+  .attention {
+    flex: none;
+    width: rpx(190);
+    text-align: center;
+    icon {
+      font-size: rpx(40);
+    }
+    view {
+      font-size: rpx(24);
+    }
+  }
+  button {
+    flex: 1;
+    border-radius: 0;
+    background-color: #ff5600;
+    color: #fff;
+    &:after {
+      border: none;
+    }
+  }
+}
