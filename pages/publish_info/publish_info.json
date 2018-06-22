@@ -1,7 +1,3 @@
 {
-  "navigationBarTitleText": "出租",
-  "usingComponents": {
-    "i-button": "../../components/button/index",
-    "i-message": "../../components/message/index"
-  }
+  "navigationBarTitleText": "出租"
 }

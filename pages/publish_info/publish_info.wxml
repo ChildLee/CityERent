@@ -1,20 +1,248 @@
 <!-- pages/publish_info/publish_info.wxml -->
-<form>
-  <view class="publish_box">
-
-    <view class="publish_cell">
-
-      <view class="publish-name">房屋类型</view>
-      <view class="publish-value">
-        <picker bindchange="bindHouseType" value="{{houseType.index}}" range="{{houseType.list}}">
-          {{houseType.list[houseType.index]}}
-        </picker>
-      </view>
-
+<form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="publish_box">
+        <view class="publish_cell">
+            <view class="publish-name">房屋类型</view>
+            <view class="publish-value">
+                <picker bindchange="bindHouseType" value="{{houseType.index}}" range="{{houseType.list}}">
+                    {{houseType.list[houseType.index]}}
+                </picker>
+                <text class="icon icon-downArrow"></text>
+            </view>
+        </view>
+        <view class="publish_cell">
+            <view class="publish-name">房屋面积</view>
+            <view class="publish-value">
+                <input type="digit" placeholder="请输入房屋面积"/>
+            </view>
+        </view>
+        <view class="publish_cell">
+            <view class="publish-name">房屋楼层</view>
+            <view class="publish-value">
+                <input type="number" placeholder="请输入房屋楼层"/>
+            </view>
+        </view>
+        <view class="publish_cell">
+            <view class="publish-name">房屋楼龄</view>
+            <view class="publish-value">
+                <input type="digit" placeholder="请输入房屋楼龄"/>
+            </view>
+        </view>
+        <view class="publish_cell">
+            <view class="publish-name">房屋电梯</view>
+            <view class="publish-value">
+                <radio-group>
+                    <label>
+                        <radio/>
+                        <text>有电梯</text>
+                    </label>
+                    <label>
+                        <radio/>
+                        <text>无电梯</text>
+                    </label>
+                </radio-group>
+            </view>
+        </view>
+        <view class="publish_cell">
+            <view class="publish-name">房屋车位</view>
+            <view class="publish-value">
+                <radio-group>
+                    <label>
+                        <radio/>
+                        <text>有车位</text>
+                    </label>
+                    <label>
+                        <radio/>
+                        <text>无车位</text>
+                    </label>
+                </radio-group>
+            </view>
+        </view>
+        <view class="publish_cell">
+            <view class="publish-name">地铁</view>
+            <view class="publish-value">
+                <radio-group>
+                    <label>
+                        <radio/>
+                        <text>有地铁</text>
+                    </label>
+                    <label>
+                        <radio/>
+                        <text>无地铁</text>
+                    </label>
+                </radio-group>
+            </view>
+        </view>
+        <view class="publish_cell">
+            <view class="publish-name">房屋租金(月)</view>
+            <view class="publish-value">
+                <input type="digit" placeholder="请输入房屋租金"/>
+            </view>
+        </view>
+        <view class="publish_cell">
+            <view class="publish-name">付款方式</view>
+            <view class="publish-value">
+                <picker bindchange="bindPayWay" value="{{payWay.index}}" range="{{payWay.list}}">
+                    {{payWay.list[payWay.index]}}
+                </picker>
+                <text class="icon icon-downArrow"></text>
+            </view>
+        </view>
+        <view class="publish_cell">
+            <view class="publish-name">房屋装修</view>
+            <view class="publish-value">
+                <picker bindchange="bindHouseDecoration" value="{{houseDecoration.index}}"
+                        range="{{houseDecoration.list}}">
+                    {{houseDecoration.list[houseDecoration.index]}}
+                </picker>
+                <text class="icon icon-downArrow"></text>
+            </view>
+        </view>
+        <view class="publish_cell">
+            <view class="publish-name">具体位置</view>
+            <view class="publish-value">
+                <picker mode="multiSelector" bindchange="bindAddressIndex" bindcolumnchange="bindAddressValue"
+                        value="{{address.index}}" range="{{address.list}}"
+                        range-key="name">
+                    {{address.list[0][address.index[0]].name}},{{address.list[1][address.index[1]].name}},{{address.list[2][address.index[2]].name}}
+                </picker>
+                <text class="icon icon-downArrow"></text>
+            </view>
+        </view>
+        <view class="publish_cell">
+            <view class="publish-name"></view>
+            <view class="publish-value">
+                <input placeholder="请输入详细地址"/>
+            </view>
+        </view>
+        <view class="publish_cell">
+            <view class="publish-name">更多</view>
+            <view class="publish-value">
+                <switch bindchange="moreChange" checked="{{more}}"/>
+            </view>
+        </view>
+        <block wx:if="{{more}}">
+            <view class="publish_cell">
+                <view class="publish-name">房屋朝向</view>
+                <view class="publish-value">
+                    <picker bindchange="bindHouseOrientation" value="{{houseOrientation.index}}"
+                            range="{{houseOrientation.list}}">
+                        {{houseOrientation.list[houseOrientation.index]}}
+                    </picker>
+                    <text class="icon icon-downArrow"></text>
+                </view>
+            </view>
+            <view class="publish_cell">
+                <view class="publish-name">房屋户型</view>
+                <view class="publish-value">
+                    <picker mode="multiSelector" bindchange="bindHouseStyleIndex" bindcolumnchange="bindHouseStyleValue"
+                            value="{{houseStyle.index}}" range="{{houseStyle.list}}"
+                            range-key="name">
+                        {{houseStyle.list[0][houseStyle.index[0]].name}},{{houseStyle.list[1][houseStyle.index[1]].name}},{{houseStyle.list[2][houseStyle.index[2]].name}}
+                    </picker>
+                    <text class="icon icon-downArrow"></text>
+                </view>
+            </view>
+            <view class="publish_cell">
+                <view class="publish-name">方式</view>
+                <view class="publish-value">
+                    <radio-group>
+                        <label>
+                            <radio/>
+                            <text>不限</text>
+                        </label>
+                        <label>
+                            <radio/>
+                            <text>整租</text>
+                        </label>
+                        <label>
+                            <radio/>
+                            <text>合租</text>
+                        </label>
+                    </radio-group>
+                </view>
+            </view>
+            <view class="publish_cell">
+                <view class="publish-name">限制性别</view>
+                <view class="publish-value">
+                    <radio-group>
+                        <label>
+                            <radio/>
+                            <text>不限</text>
+                        </label>
+                        <label>
+                            <radio/>
+                            <text>男生</text>
+                        </label>
+                        <label>
+                            <radio/>
+                            <text>女生</text>
+                        </label>
+                    </radio-group>
+                </view>
+            </view>
+        </block>
+        <view class="publish_cell">
+            <view class="publish-name">房屋主图</view>
+            <view class="publish-value" bind:tap="uploadMainPhoto">
+                <view class="mainPhoto">
+                    <image src="/image/photo.png"/>
+                    <text class="photoDesc">上传照片(单张)</text>
+                </view>
+            </view>
+        </view>
+        <view class="publish_cell">
+            <view class="publish-name">房屋附图</view>
+            <view class="publish-value">
+                <view class="attachedFigure">
+                    <image src="/image/photo.png"/>
+                    <image src="/image/addPhoto.png"/>
+                </view>
+            </view>
+        </view>
+        <view class="publish_cell">
+            <view class="publish-name">房屋(合同)照</view>
+            <view class="publish-value">
+                <view class="mainPhoto">
+                    <image src="/image/photo.png"/>
+                    <text class="photoDesc">上传照片(单张)</text>
+                </view>
+            </view>
+        </view>
+        <view class="publish_cell">
+            <view class="publish-name">联系人</view>
+            <view class="publish-value">
+                <input placeholder="请输入联系人"/>
+            </view>
+        </view>
+        <view class="publish_cell">
+            <view class="publish-name">联系电话</view>
+            <view class="publish-value">
+                <input type="number" placeholder="请输入联系电话"/>
+            </view>
+        </view>
+        <view class="publish_cell">
+            <view class="publish-name">是否推荐首页</view>
+            <view class="publish-value">
+                <radio-group>
+                    <label>
+                        <radio/>
+                        <text>是</text>
+                    </label>
+                    <label>
+                        <radio/>
+                        <text>否</text>
+                    </label>
+                </radio-group>
+            </view>
+        </view>
     </view>
-
-  </view>
+    <view class="publish_btn">
+        <view>
+            <button formType="submit">确认</button>
+        </view>
+        <view>
+            <button formType="reset">重置</button>
+        </view>
+    </view>
 </form>
-
-<i-button type="ghost" bind:click="handleDefault">默认提醒</i-button>
-<i-message id="message" />

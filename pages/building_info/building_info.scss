@@ -58,6 +58,10 @@ page {
   map {
     width: 100%;
     height: rpx(350);
+    .map-pull {
+      width: 100%;
+      height: 100%;
+    }
   }
   .building-list {
     padding: 0 rpx(30);
@@ -104,6 +108,7 @@ page {
   border-top: rpx(1) solid #e0e0e0;
   position: fixed;
   bottom: 0;
+  z-index: 99999;
   width: 100%;
   display: flex;
   height: rpx(90);
@@ -129,3 +134,4 @@ page {
     }
   }
 }
+

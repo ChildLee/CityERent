@@ -1,12 +1,105 @@
+@charset "UTF-8";
+/*radio默认样式重置*/
+radio .wx-radio-input {
+  background: none !important;
+  border: 1px solid #b5b5b5 !important; }
+  radio .wx-radio-input.wx-radio-input-checked {
+    border: 1px solid #ff5600 !important; }
+  radio .wx-radio-input.wx-radio-input-checked::before {
+    content: '';
+    width: 30rpx;
+    height: 30rpx;
+    border-radius: 50%;
+    background-color: #ff5600; }
+
+/*switch默认样式重置*/
+switch {
+  /*switch盒子大小,默认背景绿色*/
+  /*不算边框白底大小*/
+  /*圆点样式*/
+  /*选中样式*/
+  /*选中圆点样式*/ }
+  switch .wx-switch-input {
+    width: 42px;
+    height: 22px;
+    background-color: transparent !important; }
+  switch .wx-switch-input::before {
+    width: 40px;
+    height: 20px; }
+  switch .wx-switch-input::after {
+    width: 20px;
+    height: 20px; }
+  switch .wx-switch-input-checked {
+    border: 1px solid #ff5600 !important;
+    background-color: #ff5600 !important; }
+
 .publish_box {
-  padding: 0 30rpx; }
+  padding: 0 30rpx;
+  color: #333; }
   .publish_box .publish_cell {
-    display: flex; }
+    display: flex;
+    align-items: center;
+    padding: 20rpx 0; }
     .publish_box .publish_cell .publish-name {
       flex: none;
       width: 200rpx;
-      text-align: right; }
+      text-align: right;
+      font-size: 30rpx; }
     .publish_box .publish_cell .publish-value {
       flex: 1;
+      position: relative;
+      line-height: 55rpx;
       margin-left: 40rpx;
-      border: 1rpx solid red; }
+      font-size: 26rpx; }
+      .publish_box .publish_cell .publish-value picker {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        border: 1rpx solid #d2d2d2;
+        padding: 0 20rpx;
+        height: 60rpx;
+        line-height: 60rpx; }
+      .publish_box .publish_cell .publish-value input {
+        border: 1rpx solid #d2d2d2;
+        padding: 0 20rpx;
+        height: 60rpx; }
+      .publish_box .publish_cell .publish-value .icon {
+        position: absolute;
+        right: 10rpx;
+        top: 2rpx; }
+      .publish_box .publish_cell .publish-value radio-group {
+        display: flex;
+        justify-content: space-around; }
+        .publish_box .publish_cell .publish-value radio-group label {
+          display: flex;
+          align-items: center; }
+      .publish_box .publish_cell .publish-value switch {
+        display: flex;
+        justify-content: flex-end; }
+      .publish_box .publish_cell .publish-value .mainPhoto {
+        display: flex;
+        flex-direction: column; }
+        .publish_box .publish_cell .publish-value .mainPhoto image {
+          width: 140rpx;
+          height: 130rpx; }
+        .publish_box .publish_cell .publish-value .mainPhoto .photoDesc {
+          font-size: 22rpx; }
+      .publish_box .publish_cell .publish-value .attachedFigure {
+        display: flex; }
+        .publish_box .publish_cell .publish-value .attachedFigure image {
+          margin-right: 10rpx;
+          width: 140rpx;
+          height: 130rpx; }
+
+.publish_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .publish_btn button {
+    box-sizing: border-box;
+    width: 160rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    background-color: #ff5600;
+    color: #fff;
+    margin: 20rpx; }

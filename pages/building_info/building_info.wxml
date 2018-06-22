@@ -121,7 +121,10 @@
 </view>
 <view class="building-box">
     <view class="building-title border-none">楼盘位置</view>
-    <map longitude="111.0965700000" latitude="32.5056200000" markers="{{markers}}"/>
+
+    <map longitude="111.0965700000" latitude="32.5056200000" markers="{{markers}}">
+        <cover-view class="map-pull"></cover-view>
+    </map>
 </view>
 <view class="building-box">
     <view class="building-title">出租盘源</view>
