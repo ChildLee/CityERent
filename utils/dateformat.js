@@ -1,4 +1,4 @@
-function dateformat(date, mask) {
+function dateFormat(date, mask) {
     if (arguments.length === 1 && Object.prototype.toString.call(date) === '[object String]' && !/\d/.test(date)) {
         mask = date
         date = undefined
@@ -14,7 +14,7 @@ function dateformat(date, mask) {
         throw TypeError('Format Date Error')
     }
 
-    mask = String(dateformat.masks[mask] || mask || dateformat.masks['default'])
+    mask = String(dateFormat.masks[mask] || mask || dateFormat.masks['default'])
 
     var arr = [{
         reg: /(Y+)/,
@@ -60,10 +60,10 @@ function dateformat(date, mask) {
     return mask
 }
 
-dateformat.masks = {
+dateFormat.masks = {
     'default': 'YYYY-MM-DD HH:mm:ss',
     'date': 'YYYY-MM-DD',
     'time': 'HH:mm:ss'
 }
 
-export default dateformat
+export default dateFormat

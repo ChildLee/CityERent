@@ -1,0 +1,90 @@
+.search {
+  box-sizing: border-box;
+  height: 144rpx; }
+  .search .search-bar {
+    margin: 0 30rpx;
+    background-color: #e4e4e4;
+    border-radius: 10rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    display: flex;
+    align-items: center; }
+    .search .search-bar > view:first-child {
+      flex: none; }
+      .search .search-bar > view:first-child .icon {
+        padding: 15rpx; }
+    .search .search-bar > view:last-child {
+      flex: 1; }
+      .search .search-bar > view:last-child input {
+        font-size: 26rpx; }
+  .search .sort.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%; }
+  .search .sort-selected {
+    color: #ff5600 !important; }
+    .search .sort-selected text {
+      color: #ff5600 !important; }
+  .search .sort {
+    color: #333;
+    background-color: #fff; }
+    .search .sort .sort-name {
+      display: flex;
+      padding: 20rpx 0;
+      border-bottom: 1rpx solid #ccc; }
+      .search .sort .sort-name > view {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25%; }
+        .search .sort .sort-name > view .icon {
+          color: #999;
+          font-size: 20rpx; }
+    .search .sort .sort-list .sort-more {
+      height: 640rpx;
+      display: flex; }
+      .search .sort .sort-list .sort-more .more-item {
+        flex: 1;
+        padding-left: 30rpx; }
+        .search .sort .sort-list .sort-more .more-item:not(:first-child) {
+          border-left: 1rpx solid #ccc; }
+        .search .sort .sort-list .sort-more .more-item view {
+          box-sizing: border-box;
+          height: 80rpx;
+          line-height: 80rpx; }
+          .search .sort .sort-list .sort-more .more-item view:not(:last-child) {
+            border-bottom: 1rpx solid #ccc; }
+
+.pull {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+.house_list {
+  padding: 0 30rpx; }
+  .house_list .house_item {
+    padding: 30rpx 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center; }
+    .house_list .house_item:not(:last-child) {
+      border-bottom: 1px solid #ccc; }
+    .house_list .house_item image {
+      flex: none;
+      width: 145rpx;
+      height: 145rpx;
+      border-radius: 10rpx; }
+    .house_list .house_item .house_item-info {
+      margin-left: 30rpx;
+      font-size: 32rpx;
+      line-height: 1.3; }
+      .house_list .house_item .house_item-info .house_item-desc {
+        color: #999;
+        font-size: 28rpx; }
+      .house_list .house_item .house_item-info .house_item-price {
+        color: red; }

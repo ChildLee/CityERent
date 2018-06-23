@@ -1,0 +1,70 @@
+<!--pages/house_list/house_list.wxml-->
+<view class="search">
+    <view class="search-bar">
+        <view>
+            <text class="icon icon-search"></text>
+        </view>
+        <view>
+            <input placeholder="搜素"/>
+        </view>
+    </view>
+    <view class="sort {{sortFixed}}">
+        <view class="sort-name">
+            <view data-index="1" bindtap="bindSort" class="{{sortIndex===1?'sort-selected':''}}">
+                <text>区域</text>
+                <text class="icon icon-downArrow"></text>
+            </view>
+            <view data-index="2" bindtap="bindSort" class="{{sortIndex===2?'sort-selected':''}}">
+                <text>租金</text>
+                <text class="icon icon-downArrow"></text>
+            </view>
+            <view data-index="3" bindtap="bindSort" class="{{sortIndex===3?'sort-selected':''}}">
+                <text>面积</text>
+                <text class="icon icon-downArrow"></text>
+            </view>
+            <view data-index="4" bindtap="bindSort" class="{{sortIndex===4?'sort-selected':''}}">
+                <text>更多</text>
+                <text class="icon icon-downArrow"></text>
+            </view>
+        </view>
+        <view class="sort-list">
+            <view wx:if="{{sortIndex===1}}">区域</view>
+            <view wx:if="{{sortIndex===2}}">租金</view>
+            <view wx:if="{{sortIndex===3}}">面积</view>
+            <view class="sort-more" wx:if="{{sortIndex===4}}">
+                <block wx:for="{{sortMore}}" wx:for-item="i" wx:for-index="arrIndex" wx:key="{{i.id}}">
+                    <scroll-view scroll-y class="more-item">
+                        <block wx:for="{{i.list}}" wx:for-index="itemIndex" wx:key="{{item.id}}">
+                            <view class="{{i.index===item.id?'sort-selected':''}}"
+                                  bindtap="moreChange"
+                                  data-id="{{item.id}}" data-arrIndex="{{arrIndex}}" data-itemIndex="{{itemIndex}}">
+                                {{item.name}}
+                            </view>
+                        </block>
+                    </scroll-view>
+                </block>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="house_list">
+    <view class="house_item" wx:for="{{10}}" wx:key="{{index}}">
+        <image src="http://placekitten.com/200/300"></image>
+        <view class="house_item-info">
+            <view>龙岗坂田太阳雨家园四房出售，板银隧道交汇处，邻地铁</view>
+            <view class="house_item-desc">
+                <text>一室一厅</text>
+                <text>/66.8㎡</text>
+                <text>/东南角</text>
+                <text>/黄金大厦</text>
+            </view>
+            <view>
+                <text class="house_item-price">2000元</text>
+                <text class="house_item-desc">/㎡/月</text>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="pull" wx:if="{{sortFixed}}" bindtap="closeSort"></view>

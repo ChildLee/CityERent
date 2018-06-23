@@ -1,4 +1,4 @@
-@function rpx($rpx) {
+@function rpx($rpx:0) {
   @return $rpx*1rpx;
 }
 
