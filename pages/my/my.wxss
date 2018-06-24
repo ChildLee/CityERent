@@ -1,0 +1,15 @@
+page {
+  background-color: #F6F8F8; }
+
+.my {
+  background-color: #fff; }
+  .my .my-info {
+    display: flex;
+    align-items: center;
+    padding: 50rpx 30rpx; }
+    .my .my-info image {
+      border-radius: 50%;
+      width: 100rpx;
+      height: 100rpx; }
+    .my .my-info text {
+      margin-left: 30rpx; }

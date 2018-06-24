@@ -1,0 +1,25 @@
+@function rpx($rpx:0) {
+  @return $rpx*1rpx
+}
+
+page {
+  background-color: #F6F8F8;
+}
+
+.my {
+  background-color: #fff;
+
+  .my-info {
+    display: flex;
+    align-items: center;
+    padding: rpx(50) rpx(30);
+    image {
+      border-radius: 50%;
+      width: rpx(100);
+      height: rpx(100);
+    }
+    text {
+      margin-left: rpx(30);
+    }
+  }
+}

@@ -1,0 +1,13 @@
+<!--pages/login/login.wxml-->
+<view class="title">
+    <text class="line"></text>
+    <view class="title-name">推荐方式登录</view>
+    <text class="line"></text>
+</view>
+
+<view class="login">
+    <button bindgetphonenumber="getPhoneNumber" open-type="getPhoneNumber">
+        <text class="icon icon-weixin"></text>
+        <text>账号登录</text>
+    </button>
+</view>

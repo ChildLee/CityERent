@@ -400,7 +400,7 @@ interface AppConstructor {
     }): Application;
 }
 
-declare var App: AppConstructor;
+declare var App: AppConstructor
 
 declare function getApp(): Application;
 
@@ -468,7 +468,7 @@ interface PageConstructor {
     }): Page;
 }
 
-declare var Page: PageConstructor;
+declare var Page: PageConstructor
 
 declare var wx: {
     // # 网络 # 
@@ -846,7 +846,7 @@ declare var wx: {
     /**
      * 注意：1.6.0 版本开始，本接口不再维护。建议使用能力更强的 wx.createInnerAudioContext 接口
      */
-    createAudioContext(audioId: string, this: string,): IAudioContext;
+    createAudioContext(audioId: string this: string,): IAudioContext;
 
     /**
      * 拍摄视频或从手机相册中选视频，返回视频的临时文件路径。
@@ -899,7 +899,7 @@ declare var wx: {
 
     createCameraContext(this: string): void;
 
-    createLivePlayerContext(domId: string, this: string,): void;
+    createLivePlayerContext(domId: string this: string,): void;
 
     loadFontFace(obj: {
         /**
@@ -1094,7 +1094,7 @@ declare var wx: {
     /**
      * 将 data 存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个同步接口。
      */
-    setStorageSync(key: string, data: any,): void;
+    setStorageSync(key: string, data: any): void;
 
     /**
      * 从本地缓存中异步获取指定 key 对应的内容。
@@ -2959,7 +2959,7 @@ declare var wx: {
     /**
      * 自定义分析数据上报接口。使用前，需要在小程序管理后台自定义分析中新建事件，配置好事件名与字段。
      */
-    reportAnalytics(eventName: string, data: string,): void;
+    reportAnalytics(eventName: string, data: string): void;
 
     // # 更新 # 
 
@@ -2969,7 +2969,7 @@ declare var wx: {
 
     // # 监控 # 
 
-    reportMonitor(name: string, value: string,): void;
+    reportMonitor(name: string, value: string): void;
 
     // # 调试接口 # 
 

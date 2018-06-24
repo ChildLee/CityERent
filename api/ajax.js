@@ -18,10 +18,9 @@ class ajax {
                 method,
                 success: function (res) {
                     console.log(url, method, res.data)
-                    resolve(res)
+                    resolve(res.data)
                 },
                 fail: function (res) {
-                    console.error(url, method, res)
                     reject(res)
                 }
             })

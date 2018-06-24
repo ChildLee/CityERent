@@ -1,65 +1,76 @@
 {
-  "description": "项目配置文件。",
-  "packOptions": {
-    "ignore": []
-  },
-  "setting": {
-    "urlCheck": false,
-    "es6": true,
-    "postcss": true,
-    "minified": true,
-    "newFeature": true
-  },
-  "compileType": "miniprogram",
-  "libVersion": "2.1.1",
-  "appid": "wx3261ca1ac35e152e",
-  "projectname": "CityERent",
-  "isGameTourist": false,
-  "condition": {
-    "search": {
-      "current": -1,
-      "list": []
-    },
-    "conversation": {
-      "current": -1,
-      "list": []
-    },
-    "plugin": {
-      "current": -1,
-      "list": []
-    },
-    "game": {
-      "currentL": -1,
-      "list": []
-    },
-    "miniprogram": {
-      "current": 3,
-      "list": [
-        {
-          "id": -1,
-          "name": "写字楼详情",
-          "pathName": "pages/building_info/building_info",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "发布信息",
-          "pathName": "pages/publish_info/publish_info",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "房源列表",
-          "pathName": "pages/house_list/house_list",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "房源列表",
-          "pathName": "pages/house_list/house_list",
-          "query": ""
-        }
-      ]
-    }
-  }
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.1.1",
+	"appid": "wx3261ca1ac35e152e",
+	"projectname": "CityERent",
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
+			"list": [
+				{
+					"id": -1,
+					"name": "写字楼详情",
+					"pathName": "pages/building_info/building_info",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "发布信息",
+					"pathName": "pages/publish_info/publish_info",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "房源列表",
+					"pathName": "pages/house_list/house_list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "房源列表",
+					"pathName": "pages/house_list/house_list",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "登录",
+					"pathName": "pages/login/login"
+				}
+			]
+		}
+	}
 }

@@ -3,7 +3,9 @@
     "pages/index/index",
     "pages/building_info/building_info",
     "pages/publish_info/publish_info",
-    "pages/house_list/house_list"
+    "pages/house_list/house_list",
+    "pages/my/my",
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,25 @@
+.title {
+  display: flex;
+  padding: 0 30rpx; }
+  .title .title-name {
+    margin: 0 15rpx;
+    color: #999; }
+  .title .line {
+    flex: 1;
+    width: 100%;
+    background: linear-gradient(transparent 49%, #ccc 49%, #ccc 51%, transparent 51%); }
+
+.login {
+  margin-top: 60rpx;
+  padding: 0 30rpx;
+  height: 90rpx;
+  line-height: 90rpx; }
+  .login button {
+    background-color: #00ae66;
+    color: #fff;
+    font-size: 32rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .login button text {
+      margin: 0 5rpx; }
