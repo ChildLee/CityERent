@@ -1,5 +1,6 @@
 page {
-  background-color: #F6F8F8; }
+  background-color: #F6F8F8;
+  color: #333; }
 
 .my {
   background-color: #fff; }
@@ -12,4 +13,25 @@ page {
       width: 100rpx;
       height: 100rpx; }
     .my .my-info text {
-      margin-left: 30rpx; }
+      margin-left: 30rpx;
+      font-size: 30rpx; }
+
+.my-list {
+  margin-top: 20rpx;
+  padding: 0 30rpx;
+  background-color: #fff; }
+  .my-list .my-item {
+    padding: 30rpx 0;
+    display: flex;
+    justify-content: space-between;
+    position: relative; }
+    .my-list .my-item text:last-child {
+      color: #999; }
+    .my-list .my-item:not(:last-child) {
+      border-bottom: 1rpx solid #eee; }
+
+.loginOut {
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 30rpx 0;
+  text-align: center; }

@@ -6,6 +6,21 @@ page {
   font-size: rpx(32);
 }
 
+.arrow {
+  content: " ";
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  border-width: 1px 1px 0 0;
+  border-style: solid;
+  border-color: #C0C0C0;
+  width: 6px;
+  height: 6px;
+  margin-top: -4px;
+  transform: rotateZ(45deg);
+}
+
 .bd {
   border: 1px solid red;
 }

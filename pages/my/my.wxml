@@ -1,8 +1,27 @@
 <!--pages/my/my.wxml-->
 
 <view class="my">
-    <view class="my-info">
-        <image src="http://placekitten.com/200/300"></image>
-        <text>点击登录</text>
+    <navigator url="/pages/login/login" hover-class="none" class="my-info" wx:if="{{!isLogin}}">
+        <image src="/image/user.png"></image>
+        <text>点击注册/登录</text>
+    </navigator>
+    <view url="/pages/login/login" hover-class="none" class="my-info" wx:else>
+        <image src="/image/user.png"></image>
+        <text>{{phoneNumber}}</text>
     </view>
+</view>
+
+<view class="my-list" wx:if="{{isLogin}}">
+    <view class="my-item">
+        <text>我的关注</text>
+        <text class="arrow"></text>
+    </view>
+    <view class="my-item" bindtap="call">
+        <text>客服电话</text>
+        <text>420-880-8820</text>
+    </view>
+</view>
+
+<view bindtap="loginOut" class="loginOut" wx:if="{{isLogin}}">
+    退出登录
 </view>

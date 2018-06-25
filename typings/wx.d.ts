@@ -1,4 +1,4 @@
-// generate time:2018-6-23 13:28:07 
+// generate time:2018-6-25 10:26:30 
 // Type definitions for wx app
 // Definitions by: hellopao <https://github.com/hellopao/wx.d.ts>
 
@@ -400,7 +400,7 @@ interface AppConstructor {
     }): Application;
 }
 
-declare var App: AppConstructor
+declare var App: AppConstructor;
 
 declare function getApp(): Application;
 
@@ -468,7 +468,7 @@ interface PageConstructor {
     }): Page;
 }
 
-declare var Page: PageConstructor
+declare var Page: PageConstructor;
 
 declare var wx: {
     // # 网络 # 
@@ -841,12 +841,107 @@ declare var wx: {
      */
     stopVoice(): void;
 
+    /**
+     * 注意：1.2.0 版本开始，本接口不再维护。建议使用能力更强的 wx.getBackgroundAudioManager 接口
+     */
+    getBackgroundAudioPlayerState(obj: {
+        /**
+         * 接口调用成功的回调函数
+         */
+        success?: Function;
+        /**
+         * 接口调用失败的回调函数
+         */
+        fail?: Function;
+        /**
+         * 接口调用结束的回调函数（调用成功、失败都会执行）
+         */
+        complete?: Function;
+    }): void;
+
+    /**
+     * 使用后台播放器播放音乐，对于微信客户端来说，只能同时有一个后台音乐在播放。当用户离开小程序后，音乐将暂停播放；当用户点击“显示在聊天顶部”时，音乐不会暂停播放；当用户在其他小程序占用了音乐播放器，原有小程序内的音乐将停止播放。
+     */
+    playBackgroundAudio(obj: {
+        /**
+         * 音乐链接，目前支持的格式有 m4a, aac, mp3, wav
+         */
+        dataUrl: string;
+        /**
+         * 音乐标题
+         */
+        title?: string;
+        /**
+         * 封面URL
+         */
+        coverImgUrl?: string;
+        /**
+         * 接口调用成功的回调函数
+         */
+        success?: Function;
+        /**
+         * 接口调用失败的回调函数
+         */
+        fail?: Function;
+        /**
+         * 接口调用结束的回调函数（调用成功、失败都会执行）
+         */
+        complete?: Function;
+    }): void;
+
+    /**
+     * 暂停播放音乐。
+     */
+    pauseBackgroundAudio(): void;
+
+    /**
+     * 控制音乐播放进度。
+     */
+    seekBackgroundAudio(obj: {
+        /**
+         * 音乐位置，单位：秒
+         */
+        position: number;
+        /**
+         * 接口调用成功的回调函数
+         */
+        success?: Function;
+        /**
+         * 接口调用失败的回调函数
+         */
+        fail?: Function;
+        /**
+         * 接口调用结束的回调函数（调用成功、失败都会执行）
+         */
+        complete?: Function;
+    }): void;
+
+    /**
+     * 停止播放音乐。
+     */
+    stopBackgroundAudio(): void;
+
+    /**
+     * 监听音乐播放。
+     */
+    onBackgroundAudioPlay(callback: Function): void;
+
+    /**
+     * 监听音乐暂停。
+     */
+    onBackgroundAudioPause(callback: Function): void;
+
+    /**
+     * 监听音乐停止。
+     */
+    onBackgroundAudioStop(callback: Function): void;
+
     getBackgroundAudioManager(): void;
 
     /**
      * 注意：1.6.0 版本开始，本接口不再维护。建议使用能力更强的 wx.createInnerAudioContext 接口
      */
-    createAudioContext(audioId: string this: string,): IAudioContext;
+    createAudioContext(audioId: string, this: string,): IAudioContext;
 
     /**
      * 拍摄视频或从手机相册中选视频，返回视频的临时文件路径。
@@ -897,9 +992,14 @@ declare var wx: {
         complete?: Function;
     }): void;
 
+    /**
+     * 创建并返回 video 上下文 videoContext 对象。在自定义组件下，第二个参数传入组件实例this，以操作组件内 <video/> 组件
+     */
+    createVideoContext(videoId: string, this: string,): IVideoContext;
+
     createCameraContext(this: string): void;
 
-    createLivePlayerContext(domId: string this: string,): void;
+    createLivePlayerContext(domId: string, this: string,): void;
 
     loadFontFace(obj: {
         /**
@@ -1094,7 +1194,7 @@ declare var wx: {
     /**
      * 将 data 存储在本地缓存中指定的 key 中，会覆盖掉原来该 key 对应的内容，这是一个同步接口。
      */
-    setStorageSync(key: string, data: any): void;
+    setStorageSync(key: string, data: any,): void;
 
     /**
      * 从本地缓存中异步获取指定 key 对应的内容。
@@ -2034,6 +2134,76 @@ declare var wx: {
         complete?: Function;
     }): void;
 
+    getHCEState(obj: {
+        /**
+         * 接口调用成功的回调函数
+         */
+        success?: Function;
+        /**
+         * 接口调用失败的回调函数
+         */
+        fail?: Function;
+        /**
+         * 接口调用结束的回调函数（调用成功、失败都会执行）
+         */
+        complete?: Function;
+    }): void;
+
+    startHCE(obj: {
+        /**
+         * 需要注册到系统的 AID 列表，每个 AID 为 String 类型
+         */
+        aid_list: Array<any>;
+        /**
+         * 接口调用成功的回调函数
+         */
+        success?: Function;
+        /**
+         * 接口调用失败的回调函数
+         */
+        fail?: Function;
+        /**
+         * 接口调用结束的回调函数（调用成功、失败都会执行）
+         */
+        complete?: Function;
+    }): void;
+
+    stopHCE(obj: {
+        /**
+         * 接口调用成功的回调函数
+         */
+        success?: Function;
+        /**
+         * 接口调用失败的回调函数
+         */
+        fail?: Function;
+        /**
+         * 接口调用结束的回调函数（调用成功、失败都会执行）
+         */
+        complete?: Function;
+    }): void;
+
+    onHCEMessage(callback: Function): void;
+
+    sendHCEMessage(obj: {
+        /**
+         * 二进制数据
+         */
+        data: any;
+        /**
+         * 接口调用成功的回调函数
+         */
+        success?: Function;
+        /**
+         * 接口调用失败的回调函数
+         */
+        fail?: Function;
+        /**
+         * 接口调用结束的回调函数（调用成功、失败都会执行）
+         */
+        complete?: Function;
+    }): void;
+
     startWifi(obj: {
         /**
          * 接口调用成功的回调函数
@@ -2959,9 +3129,11 @@ declare var wx: {
     /**
      * 自定义分析数据上报接口。使用前，需要在小程序管理后台自定义分析中新建事件，配置好事件名与字段。
      */
-    reportAnalytics(eventName: string, data: string): void;
+    reportAnalytics(eventName: string, data: string,): void;
 
     // # 更新 # 
+
+    getUpdateManager(): void;
 
     // # 多线程 # 
 
@@ -2969,7 +3141,7 @@ declare var wx: {
 
     // # 监控 # 
 
-    reportMonitor(name: string, value: string): void;
+    reportMonitor(name: string, value: string,): void;
 
     // # 调试接口 # 
 

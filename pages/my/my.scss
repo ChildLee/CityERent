@@ -4,6 +4,7 @@
 
 page {
   background-color: #F6F8F8;
+  color: #333;
 }
 
 .my {
@@ -20,6 +21,32 @@ page {
     }
     text {
       margin-left: rpx(30);
+      font-size: rpx(30);
     }
   }
+}
+
+.my-list {
+  margin-top: rpx(20);
+  padding: 0 rpx(30);
+  background-color: #fff;
+  .my-item {
+    padding: rpx(30) 0;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    text:last-child {
+      color: #999;
+    }
+    &:not(:last-child) {
+      border-bottom: rpx(1) solid #eee;
+    }
+  }
+}
+
+.loginOut {
+  margin-top: rpx(20);
+  background-color: #fff;
+  padding: rpx(30) 0;
+  text-align: center;
 }
