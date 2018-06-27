@@ -1,0 +1,45 @@
+page {
+  background-color: #f2f2f2; }
+
+.nav-all-title {
+  margin: 30rpx;
+  color: #666;
+  font-size: 28rpx; }
+
+.nav {
+  padding: 0 30rpx; }
+  .nav .nav-title {
+    margin: 30rpx 0;
+    color: #666;
+    font-size: 28rpx; }
+  .nav .nav-location {
+    border-right: 10rpx;
+    padding: 20rpx;
+    background-color: #fff;
+    font-size: 28rpx; }
+    .nav .nav-location .icon {
+      margin-right: 20rpx; }
+  .nav .nav-hot {
+    display: flex;
+    flex-wrap: wrap; }
+    .nav .nav-hot > view {
+      box-sizing: border-box;
+      width: 25%;
+      height: 70rpx;
+      line-height: 70rpx;
+      background-color: #fff;
+      text-align: center;
+      margin-right: 10rpx; }
+  .nav .nav-all {
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 15rpx 0;
+    font-size: 28rpx; }
+    .nav .nav-all > view {
+      width: 33.3333333333%;
+      margin: 15rpx 0;
+      text-align: center;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap; }

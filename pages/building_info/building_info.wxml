@@ -2,13 +2,13 @@
 <view class="header">
     <swiper autoplay indicator-dots>
         <swiper-item>
-            <image class="swiper-image" src="http://placekitten.com/200/300"/>
+            <image class="swiper-image" src="http://placekitten.com/200/300"></image>
         </swiper-item>
         <swiper-item>
-            <image class="swiper-image" src="http://placekitten.com/250/300"/>
+            <image class="swiper-image" src="http://placekitten.com/250/300"></image>
         </swiper-item>
         <swiper-item>
-            <image class="swiper-image" src="http://placekitten.com/200/350"/>
+            <image class="swiper-image" src="http://placekitten.com/200/350"></image>
         </swiper-item>
     </swiper>
     <view class="title">

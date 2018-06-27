@@ -1,9 +1,15 @@
 import api from './api/index.js'
 import dateFormat from './utils/dateformat.js'
+import Map from './lib/qqmap-wx-jssdk.min.js'
 
 App({
     api,
     dateFormat,
+    map: new Map({key: 'KORBZ-67U35-BPKID-Q6RUX-H7WU2-I2FX5'}),
+
+    data: {
+        img: ' http://scoket.xiaozhanxiang.com/upload/'
+    },
     /**
      * 当小程序初始化完成时，会触发 onLaunch（全局只触发一次）
      */

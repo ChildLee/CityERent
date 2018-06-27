@@ -10,6 +10,7 @@ Page({
     onShow() {
         let {purePhoneNumber} = wx.getStorageSync('userInfo')
         if (purePhoneNumber) {
+            purePhoneNumber = purePhoneNumber.slice(0, 3) + '***' + purePhoneNumber.slice(-3)
             this.setData({
                 isLogin: true,
                 phoneNumber: purePhoneNumber

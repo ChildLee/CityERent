@@ -1,0 +1,30 @@
+@function rpx($rpx:0) {
+  @return $rpx*1rpx;
+}
+
+@mixin ell() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin border($cell:false,$direction:bottom) {
+  $cell: if($cell, ':not(:last-child)', null);
+  $direction: if($direction, -$direction, null);
+  &#{$cell} {
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      border#{$direction}: 1px solid #e0e0e0;
+      box-sizing: border-box;
+      transform: scale(.5);
+      transform-origin: 0 0;
+      pointer-events: none;
+    }
+  }
+}

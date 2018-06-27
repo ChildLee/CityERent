@@ -1,5 +1,5 @@
-// const host = 'http://scoket.xiaozhanxiang.com/wechar'
-const host = 'http://127.0.0.1:3000'
+const host = 'http://scoket.xiaozhanxiang.com/wechar/'
+// const host = 'http://127.0.0.1:3000'
 
 class ajax {
     static get(url, data) {

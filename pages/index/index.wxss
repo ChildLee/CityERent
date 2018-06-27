@@ -1,0 +1,117 @@
+page {
+  background-color: #f2f2f2; }
+
+.header {
+  position: relative; }
+  .header swiper {
+    height: 400rpx; }
+    .header swiper image {
+      width: 100%;
+      height: 100%; }
+  .header .header-box {
+    box-sizing: border-box;
+    background-color: #fff;
+    border-radius: 10rpx;
+    position: absolute;
+    top: 30rpx;
+    left: 10%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    padding: 15rpx 30rpx;
+    line-height: 30rpx;
+    font-size: 30rpx; }
+    .header .header-box .header-box-nav {
+      flex: none;
+      display: flex;
+      align-items: center;
+      max-width: 120rpx;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap; }
+      .header .header-box .header-box-nav .icon {
+        font-size: 24rpx;
+        padding-top: 10rpx;
+        color: #999; }
+    .header .header-box .header-box-line {
+      flex: none;
+      height: 40rpx;
+      width: 2rpx;
+      background-color: #ccc;
+      margin: 0 30rpx; }
+    .header .header-box .header-box-search {
+      flex: 1;
+      display: flex;
+      align-items: center; }
+      .header .header-box .header-box-search text {
+        flex: none; }
+      .header .header-box .header-box-search input {
+        flex: 1;
+        margin-left: 10rpx;
+        font-size: 28rpx; }
+
+.nav-list {
+  background-color: #fff;
+  padding: 25rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+  .nav-list .nav-item {
+    display: flex;
+    align-items: center;
+    flex-direction: column; }
+    .nav-list .nav-item image {
+      width: 100rpx;
+      height: 100rpx;
+      border-radius: 50%; }
+    .nav-list .nav-item text {
+      font-size: 28rpx;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap; }
+
+.process {
+  background-color: #fff;
+  position: relative;
+  padding: 30rpx;
+  margin-top: 20rpx; }
+  .process .process-title {
+    display: flex;
+    align-items: center; }
+    .process .process-title .line {
+      margin-right: 10rpx;
+      width: 8rpx;
+      height: 32rpx;
+      background-color: #ff5600; }
+  .process .arrow-box {
+    margin-right: 30rpx; }
+
+.recommend {
+  margin-top: 20rpx;
+  background-color: #fff;
+  padding: 30rpx; }
+  .recommend .recommend-title {
+    display: flex;
+    align-items: center; }
+    .recommend .recommend-title .line {
+      margin-right: 10rpx;
+      width: 8rpx;
+      height: 32rpx;
+      background-color: #ff5600; }
+  .recommend .recommend-list .recommend-item {
+    display: flex;
+    align-items: center;
+    padding: 30rpx 0; }
+    .recommend .recommend-list .recommend-item:not(:last-child) {
+      border-bottom: 1rpx solid #e0e0e0; }
+    .recommend .recommend-list .recommend-item image {
+      width: 210rpx;
+      height: 130rpx;
+      border-radius: 10rpx; }
+    .recommend .recommend-list .recommend-item .recommend-item-info {
+      margin-left: 30rpx;
+      font-size: 28rpx;
+      color: #999; }
+      .recommend .recommend-list .recommend-item .recommend-item-info .recommend-item-title {
+        font-size: 32rpx;
+        color: #000; }

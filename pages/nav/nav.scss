@@ -1,0 +1,59 @@
+@function rpx($rpx:0) {
+  @return $rpx*1rpx;
+}
+
+page {
+  background-color: #f2f2f2;
+}
+
+.nav-all-title {
+  margin: rpx(30);
+  color: #666;
+  font-size: rpx(28);
+}
+
+.nav {
+  padding: 0 rpx(30);
+  .nav-title {
+    margin: rpx(30) 0;
+    color: #666;
+    font-size: rpx(28);
+  }
+  .nav-location {
+    border-right: rpx(10);
+    padding: rpx(20);
+    background-color: #fff;
+    font-size: rpx(28);
+    .icon {
+      margin-right: rpx(20);
+    }
+  }
+  .nav-hot {
+    display: flex;
+    flex-wrap: wrap;
+    > view {
+      box-sizing: border-box;
+      width: 25%;
+      height: rpx(70);
+      line-height: rpx(70);
+      background-color: #fff;
+      text-align: center;
+      margin-right: rpx(10);
+    }
+  }
+  .nav-all {
+    background-color: #fff;
+    display: flex;
+    flex-wrap: wrap;
+    padding: rpx(15) 0;
+    font-size: rpx(28);
+    > view {
+      width: (1/3)*100%;
+      margin: rpx(15) 0;
+      text-align: center;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+}

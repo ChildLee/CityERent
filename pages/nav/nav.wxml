@@ -1,0 +1,28 @@
+<!--pages/nav/nav.wxml-->
+<view class="nav">
+    <view class="nav-title">选择城市</view>
+    <view class="nav-location">
+        <text class="icon icon-location"></text>
+        <text>{{currentCity}}</text>
+    </view>
+</view>
+
+<view class="nav">
+    <view class="nav-title">{{area[0].sort}}</view>
+    <view class="nav-all">
+        <block wx:for="{{area[0].list}}" wx:key="{{index}}">
+            <view>{{item.Name}}</view>
+        </block>
+    </view>
+</view>
+
+<view class="nav-all-title">全部城市（按首字母顺序）</view>
+
+<view class="nav" wx:for="{{area}}" wx:for-item="i" wx:if="{{index>0}}" wx:key="{{index}}">
+    <view class="nav-title">{{i.sort}}</view>
+    <view class="nav-all">
+        <block wx:for="{{i.list}}" wx:key="{{item.ID}}">
+            <view>{{item.Name}}</view>
+        </block>
+    </view>
+</view>

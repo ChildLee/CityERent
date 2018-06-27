@@ -1,0 +1,37 @@
+/* pages/service/service.wxss */
+@import "../../common";
+
+page {
+  background-color: #f2f2f2;
+}
+
+.service {
+  padding: 0 rpx(30);
+  background-color: #fff;
+  font-size: rpx(30);
+  > view {
+    @include border(true);
+    height: rpx(90);
+    line-height: rpx(90);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    button {
+      font-size: rpx(30);
+      padding: 0;
+      box-sizing: border-box;
+      width: 100%;
+      height: rpx(90);
+      line-height: rpx(90);
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      &:after {
+        border: none;
+      }
+    }
+    .icon {
+      color: #ff5600;
+    }
+  }
+}

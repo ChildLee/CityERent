@@ -1,12 +1,21 @@
-let app = getApp()
-
+// pages/nav/nav.js
+const app = getApp()
 Page({
-
     data: {
+        area: [],
+        //当前城市
         currentCity: ''
     },
+    onLoad() {
+        //获取地址
+        app.api.area().then(res => {
+            if (res.code === 200) {
+                this.setData({
+                    area: res.data
+                })
+            }
+        })
 
-    onLoad: function (options) {
         new Promise((resolve, reject) => {
             //定位当前位置
             wx.getLocation({
@@ -29,6 +38,7 @@ Page({
                         this.setData({
                             currentCity: res.result.ad_info.city
                         })
+                        console.log(this)
                     }
                 }
             })

@@ -14,6 +14,6 @@ export default {
         return ajax.post('/wx/getPhoneNumber', param)
     },
     area(param) {
-        return ajax.get('/area', param)
+        return ajax.get('/Areas/areas', param)
     }
 }
