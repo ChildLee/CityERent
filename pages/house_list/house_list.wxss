@@ -31,8 +31,21 @@
     background-color: #fff; }
     .search .sort .sort-name {
       display: flex;
-      padding: 20rpx 0;
-      border-bottom: 1rpx solid #ccc; }
+      padding: 20rpx 0; }
+      .search .sort .sort-name {
+        position: relative; }
+        .search .sort .sort-name:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 200%;
+          height: 200%;
+          border-bottom: 1px solid #e0e0e0;
+          box-sizing: border-box;
+          transform: scale(0.5);
+          transform-origin: 0 0;
+          pointer-events: none; }
       .search .sort .sort-name > view {
         display: flex;
         justify-content: center;
@@ -54,7 +67,19 @@
           height: 80rpx;
           line-height: 80rpx; }
           .search .sort .sort-list .sort-more .more-item view:not(:last-child) {
-            border-bottom: 1rpx solid #ccc; }
+            position: relative; }
+            .search .sort .sort-list .sort-more .more-item view:not(:last-child):after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 200%;
+              height: 200%;
+              border-bottom: 1px solid #e0e0e0;
+              box-sizing: border-box;
+              transform: scale(0.5);
+              transform-origin: 0 0;
+              pointer-events: none; }
 
 .pull {
   position: fixed;
@@ -73,7 +98,19 @@
     display: flex;
     align-items: center; }
     .house_list .house_item:not(:last-child) {
-      border-bottom: 1px solid #ccc; }
+      position: relative; }
+      .house_list .house_item:not(:last-child):after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        border-bottom: 1px solid #e0e0e0;
+        box-sizing: border-box;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+        pointer-events: none; }
     .house_list .house_item image {
       flex: none;
       width: 145rpx;

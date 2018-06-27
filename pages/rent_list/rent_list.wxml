@@ -1,0 +1,22 @@
+<!--pages/rent_list/rent_list.wxml-->
+
+<view class="house_list">
+    <block wx:for="{{rent_list}}" wx:key="{{item.lease_id}}">
+        <view class="house_item">
+            <image src="http://placekitten.com/200/300"></image>
+            <view class="house_item-info">
+                <view>龙岗坂田太阳雨家园四房出售，板银隧道交汇处，邻地铁</view>
+                <view class="house_item-desc">
+                    <text>一室一厅</text>
+                    <text>/66.8㎡</text>
+                    <text>/东南角</text>
+                    <text>/黄金大厦</text>
+                </view>
+                <view>
+                    <text class="house_item-price">2000元</text>
+                    <text class="house_item-desc">/㎡/月</text>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>

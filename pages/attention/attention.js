@@ -1,4 +1,4 @@
-// pages/service_process/service_process.js
+// pages/attention/attention.js
 Page({
 
     /**

@@ -1,0 +1,32 @@
+/* pages/rent_list/rent_list.wxss */
+@import "../../common";
+
+.house_list {
+  padding: 0 rpx(30);
+  .house_item {
+    padding: rpx(30) 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    @include border(false);
+    image {
+      flex: none;
+      width: rpx(145);
+      height: rpx(145);
+      border-radius: rpx(10);
+    }
+    .house_item-info {
+      margin-left: rpx(30);
+      font-size: rpx(32);
+      line-height: 1.3;
+
+      .house_item-desc {
+        color: #999;
+        font-size: rpx(28);
+      }
+      .house_item-price {
+        color: red;
+      }
+    }
+  }
+}

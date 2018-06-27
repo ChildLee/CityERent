@@ -1,6 +1,4 @@
-@function rpx($rpx:0) {
-  @return $rpx*1rpx
-}
+@import "../../common";
 
 page {
   background-color: #F6F8F8;
@@ -35,11 +33,9 @@ page {
     display: flex;
     justify-content: space-between;
     position: relative;
+    @include border(false);
     text:last-child {
       color: #999;
-    }
-    &:not(:last-child) {
-      border-bottom: rpx(1) solid #eee;
     }
   }
 }

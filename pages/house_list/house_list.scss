@@ -1,6 +1,4 @@
-@function rpx($rpx:0) {
-  @return $rpx*1rpx;
-}
+@import "../../common";
 
 .search {
   box-sizing: border-box;
@@ -45,7 +43,7 @@
     .sort-name {
       display: flex;
       padding: rpx(20) 0;
-      border-bottom: rpx(1) solid #ccc;
+      @include border();
       > view {
         display: flex;
         justify-content: center;
@@ -71,9 +69,7 @@
             box-sizing: border-box;
             height: rpx(80);
             line-height: rpx(80);
-            &:not(:last-child) {
-              border-bottom: rpx(1) solid #ccc;
-            }
+            @include border(false);
           }
         }
       }
@@ -98,9 +94,7 @@
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    &:not(:last-child) {
-      border-bottom: 1px solid #ccc;
-    }
+    @include border(false);
     image {
       flex: none;
       width: rpx(145);

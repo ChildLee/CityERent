@@ -7,15 +7,17 @@ Page({
     getPhoneNumber(e) {
         let {encryptedData, iv} = e.detail
         wx.login({
-            success: function (res) {
+            success: (res) => {
                 app.api.login({
                     code: res.code,
                     encryptedData,
                     iv
                 }).then(res => {
                     if (res.id) {
+                        Object.assign(app.data, res)
                         wx.setStorageSync('userInfo', res)
                     }
+                    console.log(app)
                     wx.navigateBack({})
                 })
             }

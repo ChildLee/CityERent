@@ -8,7 +8,9 @@
     "pages/login/login",
     "pages/nav/nav",
     "pages/service_process/service_process",
-    "pages/service/service"
+    "pages/service/service",
+    "pages/rent_list/rent_list",
+    "pages/attention/attention"
   ],
   "window": {
     "backgroundTextStyle": "light",

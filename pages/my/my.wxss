@@ -25,10 +25,22 @@ page {
     display: flex;
     justify-content: space-between;
     position: relative; }
+    .my-list .my-item:not(:last-child) {
+      position: relative; }
+      .my-list .my-item:not(:last-child):after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        border-bottom: 1px solid #e0e0e0;
+        box-sizing: border-box;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+        pointer-events: none; }
     .my-list .my-item text:last-child {
       color: #999; }
-    .my-list .my-item:not(:last-child) {
-      border-bottom: 1rpx solid #eee; }
 
 .loginOut {
   margin-top: 20rpx;

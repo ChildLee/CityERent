@@ -1,80 +1,73 @@
 <!-- pages/index/index.wxml -->
-<view class="header">
-    <swiper autoplay indicator-dots>
-        <swiper-item>
-            <image class="swiper-image" src="http://placekitten.com/200/300"></image>
-        </swiper-item>
-        <swiper-item>
-            <image class="swiper-image" src="http://placekitten.com/250/300"></image>
-        </swiper-item>
-        <swiper-item>
-            <image class="swiper-image" src="http://placekitten.com/200/350"></image>
-        </swiper-item>
-    </swiper>
-    <view class="header-box">
-        <navigator url="/pages/nav/nav" hover-class="none" class="header-box-nav">
-            <text>{{currentCity}}</text>
-            <text class="icon icon-downArrow"></text>
-        </navigator>
-        <view class="header-box-line"></view>
-        <view class="header-box-search">
-            <text class="icon icon-search"></text>
-            <input placeholder="你想住在哪?"/>
-        </view>
-    </view>
-</view>
-<view class="nav-list">
-    <view class="nav-item">
-        <image src="/image/user.png"></image>
-        <text>写字楼</text>
-    </view>
-    <view class="nav-item">
-        <image src="/image/user.png"></image>
-        <text>写字楼</text>
-    </view>
-    <view class="nav-item">
-        <image src="/image/user.png"></image>
-        <text>写字楼</text>
-    </view>
-    <view class="nav-item">
-        <image src="/image/user.png"></image>
-        <text>写字楼</text>
-    </view>
-    <view class="nav-item">
-        <image src="/image/user.png"></image>
-        <text>写字楼</text>
-    </view>
-</view>
-
-<navigator url="/pages/service_process/service_process" hover-class="none" class="process">
-    <view class="process-title">
-        <text class="line"></text>
-        <text>看房流程,贴心服务</text>
-    </view>
-    <view class="arrow-box arrow"></view>
-</navigator>
-
-<view class="recommend">
-    <view class="recommend-title">
-        <text class="line"></text>
-        <text>推荐盘源</text>
-    </view>
-    <view class="recommend-list">
-        <view class="recommend-item">
-            <image src="http://placekitten.com/200/300"></image>
-            <view class="recommend-item-info">
-                <view class="recommend-item-title">平安金融中心大厦</view>
-                <view>450-560元/m2/月</view>
-                <view>2018-8-8</view>
-            </view>
-        </view>
-        <view class="recommend-item">
-            <image src="http://placekitten.com/200/300"></image>
-            <view class="recommend-item-info">
-                <view class="recommend-item-title">平安金融中心大厦</view>
-                <view>450-560元/m2/月</view>
-                <view>2018-8-8</view>
+<block wx:if="{{load}}">
+    <view class="header">
+        <swiper autoplay indicator-dots>
+            <block wx:for="{{rotationImage}}" wx:key="">
+                <swiper-item>
+                    <image class="swiper-image" src="{{img+item}}"></image>
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="header-box">
+            <navigator url="/pages/nav/nav" hover-class="none" class="header-box-nav">
+                <text>{{currentCity}}</text>
+                <text class="icon icon-downArrow"></text>
+            </navigator>
+            <view class="header-box-line"></view>
+            <view class="header-box-search">
+                <text class="icon icon-search"></text>
+                <input placeholder="你想住在哪?"/>
             </view>
         </view>
     </view>
-</view>
+    <view class="nav-list">
+        <view class="nav-item">
+            <image src="/image/nav1.png"></image>
+            <text>写字楼</text>
+        </view>
+        <view class="nav-item">
+            <image src="/image/nav2.png"></image>
+            <text>商铺</text>
+        </view>
+        <view class="nav-item">
+            <image src="/image/nav3.png"></image>
+            <text>工业厂房</text>
+        </view>
+        <view class="nav-item">
+            <image src="/image/nav4.png"></image>
+            <text>住宅</text>
+        </view>
+        <view class="nav-item">
+            <image src="/image/nav5.png"></image>
+            <text>出租</text>
+        </view>
+    </view>
+
+    <navigator url="/pages/service_process/service_process" hover-class="none" class="process">
+        <view class="process-title">
+            <text class="line"></text>
+            <text>看房流程,贴心服务</text>
+        </view>
+        <view class="arrow-box arrow"></view>
+    </navigator>
+
+    <view class="recommend">
+        <view class="recommend-title">
+            <text class="line"></text>
+            <text>推荐盘源</text>
+        </view>
+        <view class="recommend-list">
+            <block wx:for="{{leaseList}}" wx:key="{{item.community_id}}">
+                <navigator url="/pages/building_info/building_info?id={{item.community_id}}" hover-class="none"
+                           class="recommend-item">
+                    <image src="{{item.community_image?img+item.community_image:'/image/load.png'}}"></image>
+                    <view class="recommend-item-info">
+                        <view class="recommend-item-title">{{item.community_name}}</view>
+                        <view>{{item.min}}-{{item.max}}元/m2/月</view>
+                        <view>{{item.time}}</view>
+                    </view>
+                </navigator>
+            </block>
+        </view>
+    </view>
+</block>

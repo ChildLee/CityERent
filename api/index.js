@@ -1,19 +1,24 @@
 import ajax from './ajax.js'
 
 export default {
-    pay(param) {
-        return ajax.post('/wx/pay', param)
-    },
-    getOpenId(param) {
-        return ajax.post('/wx/getOpenId', param)
-    },
+    //登录并获取手机号
     login(param) {
         return ajax.post('/login/getOpenidKey', param)
     },
-    getPhoneNumber(param) {
-        return ajax.post('/wx/getPhoneNumber', param)
-    },
+    //获取城市
     area(param) {
-        return ajax.get('/Areas/areas', param)
+        return ajax.post('/Areas/areas', param)
+    },
+    //首页推荐的楼盘
+    getLease(param) {
+        return ajax.post('/lease/getLease', param)
+    },
+    //首页轮播图
+    showImage(param) {
+        return ajax.post('/lease/showImage', param)
+    },
+    //展示楼盘信息
+    community(param) {
+        return ajax.post('lease/community', param)
     }
 }
