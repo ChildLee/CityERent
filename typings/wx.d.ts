@@ -1,4 +1,4 @@
-// generate time:2018-6-25 10:26:30 
+// generate time:2018-6-28 12:34:22 
 // Type definitions for wx app
 // Definitions by: hellopao <https://github.com/hellopao/wx.d.ts>
 
@@ -314,7 +314,7 @@ interface ICanvasContext {
     /**
      * 进行绘图
      */
-    draw(): void;
+    draw(reserve: boolean, callback: Function): void;
 }
 
 interface IAudioContext {
@@ -941,7 +941,7 @@ declare var wx: {
     /**
      * 注意：1.6.0 版本开始，本接口不再维护。建议使用能力更强的 wx.createInnerAudioContext 接口
      */
-    createAudioContext(audioId: string this: string, ): IAudioContext;
+    createAudioContext(audioId: string): IAudioContext;
 
     /**
      * 拍摄视频或从手机相册中选视频，返回视频的临时文件路径。
@@ -995,11 +995,11 @@ declare var wx: {
     /**
      * 创建并返回 video 上下文 videoContext 对象。在自定义组件下，第二个参数传入组件实例this，以操作组件内 <video/> 组件
      */
-    createVideoContext(videoId: string this: string, ): IVideoContext;
+    createVideoContext(videoId: string): IVideoContext;
 
-    createCameraContext(this: string): void;
+    createCameraContext(): void;
 
-    createLivePlayerContext(domId: string this: string, ): void;
+    createLivePlayerContext(domId: string): void;
 
     loadFontFace(obj: {
         /**
@@ -1395,7 +1395,36 @@ declare var wx: {
     /**
      * 获取系统信息同步接口
      */
-    getSystemInfoSync(): void;
+    getSystemInfoSync(): {
+        //手机品牌
+        brand: string,
+        //手机型号
+        model: string,
+        //设备像素比
+        pixelRatio: string,
+        //屏幕宽度
+        screenWidth: string,
+        //屏幕高度
+        screenHeight: string,
+        //可使用窗口宽度
+        windowWidth: string,
+        //可使用窗口高度
+        windowHeight: string,
+        // 状态栏的高度
+        statusBarHeight: string,
+        // 微信设置的语言
+        language: string,
+        // 微信版本号
+        version: string,
+        // 操作系统版本
+        system: string,
+        //客户端平台
+        platform: string,
+        //用户字体大小设置
+        fontSizeSetting: string,
+        //客户端基础库版本
+        SDKVersion: string
+    };
 
     /**
      * 获取网络类型。
@@ -2825,6 +2854,13 @@ declare var wx: {
      */
     createCanvasContext(canvasId: string): ICanvasContext;
 
+
+    /**
+     * 返回一个数组，用来描述 canvas 区域隐含的像素数据
+     */
+    canvasGetImageData({canvasId, x, y, width, height, success, fail, complete}): void
+
+
     /**
      * 把当前画布的内容导出生成图片，并返回文件路径
      */
@@ -3168,4 +3204,80 @@ declare var wx: {
 
     getLogManager(): void;
 
+
+    /**
+     * 返回一个SelectorQuery对象实例。
+     */
+    createSelectorQuery(): ISelectorQuery;
+
+    //将ArrayBuffer与Base64互转
+    arrayBufferToBase64()
+
+    //将ArrayBuffer与Base64互转
+    base64ToArrayBuffer()
+}
+
+
+interface ISelectorQuery {
+    /**
+     * 将选择器的选取范围更改为自定义组件component内
+     */
+    in(obj: object): void
+
+    /**
+     * 在当前页面下选择第一个匹配选择器selector的节点
+     */
+    select(selector: string): INodesRef
+
+    /**
+     * 在当前页面下选择匹配选择器selector的节点
+     */
+    selectAll(selector: string): INodesRef
+
+    /**
+     * 选择显示区域，可用于获取显示区域的尺寸、滚动位置等信息，返回一个NodesRef对象实例。
+     */
+    selectViewport(selector: string): void
+
+    /**
+     * 执行所有的请求，请求结果按请求次序构成数组，在callback的第一个参数中返回。
+     */
+    exec(callback: Function): void
+}
+
+interface INodesRef {
+    /**
+     * 添加节点的布局位置的查询请求，相对于显示区域，以像素为单位。
+     */
+    boundingClientRect(callback: (res: IRect) => void)
+
+    /**
+     * 添加节点的滚动位置查询请求，以像素为单位
+     */
+    scrollOffset(callback: Function)
+
+    /**
+     * 获取节点的相关信息，需要获取的字段在fields中指定
+     */
+    fields(callback: Function)
+}
+
+
+interface IRect {
+    // 节点的ID
+    id: string,
+    // 节点的dataset
+    dataset: string,
+    // 节点的左边界坐标
+    left: string,
+    // 节点的右边界坐标
+    right: string,
+    // 节点的上边界坐标
+    top: string,
+    // 节点的下边界坐标
+    bottom: string,
+    // 节点的宽度
+    width: string,
+    // 节点的高度
+    height: string,
 }

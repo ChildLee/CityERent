@@ -1,18 +1,38 @@
 // pages/house_list/house_list.js
+const app = getApp()
+
 
 Page({
     data: {
+        img: app.data.img,
         //打开筛选样式
         sortFixed: '',
         //筛选下标
         sortIndex: 0,
         //更多帅选
-        sortMore: []
+        sortMore: [],
+        list: []
     },
 
-    //上拉刷新
-    onReachBottom() {
-        console.log('上拉刷新')
+    onLoad(options) {
+        if (options.type) {
+            this.getLeaseList(options.type)
+        }
+    },
+
+    //获取(厂房/商铺/写字楼/住宅)列表
+    getLeaseList(type) {
+        app.api.leaseList({
+            type,
+            ID: app.data.cityID ? app.data.cityID : '',
+            city_name: app.data.cityID ? '' : app.data.currentCity
+        }).then(res => {
+            if (res.code === 200) {
+                this.setData({
+                    list: res.list
+                })
+            }
+        })
     },
 
     //打开帅选
@@ -94,5 +114,12 @@ Page({
             sortFixed: '',
             sortIndex: 0
         })
+    },
+
+    //上拉刷新
+    onReachBottom() {
+        wx.showLoading({title: '加载中'})
+        console.log('上拉刷新')
+        wx.hideLoading()
     }
 })

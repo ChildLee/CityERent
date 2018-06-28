@@ -19,6 +19,10 @@ export default {
     },
     //展示楼盘信息
     community(param) {
-        return ajax.post('lease/community', param)
+        return ajax.post('/lease/community', param)
+    },
+    //获取(厂房/商铺/写字楼/住宅)列表
+    leaseList(param) {
+        return ajax.post('/lease/leaseList', param)
     }
 }

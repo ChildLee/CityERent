@@ -23,5 +23,13 @@ Page({
                 })
             }
         })
+    },
+
+    //切换地点
+    switchNav(e) {
+        let {id, name} = e.currentTarget.dataset
+        app.data.cityID = id
+        app.data.currentCity = name
+        wx.navigateBack({})
     }
 })
