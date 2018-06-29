@@ -1,5 +1,4 @@
 // pages/publish_info/publish_info.js
-import upng from '../../lib/UPNG'
 
 Page({
     data: {
@@ -138,52 +137,7 @@ Page({
 
     //上传主图
     uploadMainPhoto() {
-        this.setData({
-            showCanvas: true
-        })
-        let ctx = wx.createCanvasContext('canvas')
-        new Promise((resolve) => {
-            wx.chooseImage({
-                count: 2,
-                sizeType: ['compressed'],
-                sourceType: ['album', 'camera'],
-                success: function (res) {
-                    resolve(res)
-                }
-            })
-        }).then(res => {
-            return new Promise((resolve) => {
-                wx.getImageInfo({
-                    src: res['tempFilePaths'][0],
-                    success: res => {
-                        resolve(res)
-                    }
-                })
-            })
-        }).then(res => {
-            return new Promise((resolve) => {
-                let suffix = res.type
-                ctx.drawImage(res.path, 0, 0, res.width, res.height)
-                ctx.draw(false, () => {
-                    wx.canvasGetImageData({
-                        canvasId: 'canvas',
-                        x: 0,
-                        y: 0,
-                        width: res.width,
-                        height: res.height,
-                        success: res => {
-                            this.setData({
-                                showCanvas: false
-                            })
-                            let arrBuffer = upng.encode([res.data.buffer], res.width, res.height)
-                            let base64 = `data:image/${suffix};base64,${wx.arrayBufferToBase64(arrBuffer)}`
-                            console.log(base64)
-                            resolve(base64)
-                        }
-                    })
-                })
-            })
-        })
+
     },
 
     //更多

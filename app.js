@@ -11,7 +11,7 @@ App({
         //全局图片路径
         img: 'http://scoket.xiaozhanxiang.com/upload/',
         //首页添加的城市名称
-        currentCity: undefined,
+        currentCity: '深圳市',
         //登陆页面添加的id
         id: undefined,
         //登录页面添加的手机号

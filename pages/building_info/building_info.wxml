@@ -149,7 +149,7 @@
 <view class="advisory-blank"></view>
 
 <view class="advisory">
-    <view class="attention" bindtap="focus">
+    <view class="attention" bindtap="focus" data-focus="{{community.is_focus}}" data-id="{{community.community_id}}">
         <text class="icon {{community.is_focus?'icon-s icon-xin-s':'icon-xin'}}"></text>
         <view>关注</view>
     </view>

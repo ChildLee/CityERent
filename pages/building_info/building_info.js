@@ -15,7 +15,7 @@ Page({
     },
 
     onLoad: function (options) {
-        this.getCommunity(10, 1)
+        this.getCommunity(11, 1)
         if (options.id) {
             this.setData({
                 community_id: options.id
@@ -54,10 +54,17 @@ Page({
     },
 
     //关注
-    focus() {
+    focus(e) {
+        let {id, focus} = e.currentTarget.dataset
+        focus = focus === 0 ? 1 : 0
         if (app.data.id) {
             this.setData({
                 'community.is_focus': !this.data.community['is_focus']
+            })
+            app.api.focus({
+                id: app.data.id,
+                community_id: id,
+                type: focus// 0取消  1关注
             })
         } else {
             wx.showToast({title: '您还没有登录', icon: 'none'})

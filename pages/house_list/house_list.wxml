@@ -1,5 +1,5 @@
 <!--pages/house_list/house_list.wxml-->
-<view class="search">
+<view class="search" xmlns:wx="">
     <view class="search-bar">
         <view>
             <text class="icon icon-search"></text>
@@ -28,21 +28,105 @@
             </view>
         </view>
         <view class="sort-list">
-            <view wx:if="{{sortIndex===1}}">区域</view>
-            <view wx:if="{{sortIndex===2}}">租金</view>
-            <view wx:if="{{sortIndex===3}}">面积</view>
-            <view class="sort-more" wx:if="{{sortIndex===4}}">
-                <block wx:for="{{sortMore}}" wx:for-item="i" wx:for-index="arrIndex" wx:key="{{i.id}}">
+            <!--区域-->
+            <view class="sort-more" wx:if="{{sortIndex===1}}">
+                <scroll-view scroll-y class="more-item">
+                    <view bindtap="switchArea" class="{{switchIndex[0]===1?'sort-selected':''}}" data-index="1">区域
+                    </view>
+                    <view bindtap="switchArea" class="{{switchIndex[0]===2?'sort-selected':''}}" data-index="2">地铁
+                    </view>
+                </scroll-view>
+
+                <block wx:if="{{isAreaList}}">
                     <scroll-view scroll-y class="more-item">
-                        <block wx:for="{{i.list}}" wx:for-index="itemIndex" wx:key="{{item.id}}">
-                            <view class="{{i.index===item.id?'sort-selected':''}}"
-                                  bindtap="moreChange"
-                                  data-id="{{item.id}}" data-arrIndex="{{arrIndex}}" data-itemIndex="{{itemIndex}}">
-                                {{item.name}}
+                        <block wx:for="{{areaList}}" wx:key="{{item.ID}}">
+                            <view bindtap="areaSelected" data-id="{{item.ID}}"
+                                  class="{{switchIndex[1]===item.ID?'sort-selected':''}}">
+                                {{item.Name}}
                             </view>
                         </block>
                     </scroll-view>
                 </block>
+
+                <block wx:else>
+                    <scroll-view scroll-y class="more-item">
+                        <block wx:for="{{subwayList}}" wx:key="{{item.subway_id}}">
+                            <view bindtap="subwaySelected" data-subway_id="{{item.subway_id}}"
+                                  class="{{switchIndex[1]===item.subway_id?'sort-selected':''}}">
+                                {{item.subway_name}}
+                            </view>
+                        </block>
+                    </scroll-view>
+
+                    <scroll-view scroll-y class="more-item" wx:if="{{subwayAroundList.length}}">
+                        <block wx:for="{{subwayAroundList}}" wx:key="{{index}}">
+                            <view bindtap="subwayAroundSelected" data-index="{{index}}"
+                                  class="{{switchIndex[2]===index?'sort-selected':''}}">
+                                {{item}}
+                            </view>
+                        </block>
+                    </scroll-view>
+                </block>
+            </view>
+            <!--租金-->
+            <view wx:if="{{sortIndex===2}}" class="sort-box">
+                <scroll-view scroll-y>
+                    <view class="sort-item">
+                        <view class="sort-box-title"></view>
+                        <view class="sort-box-tag">
+                            <block wx:for="{{rentList}}" wx:key="{{item.rent}}">
+                                <view bindtap="acreageSelected" data-index="{{index}}" data-data="{{item}}"
+                                      class="{{acreageIndex[index]===item.title?'tag-selected':''}}">{{item.title}}/万元
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                    <view class="sort-box-btn">
+                        <view bindtap="clearConditions">不限条件</view>
+                        <view>确定</view>
+                    </view>
+                </scroll-view>
+            </view>
+            <!--面积-->
+            <view wx:if="{{sortIndex===3}}" class="sort-box">
+                <scroll-view scroll-y>
+                    <view class="sort-item">
+                        <view class="sort-box-title"></view>
+                        <view class="sort-box-tag">
+                            <block wx:for="{{acreageList}}" wx:key="{{item.rent}}">
+                                <view bindtap="acreageSelected" data-index="{{index}}" data-data="{{item}}"
+                                      class="{{acreageIndex[index]===item.title?'tag-selected':''}}">{{item.title}}
+                                </view>
+                            </block>
+                        </view>
+                    </view>
+                    <view class="sort-box-btn">
+                        <view bindtap="clearConditions">不限条件</view>
+                        <view>确定</view>
+                    </view>
+                </scroll-view>
+            </view>
+            <!--更多-->
+            <view wx:if="{{sortIndex===4}}" class="sort-box">
+                <scroll-view scroll-y>
+                    <block wx:for="{{otherList}}" wx:key="{{index}}">
+                        <view class="sort-item">
+                            <view class="sort-box-title">{{item.name}}</view>
+                            <view class="sort-box-tag">
+                                <block wx:for="{{item.list}}" wx:for-item="i" wx:for-index="idx" wx:key="{{i}}">
+                                    <view bindtap="otherSelected" data-index="{{index}}" data-data="{{i}}"
+                                          class="{{otherIndex[index]===i.title?'tag-selected':''}}">
+                                        {{i.title}}
+                                    </view>
+                                </block>
+                            </view>
+                        </view>
+                    </block>
+                    <view class="sort-box-btn">
+                        <view bindtap="clearConditions">不限条件</view>
+                        <view>确定</view>
+                    </view>
+                </scroll-view>
             </view>
         </view>
     </view>
@@ -62,7 +146,7 @@
                 <!--</view>-->
                 <view>{{item.time}}</view>
                 <view>
-                    <text class="house_item-price">{{item.min}}元</text>
+                    <text class="house_item-price">{{item.min}}-{{item.max}}元</text>
                     <text class="house_item-desc">/㎡/月</text>
                 </view>
             </view>

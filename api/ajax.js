@@ -1,4 +1,4 @@
-const host = 'http://scoket.xiaozhanxiang.com/wechar/'
+const host = 'http://scoket.xiaozhanxiang.com/wechar'
 
 // const host = 'http://127.0.0.1:3000'
 

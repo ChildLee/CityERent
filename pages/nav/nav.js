@@ -2,16 +2,16 @@
 const app = getApp()
 Page({
     data: {
-        area: [],
+        areas: [],
         //当前城市
         currentCity: ''
     },
     onLoad() {
         //获取地址
-        app.api.area().then(res => {
+        app.api.areas().then(res => {
             if (res.code === 200) {
                 this.setData({
-                    area: res.data
+                    areas: res.data
                 })
             }
         })

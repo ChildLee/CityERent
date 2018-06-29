@@ -55,7 +55,7 @@
           color: #999;
           font-size: 20rpx; }
     .search .sort .sort-list .sort-more {
-      height: 640rpx;
+      max-height: 640rpx;
       display: flex; }
       .search .sort .sort-list .sort-more .more-item {
         flex: 1;
@@ -80,6 +80,52 @@
               transform: scale(0.5);
               transform-origin: 0 0;
               pointer-events: none; }
+    .search .sort .sort-list .sort-box {
+      max-height: 640rpx;
+      padding: 0 30rpx 30rpx 30rpx; }
+      .search .sort .sort-list .sort-box scroll-view {
+        max-height: 640rpx; }
+      .search .sort .sort-list .sort-box .sort-item .sort-box-title {
+        margin: 30rpx 0; }
+      .search .sort .sort-list .sort-box .sort-item .sort-box-tag {
+        position: relative; }
+        .search .sort .sort-list .sort-box .sort-item .sort-box-tag:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 200%;
+          height: 200%;
+          border-bottom: 1px solid #e0e0e0;
+          box-sizing: border-box;
+          transform: scale(0.5);
+          transform-origin: 0 0;
+          pointer-events: none; }
+      .search .sort .sort-list .sort-box .sort-item .sort-box-tag > view {
+        font-size: 28rpx;
+        display: inline-block;
+        border-right: 10rpx;
+        background-color: #ededed;
+        padding: 10rpx 30rpx;
+        margin-right: 20rpx;
+        margin-bottom: 30rpx; }
+      .search .sort .sort-list .sort-box .sort-item .tag-selected {
+        background-color: #ffad81 !important;
+        color: #ff5700 !important; }
+      .search .sort .sort-list .sort-box .sort-box-btn {
+        margin-top: 20rpx;
+        display: flex;
+        text-align: center;
+        justify-content: space-between; }
+        .search .sort .sort-list .sort-box .sort-box-btn view {
+          width: 49%;
+          line-height: 80rpx;
+          border-radius: 5rpx; }
+          .search .sort .sort-list .sort-box .sort-box-btn view:first-child {
+            background-color: #ededed; }
+          .search .sort .sort-list .sort-box .sort-box-btn view:last-child {
+            background-color: #ff5700;
+            color: #fff; }
 
 .pull {
   position: fixed;
