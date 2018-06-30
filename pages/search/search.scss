@@ -1,5 +1,32 @@
-/* pages/rent_list/rent_list.wxss */
+/* pages/search/search.wxss */
 @import "../../common";
+
+.search {
+  box-sizing: border-box;
+  height: rpx(80);
+
+  .search-bar {
+    margin: 0 rpx(30);
+    background-color: #e4e4e4;
+    border-radius: rpx(10);
+    height: rpx(60);
+    line-height: rpx(60);
+    display: flex;
+    align-items: center;
+    > view:first-child {
+      flex: none;
+      .icon {
+        padding: rpx(15);
+      }
+    }
+    > view:last-child {
+      flex: 1;
+      input {
+        font-size: rpx(26);
+      }
+    }
+  }
+}
 
 .house_list {
   padding: 0 rpx(30);

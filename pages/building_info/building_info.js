@@ -3,10 +3,11 @@ const app = getApp()
 
 Page({
 
-    //页面的初始数据
     data: {
-        showBar: false,
+        //是否加载完毕
+        load: false,
         img: app.data.img,
+        showBar: false,
         page: 1,
         community_id: 1,
         community: {},
@@ -14,21 +15,27 @@ Page({
         markers: []
     },
 
-    onLoad: function (options) {
-        this.getCommunity(11, 1)
+    onLoad(options) {
+        wx.showLoading({title: '加载中'})
         if (options.id) {
             this.setData({
                 community_id: options.id
             })
-            this.getCommunity(options.id, 1)
+            this.getCommunity(options.id).then(res => {
+                this.setData({
+                    load: true
+                })
+                wx.hideLoading()
+            })
         }
     },
 
     //展示楼盘里所有出租的列表
-    getCommunity(id, page) {
-        app.api.community({
-            page: page,
-            community_id: id
+    getCommunity(id) {
+        return app.api.community({
+            page: this.data.page,
+            community_id: id,
+            id: app.data.id
         }).then(res => {
             if (res.code === 200) {
                 this.setData({
@@ -56,7 +63,7 @@ Page({
     //关注
     focus(e) {
         let {id, focus} = e.currentTarget.dataset
-        focus = focus === 0 ? 1 : 0
+        focus = +focus === 0 ? 1 : 0
         if (app.data.id) {
             this.setData({
                 'community.is_focus': !this.data.community['is_focus']

@@ -1,32 +1,39 @@
-// pages/attention/attention.js
+// pages/search/search.js
 const app = getApp()
+
 Page({
 
     data: {
         img: app.data.img,
         page: 1,
-        focusList: []
+        content: '',
+        list: []
     },
 
-    onShow() {
-        app.api.focusList({
-            id: app.data.id,
+    search(e) {
+        let {value} = e.detail
+        this.setData({
+            content: value
+        })
+        app.api.homeSearch({
+            content: value,
             page: this.data.page
         }).then(res => {
             this.setData({
-                focusList: res.list
+                list: res.list
             })
         })
     },
 
+    //上拉刷新
     onReachBottom() {
-        app.api.focusList({
-            id: app.data.id,
+        app.api.homeSearch({
+            content: this.data.content,
             page: ++this.data.page
         }).then(res => {
             if (res.list.length) {
                 this.setData({
-                    focusList: this.data.focusList.concat(res.list)
+                    list: this.data.list.concat(res.list)
                 })
             }
         })

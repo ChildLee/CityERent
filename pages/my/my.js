@@ -3,8 +3,15 @@ const app = getApp()
 
 Page({
     data: {
+        tel: '',
         isLogin: false,
         phoneNumber: ''
+    },
+
+    onLoad() {
+        this.setData({
+            tel: app.data.tel
+        })
     },
 
     onShow() {
@@ -34,7 +41,7 @@ Page({
             success: function (res) {
                 if (res.tapIndex === 0) {
                     wx.makePhoneCall({
-                        phoneNumber: '18899996666'
+                        phoneNumber: app.data.tel
                     })
                 }
             }

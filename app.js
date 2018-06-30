@@ -21,7 +21,11 @@ App({
     },
 
     onLaunch: function () {
-
+        let login = wx.getStorageSync('userInfo')
+        Object.assign(this.data, login)
+        api.tel().then(res => {
+            Object.assign(this.data, res.data)
+        })
     },
 
     onShow: function (options) {

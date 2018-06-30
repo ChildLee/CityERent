@@ -17,7 +17,6 @@ Page({
                         Object.assign(app.data, res)
                         wx.setStorageSync('userInfo', res)
                     }
-                    console.log(app)
                     wx.navigateBack({})
                 })
             }

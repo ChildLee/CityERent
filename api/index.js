@@ -13,6 +13,10 @@ export default {
     focus(param) {
         return ajax.post('/lease/focus', param)
     },
+    //关注列表
+    focusList(param) {
+        return ajax.post('/lease/focusList', param)
+    },
     //获取城市列表
     areas(param) {
         return ajax.post('/Areas/areas', param)
@@ -20,6 +24,10 @@ export default {
     //获取当前城市
     area(param) {
         return ajax.post('/Areas/area', param)
+    },
+    //出租详情
+    leaseInfo(param) {
+        return ajax.post('/lease/leaseInfo', param)
     },
     //获取当前城市地铁
     subway(param) {
@@ -56,5 +64,33 @@ export default {
     //面积
     acreage(param) {
         return ajax.post('/lease/acreage', param)
+    },
+    //搜索
+    homeSearch(param) {
+        return ajax.post('/lease/homeSearch', param)
+    },
+    //获取省信息
+    province(param) {
+        return ajax.post('/Community/province', param)
+    },
+    //获取市/区县
+    getAreas(param) {
+        return ajax.post('/Community/getAreas', param)
+    },
+    /**
+     * 通过市ID获取地铁线路
+     * @param param={id}
+     * @returns {*}
+     */
+    getSubway(param) {
+        return ajax.post('/community/subway', param)
+    },
+    /**
+     * 通过区县ID获取小区列表
+     * @param param={id}
+     * @returns {*}
+     */
+    getCommunity(param) {
+        return ajax.post('/Community/community', param)
     }
 }

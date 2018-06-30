@@ -1,6 +1,18 @@
-<!--pages/attention/attention.wxml-->
+<!--pages/search/search.wxml-->
+
+<view class="search" xmlns:wx="">
+    <view class="search-bar">
+        <view>
+            <text class="icon icon-search"></text>
+        </view>
+        <view>
+            <input bindconfirm="search" focus confirm-type="search" placeholder="搜素"/>
+        </view>
+    </view>
+</view>
+
 <view class="house_list">
-    <block wx:for="{{focusList}}" wx:key="{{item.community_id}}">
+    <block wx:for="{{list}}" wx:key="{{item.community_id}}">
         <navigator url="/pages/building_info/building_info?id={{item.community_id}}" hover-class="none"
                    class="house_item">
             <image src="{{item.community_image?img+item.community_image:'/image/load.png'}}"></image>

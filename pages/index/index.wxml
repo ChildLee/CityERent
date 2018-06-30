@@ -16,7 +16,7 @@
             <view class="header-box-line"></view>
             <view class="header-box-search">
                 <text class="icon icon-search"></text>
-                <input placeholder="你想住在哪?"/>
+                <input bindtap="search" placeholder="你想住在哪?"/>
             </view>
         </view>
     </view>

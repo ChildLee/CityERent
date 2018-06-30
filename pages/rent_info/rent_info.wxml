@@ -1,0 +1,47 @@
+<!--pages/rent_info/rent_info.wxml-->
+<block wx:if="{{load}}">
+    <view class="header">
+        <swiper autoplay indicator-dots>
+            <block wx:for="{{leaseInfo.image}}" wx:key="{{index}}">
+                <swiper-item>
+                    <image class="swiper-image" src="{{img+item}}"></image>
+                </swiper-item>
+            </block>
+        </swiper>
+        <view class="title">
+            <view class="title-name">{{leaseInfo.title}}</view>
+            <view class="title-other">
+                <text>{{leaseInfo.dizhi}}</text>
+                <!--<text>共{{leaseInfo.focus}}关注</text>-->
+            </view>
+        </view>
+    </view>
+
+
+    <view class="building-box">
+        <view class="building-title border-none">楼盘位置</view>
+        <map id="map" longitude="{{leaseInfo.orientation[0]}}" latitude="{{leaseInfo.orientation[1]}}"
+             markers="{{markers}}">
+            <cover-view class="map-pull"></cover-view>
+        </map>
+    </view>
+
+
+    <view class="building-box">
+        <view class="building-title">房屋介绍</view>
+        <view class="building-list">
+            <text class="small">{{leaseInfo.content}}</text>
+        </view>
+    </view>
+
+    <view class="advisory-blank"></view>
+
+    <view class="advisory">
+        <!--<view class="attention" bindtap="focus" data-focus="{{community.is_focus}}"-->
+        <!--data-id="{{community.community_id}}">-->
+        <!--<text class="icon {{community.is_focus?'icon-s icon-xin-s':'icon-xin'}}"></text>-->
+        <!--<view>关注</view>-->
+        <!--</view>-->
+        <button open-type="contact">咨询客服</button>
+    </view>
+</block>

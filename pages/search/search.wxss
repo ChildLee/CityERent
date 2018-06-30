@@ -1,4 +1,24 @@
-/* pages/rent_list/rent_list.wxss */
+/* pages/search/search.wxss */
+.search {
+  box-sizing: border-box;
+  height: 80rpx; }
+  .search .search-bar {
+    margin: 0 30rpx;
+    background-color: #e4e4e4;
+    border-radius: 10rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    display: flex;
+    align-items: center; }
+    .search .search-bar > view:first-child {
+      flex: none; }
+      .search .search-bar > view:first-child .icon {
+        padding: 15rpx; }
+    .search .search-bar > view:last-child {
+      flex: 1; }
+      .search .search-bar > view:last-child input {
+        font-size: 26rpx; }
+
 .house_list {
   padding: 0 30rpx; }
   .house_list .house_item {

@@ -23,7 +23,7 @@
         </navigator>
         <view class="my-item" bindtap="call">
             <text>客服电话</text>
-            <text>420-880-8820</text>
+            <text>{{tel}}</text>
         </view>
     </view>
 

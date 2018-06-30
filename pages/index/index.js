@@ -19,7 +19,6 @@ Page({
     },
 
     onLoad: function (options) {
-        console.log(this)
         wx.showLoading({title: '加载中'})
         this.getLocation().then(res => {
             return this.getLease()
@@ -87,7 +86,6 @@ Page({
             city_name: this.data.currentCity
         }).then(res => {
             if (res.code === 200) {
-                console.log(res.list)
                 this.setData({
                     leaseList: this.data.leaseList.concat(res.list)
                 })
@@ -105,6 +103,11 @@ Page({
             wx.hideLoading()
         })
 
+    },
+
+    //搜索
+    search() {
+        wx.navigateTo({url: '/pages/search/search'})
     },
 
     //用户点击右上角分享

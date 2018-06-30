@@ -8,7 +8,7 @@
         </button>
     </view>
     <view bindtap="call">
-        <text>服务电话：400-1120-028</text>
+        <text>服务电话：{{tel}}</text>
         <text class="icon icon-shouji"></text>
     </view>
 </view>

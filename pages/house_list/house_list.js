@@ -3,7 +3,9 @@ const app = getApp()
 
 
 Page({
+
     data: {
+        load: false,
         img: app.data.img,
         //打开筛选样式
         sortFixed: '',
@@ -25,30 +27,50 @@ Page({
         acreageList: [],
         //区域选择下标
         switchIndex: [1],
+        //区域ID
+        areas: '',
+        //地铁ID
+        subway_id: '',
+        //地铁周边
+        subwayAround: '',
         //更多选中
         otherIndex: {},
         //面积选中
         acreageIndex: {},
         //租金选中
         rentIndex: {},
-        list: []
+        list: [],
+        type: undefined
     },
 
     onLoad(options) {
-        // if (options.type) {
-        //     this.getLeaseList(options.type)
-        // }
-        this.getLeaseList(1)
-        this.getArea()
-        this.getSubway()
-        this.other()
-        this.rent()
-        this.acreage()
+        wx.showLoading({title: '加载中'})
+        if (options.type) {
+            this.setData({
+                type: options.type
+            })
+            this.getLeaseList(options.type).then(res => {
+                return this.getArea()
+            }).then(res => {
+                return this.getSubway()
+            }).then(res => {
+                return this.other()
+            }).then(res => {
+                return this.rent()
+            }).then(res => {
+                return this.acreage()
+            }).then(res => {
+                this.setData({
+                    load: true
+                })
+                wx.hideLoading()
+            })
+        }
     },
 
     //获取(厂房/商铺/写字楼/住宅)列表
     getLeaseList(type) {
-        app.api.leaseList({
+        return app.api.leaseList({
             type,
             ID: app.data.cityID ? app.data.cityID : '',
             city_name: app.data.cityID ? '' : app.data.currentCity
@@ -85,7 +107,7 @@ Page({
     //上拉刷新
     onReachBottom() {
         wx.showLoading({title: '加载中'})
-        console.log('上拉刷新')
+
         wx.hideLoading()
     },
 
@@ -109,22 +131,23 @@ Page({
                 subwayAroundList: []
             })
         }
-        console.log(this)
     },
 
-    //选择区
+    //选择区域
     areaSelected(e) {
         let id = e.currentTarget.dataset.id
         let arr = this.data.switchIndex
         arr[1] = id
         this.setData({
-            switchIndex: arr
+            switchIndex: arr,
+            areas: id
         })
+        this.define()
     },
 
     //获取当前城市
     getArea() {
-        app.api.area({city_name: app.data.currentCity}).then(res => {
+        return app.api.area({city_name: app.data.currentCity}).then(res => {
             this.setData({
                 areaList: res.list
             })
@@ -133,7 +156,7 @@ Page({
 
     //获取当前城市地铁
     getSubway() {
-        app.api.subway({city_name: app.data.currentCity}).then(res => {
+        return app.api.subway({city_name: app.data.currentCity}).then(res => {
             this.setData({
                 subwayList: res.list
             })
@@ -146,47 +169,35 @@ Page({
         let arr = this.data.switchIndex
         arr[1] = subway_id
         this.setData({
-            switchIndex: arr
+            switchIndex: arr,
+            subway_id
         })
-        app.api.subwayinfo({subway_id}).then(res => {
-            this.setData({
-                subwayAroundList: res.list
+        if (subway_id === '-1') {
+            this.define()
+        } else {
+            return app.api.subwayinfo({subway_id}).then(res => {
+                this.setData({
+                    subwayAroundList: res.list
+                })
             })
-        })
+        }
     },
 
     //选择地铁周边
     subwayAroundSelected(e) {
-        let index = e.currentTarget.dataset.index
+        let {index, name} = e.currentTarget.dataset
         let arr = this.data.switchIndex
         arr[2] = index
         this.setData({
-            switchIndex: arr
+            switchIndex: arr,
+            subwayAround: name || ''
         })
-    },
-
-    //更多
-    other() {
-        app.api.other().then(res => {
-            this.setData({
-                otherList: res.data
-            })
-        })
-    },
-
-    //更多选中
-    otherSelected(e) {
-        let {index, data} = e.currentTarget.dataset
-        let otherIndex = this.data.otherIndex
-        otherIndex[index] === data.title ? delete otherIndex[index] : otherIndex[index] = data.title
-        this.setData({
-            otherIndex
-        })
+        this.define()
     },
 
     //租金
     rent() {
-        app.api.rent().then(res => {
+        return app.api.rent().then(res => {
             this.setData({
                 rentList: res.data.list
             })
@@ -196,29 +207,76 @@ Page({
     //租金选中
     rentSelected(e) {
         let {index, data} = e.currentTarget.dataset
-        let rentIndex = this.data.rentIndex
-        rentIndex[index] === data.title ? delete rentIndex[index] : rentIndex[index] = data.title
+        let {rentIndex} = this.data
+        if (rentIndex[0]) {
+            rentIndex[0].title === data.title ? delete rentIndex[0] : rentIndex[0] = data
+        } else {
+            rentIndex[0] = data
+        }
         this.setData({
             rentIndex
         })
+
+
+        // let {index, data} = e.currentTarget.dataset
+        // let rentIndex = this.data.rentIndex
+        // rentIndex[index] === data.title ? delete rentIndex[index] : rentIndex[index] = data.title
+        // this.setData({
+        //     rentIndex
+        // })
     },
 
     //面积
     acreage() {
-        app.api.acreage().then(res => {
+        return app.api.acreage().then(res => {
             this.setData({
                 acreageList: res.data.list
             })
         })
     },
 
-    //面积
+    //面积选中
     acreageSelected(e) {
         let {index, data} = e.currentTarget.dataset
-        let acreageIndex = this.data.acreageIndex
-        acreageIndex[index] === data.title ? delete acreageIndex[index] : acreageIndex[index] = data.title
+        let {acreageIndex} = this.data
+        if (acreageIndex[0]) {
+            acreageIndex[0].title === data.title ? delete acreageIndex[0] : acreageIndex[0] = data
+        } else {
+            acreageIndex[0] = data
+        }
         this.setData({
             acreageIndex
+        })
+        //
+        //
+        // let {index, data} = e.currentTarget.dataset
+        // let {acreageIndex} = this.data
+        // acreageIndex[index] === data.title ? delete acreageIndex[index] : acreageIndex[index] = data.title
+        // this.setData({
+        //     acreageIndex
+        // })
+    },
+
+    //更多
+    other() {
+        return app.api.other().then(res => {
+            this.setData({
+                otherList: res.data
+            })
+        })
+    },
+
+    //更多选中
+    otherSelected(e) {
+        let {index, data} = e.currentTarget.dataset
+        let {otherIndex} = this.data
+        if (otherIndex[index]) {
+            otherIndex[index].title === data.title ? delete otherIndex[index] : otherIndex[index] = data
+        } else {
+            otherIndex[index] = data
+        }
+        this.setData({
+            otherIndex
         })
     },
 
@@ -229,5 +287,45 @@ Page({
             acreageIndex: {},
             rentIndex: {}
         })
+    },
+
+    //搜索
+    search() {
+        wx.navigateTo({url: '/pages/search/search'})
+    },
+
+    //其他确定
+    define() {
+        let {switchIndex, rentIndex, acreageIndex, otherIndex} = this.data
+        let data = Object.create(null)
+        if (switchIndex[0] === 1) {
+            Object.assign(data, {areas: switchIndex[1]})
+        } else {
+            Object.assign(data, {subway_id: this.data.subway_id, site: this.data.subwayAround})
+        }
+        for (let i in rentIndex) {
+            Object.assign(data, rentIndex[i])
+        }
+        for (let i in acreageIndex) {
+            Object.assign(data, acreageIndex[i])
+        }
+        for (let i in otherIndex) {
+            Object.assign(data, otherIndex[i])
+        }
+        delete data.title
+
+        app.api.leaseList(Object.assign(data, {
+            type: this.data.type,
+            ID: app.data.cityID ? app.data.cityID : '',
+            city_name: app.data.cityID ? '' : app.data.currentCity
+        })).then(res => {
+            if (res.code === 200) {
+                this.setData({
+                    list: res.list
+                })
+            }
+        })
+        this.closeSort()
     }
+
 })
