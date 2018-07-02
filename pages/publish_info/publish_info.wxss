@@ -40,6 +40,9 @@ switch {
     display: flex;
     align-items: center;
     padding: 20rpx 0; }
+    .publish_box .publish_cell map {
+      width: 100%;
+      height: 400rpx; }
     .publish_box .publish_cell .publish-name {
       flex: none;
       width: 200rpx;
@@ -51,6 +54,26 @@ switch {
       line-height: 55rpx;
       margin-left: 40rpx;
       font-size: 26rpx; }
+      .publish_box .publish_cell .publish-value image {
+        width: 140rpx;
+        height: 140rpx; }
+      .publish_box .publish_cell .publish-value textarea {
+        width: 100%;
+        height: 200rpx; }
+        .publish_box .publish_cell .publish-value textarea {
+          position: relative; }
+          .publish_box .publish_cell .publish-value textarea:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            border: 1px solid #e0e0e0;
+            box-sizing: border-box;
+            transform: scale(0.5);
+            transform-origin: 0 0;
+            pointer-events: none; }
       .publish_box .publish_cell .publish-value picker {
         overflow: hidden;
         white-space: nowrap;

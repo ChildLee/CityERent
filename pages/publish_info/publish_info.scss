@@ -1,6 +1,4 @@
-@function rpx($rpx:0) {
-  @return $rpx*1rpx;
-}
+@import "../../common";
 
 /*radio默认样式重置*/
 radio {
@@ -59,7 +57,10 @@ switch {
     display: flex;
     align-items: center;
     padding: rpx(20) 0;
-
+    map {
+      width: 100%;
+      height: rpx(400);
+    }
     .publish-name {
       flex: none;
       width: rpx(200);
@@ -74,6 +75,15 @@ switch {
       margin-left: rpx(40);
       font-size: rpx(26);
 
+      image {
+        width: rpx(140);
+        height: rpx(140);
+      }
+      textarea {
+        width: 100%;
+        height: rpx(200);
+        @include border(true, null)
+      }
       picker {
         overflow: hidden;
         white-space: nowrap;

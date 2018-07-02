@@ -77,20 +77,20 @@ export default {
     getAreas(param) {
         return ajax.post('/Community/getAreas', param)
     },
-    /**
-     * 通过市ID获取地铁线路
-     * @param param={id}
-     * @returns {*}
-     */
+    //通过市ID获取地铁线路
     getSubway(param) {
         return ajax.post('/community/subway', param)
     },
-    /**
-     * 通过区县ID获取小区列表
-     * @param param={id}
-     * @returns {*}
-     */
+    //通过区县ID获取小区列表
     getCommunity(param) {
         return ajax.post('/Community/community', param)
+    },
+    //添加小区
+    addCommunity(param) {
+        return ajax.post('/Community/addCommunity', param)
+    },
+    //添加出租房屋
+    addLease(param) {
+        return ajax.post('/Community/addLease', param)
     }
 }

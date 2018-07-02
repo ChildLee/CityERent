@@ -40,7 +40,9 @@
 
                     <block wx:if="{{isAreaList}}">
                         <scroll-view scroll-y class="more-item">
-                            <view bindtap="areaSelected" data-id="-1"  class="{{switchIndex[1]==='-1'?'sort-selected':''}}">不限</view>
+                            <view bindtap="areaSelected" data-id="-1"
+                                  class="{{switchIndex[1]==='-1'?'sort-selected':''}}">不限
+                            </view>
                             <block wx:for="{{areaList}}" wx:key="{{item.ID}}">
                                 <view bindtap="areaSelected" data-id="{{item.ID}}"
                                       class="{{switchIndex[1]===item.ID?'sort-selected':''}}">
@@ -52,7 +54,9 @@
 
                     <block wx:else>
                         <scroll-view scroll-y class="more-item">
-                            <view bindtap="subwaySelected" data-subway_id="-1" class="{{switchIndex[1]==='-1'?'sort-selected':''}}">不限</view>
+                            <view bindtap="subwaySelected" data-subway_id="-1"
+                                  class="{{switchIndex[1]==='-1'?'sort-selected':''}}">不限
+                            </view>
                             <block wx:for="{{subwayList}}" wx:key="{{item.subway_id}}">
                                 <view bindtap="subwaySelected" data-subway_id="{{item.subway_id}}"
                                       class="{{switchIndex[1]===item.subway_id?'sort-selected':''}}">
@@ -62,7 +66,9 @@
                         </scroll-view>
 
                         <scroll-view scroll-y class="more-item" wx:if="{{subwayAroundList.length}}">
-                            <view bindtap="subwayAroundSelected" data-index="-1" class="{{switchIndex[2]==='-1'?'sort-selected':''}}">不限</view>
+                            <view bindtap="subwayAroundSelected" data-index="-1"
+                                  class="{{switchIndex[2]==='-1'?'sort-selected':''}}">不限
+                            </view>
                             <block wx:for="{{subwayAroundList}}" wx:key="{{index}}">
                                 <view bindtap="subwayAroundSelected" data-index="{{index}}" data-name="{{item}}"
                                       class="{{switchIndex[2]===index?'sort-selected':''}}">
