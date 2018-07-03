@@ -64,9 +64,16 @@
             </view>
             <view class="publish_cell">
                 <view class="publish-name">经纬度</view>
-                <view class="publish-value" bindtap="latitudeAndLongitude">
-                    打开地图选点
-                </view>
+                <block wx:if="{{!orientation.length}}">
+                    <view class="publish-value" bindtap="latitudeAndLongitude">
+                        打开地图选点
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="publish-value">
+                        {{orientation[0]}},{{orientation[1]}}
+                    </view>
+                </block>
             </view>
             <view class="publish_cell">
                 <view class="publish-name">地铁线</view>
@@ -246,10 +253,23 @@
                 </view>
             </view>
             <view class="publish_cell">
-                <view class="publish-name">经纬度</view>
-                <view class="publish-value" bindtap="latitudeAndLongitude">
-                    打开地图选点
+                <view class="publish-name">详细地址</view>
+                <view class="publish-value">
+                    <input name="specific" placeholder="请输入详细地址"/>
                 </view>
+            </view>
+            <view class="publish_cell">
+                <view class="publish-name">经纬度</view>
+                <block wx:if="{{!orientation.length}}">
+                    <view class="publish-value" bindtap="latitudeAndLongitude">
+                        打开地图选点
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="publish-value">
+                        {{orientation[0]}},{{orientation[1]}}
+                    </view>
+                </block>
             </view>
             <view class="publish_cell">
                 <view class="publish-name">地铁线</view>
@@ -260,12 +280,6 @@
                         {{metroLine[metroLineIndex].subway_name}}
                     </picker>
                     <text class="icon icon-downArrow"></text>
-                </view>
-            </view>
-            <view class="publish_cell">
-                <view class="publish-name"></view>
-                <view class="publish-value">
-                    <input name="specific" placeholder="请输入详细地址"/>
                 </view>
             </view>
             <view class="publish_cell">

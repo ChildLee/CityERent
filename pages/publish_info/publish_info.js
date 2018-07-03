@@ -180,6 +180,7 @@ Page({
         })
 
     },
+
     //地址确定事件
     bindAddressIndex(e) {
         let index = e.detail.value
@@ -299,7 +300,7 @@ Page({
     latitudeAndLongitude() {
         wx.chooseLocation({
             success: (res) => {
-                let orientation = [res.latitude, res.longitude]
+                let orientation = [res.longitude, res.latitude]
                 this.setData({orientation})
             }
         })
@@ -475,7 +476,7 @@ Page({
     //住宅提交
     formHouseSubmit(e) {
         console.log(e.detail.value)
-        let {location, metroLine, sex, scale, houseStyle, community_index, type, title, specific, area, rent, toward, floor, house_age, Decorate, phone, membername, way, circle} = e.detail.value
+        let {location, metroLine, sex, scale, houseStyle, community_index, type, title, specific, area, rent, toward, floor, house_age, decorate, phone, membername, way, circle} = e.detail.value
         //location地点
         let province = this.data.address.list[0][location[0]].ID
         let city = this.data.address.list[1][location[1]].ID
@@ -487,7 +488,7 @@ Page({
         let community_id = this.data.community[community_index].community_id
         //户型
         let room = houseStyle[0]
-        let Hall = houseStyle[1]
+        let hall = houseStyle[1]
         let toilet = houseStyle[2]
 
         if (community_id === -1) {
@@ -536,7 +537,7 @@ Page({
             return wx.showToast({title: '请选择经纬度', icon: 'none'})
         }
         let param = {
-            room, Hall, toilet, scale, sex,
+            room, hall, toilet, scale, sex,
             province, city, areas, site,
             //房屋标题
             title,
@@ -553,7 +554,7 @@ Page({
             //房龄
             house_age,
             //装修
-            Decorate,
+            decorate,
             //经纬度
             orientation: this.data.orientation,
             //联系电话
@@ -578,7 +579,7 @@ Page({
                     filePath: this.data.HouseMainImg,
                     name: 'community_image',
                     formData: {
-                        id: res.data.community_id
+                        id: res.data.lease_id
                     },
                     success: res => {
                     }
@@ -588,7 +589,7 @@ Page({
                     filePath: this.data.HouseContractImg,
                     name: 'community_image',
                     formData: {
-                        id: res.data.community_id
+                        id: res.data.lease_id
                     },
                     success: res => {
                     }
@@ -599,7 +600,7 @@ Page({
                         filePath: k,
                         name: 'community_vice',
                         formData: {
-                            id: res.data.community_id
+                            id: res.data.lease_id
                         },
                         success: res => {
                         }
