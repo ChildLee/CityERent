@@ -1,4 +1,4 @@
-const host = 'http://scoket.xiaozhanxiang.com/wechar'
+const host = 'https://project.xiaozhanxiang.com/wechar'
 
 // const host = 'http://127.0.0.1:3000'
 
@@ -18,7 +18,6 @@ class ajax {
                 data,
                 method,
                 success: function (res) {
-                    console.log(url, method, res.data)
                     resolve(res.data)
                 },
                 fail: function (res) {

@@ -15,13 +15,14 @@
     > view:first-child {
       flex: none;
       .icon {
+        font-size: rpx(24);
         padding: rpx(15);
       }
     }
     > view:last-child {
       flex: 1;
       input {
-        font-size: rpx(26);
+        font-size: rpx(24);
       }
     }
   }
@@ -32,9 +33,9 @@
     width: 100%;
   }
   .sort-selected {
-    color: #ff5600 !important;
+    color: $color !important;
     text {
-      color: #ff5600 !important;
+      color: $color !important;
     }
   }
   .sort {
@@ -43,6 +44,7 @@
     .sort-name {
       display: flex;
       padding: rpx(20) 0;
+      font-size: rpx(28);
       @include border();
       > view {
         display: flex;
@@ -76,47 +78,82 @@
 
       .sort-box {
         max-height: rpx(640);
-        padding: 0 rpx(30) rpx(30) rpx(30);
+        padding: 0 rpx(30);
+
+        .price-range {
+          margin-top: rpx(20);
+          margin-bottom: rpx(50);
+          .price-range-title {
+            font-size: rpx(28);
+            line-height: 2;
+          }
+          .price-range-value {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            > input {
+              border: rpx(1) solid #ccc;
+              font-size: rpx(24);
+              text-align: center;
+              width: 45%;
+            }
+            > view {
+              margin-top: rpx(-10);
+            }
+          }
+        }
 
         scroll-view {
           max-height: rpx(640);
         }
         .sort-item {
+          @include border(false);
           .sort-box-title {
             margin: rpx(30) 0;
           }
           .sort-box-tag {
-            @include border();
-
             > view {
-              font-size: rpx(28);
+              color: #666666;
+              text-align: center;
+              width: rpx(150);
+              height: rpx(50);
+              line-height: rpx(50);
+              font-size: rpx(24);
               display: inline-block;
               border-right: rpx(10);
               background-color: #ededed;
-              padding: rpx(10) rpx(30);
               margin-right: rpx(20);
               margin-bottom: rpx(30);
+              border-radius: rpx(5);
             }
           }
           .tag-selected {
-            background-color: #ffad81 !important;
-            color: #ff5700 !important;
+            background-color: rgba($color, .3) !important;
+            color: $color !important;
           }
         }
         .sort-box-btn {
-          margin-top: rpx(20);
+          background-color: #fff;
+          margin: 0 rpx(-30);
+          padding: rpx(20) rpx(30);
           display: flex;
           text-align: center;
           justify-content: space-between;
-          view {
+          color: #999;
+          @include border(true, top);
+          .btn-selected {
+            color: #333;
+          }
+          > view {
             width: 49%;
+            font-size: rpx(30);
             line-height: rpx(80);
             border-radius: rpx(5);
             &:first-child {
               background-color: #ededed;
             }
             &:last-child {
-              background-color: #ff5700;
+              background-color: $color;
               color: #fff;
             }
           }
@@ -154,7 +191,10 @@
       margin-left: rpx(30);
       font-size: rpx(32);
       line-height: 1.3;
-
+      .house_item-time {
+        font-size: rpx(28);
+        color: #999;
+      }
       .house_item-desc {
         color: #999;
         font-size: rpx(28);

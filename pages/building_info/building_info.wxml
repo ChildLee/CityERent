@@ -131,10 +131,13 @@
         <view class="building-title">出租盘源</view>
         <view class="building-list">
             <block wx:for="{{rentalList}}" wx:key="{{item.lease_id}}">
-                <navigator url="/pages/rent_info/rent_info?id={{item.lease_id}}" hover-class="none" class="building-item">
-                    <image src="{{item.garden_image?img+item.garden_image:'/image/load.png'}}"></image>
-                    <view>
-                        <view>{{item.garden}}</view>
+                <navigator url="/pages/rent_info/rent_info?id={{item.lease_id}}" hover-class="none"
+                           class="building-item">
+                    <view class="building-item-img">
+                        <image src="{{item.garden_image?img+item.garden_image:'/image/load.png'}}"></image>
+                    </view>
+                    <view class="building-item-info">
+                        <view>{{item.title}}</view>
                         <!--<view>200㎡/12层/朝南</view>-->
                         <view>{{item.create_time}}</view>
                         <view>

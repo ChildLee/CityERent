@@ -11,14 +11,14 @@ page {
   .header .header-box {
     box-sizing: border-box;
     background-color: #fff;
-    border-radius: 10rpx;
+    border-radius: 5rpx;
     position: absolute;
     top: 30rpx;
     left: 10%;
     width: 80%;
     display: flex;
     align-items: center;
-    padding: 15rpx 30rpx;
+    padding: 12rpx 30rpx;
     line-height: 30rpx;
     font-size: 30rpx; }
     .header .header-box .header-box-nav {
@@ -28,9 +28,10 @@ page {
       max-width: 120rpx;
       text-overflow: ellipsis;
       overflow: hidden;
-      white-space: nowrap; }
+      white-space: nowrap;
+      font-size: 24rpx; }
       .header .header-box .header-box-nav .icon {
-        font-size: 24rpx;
+        font-size: 20rpx;
         padding-top: 10rpx;
         color: #999; }
     .header .header-box .header-box-line {
@@ -45,10 +46,12 @@ page {
       align-items: center; }
       .header .header-box .header-box-search text {
         flex: none; }
+      .header .header-box .header-box-search .icon {
+        font-size: 24rpx; }
       .header .header-box .header-box-search input {
         flex: 1;
         margin-left: 10rpx;
-        font-size: 28rpx; }
+        font-size: 24rpx; }
 
 .nav-list {
   background-color: #fff;
@@ -65,7 +68,8 @@ page {
       height: 100rpx;
       border-radius: 50%; }
     .nav-list .nav-item text {
-      font-size: 28rpx;
+      font-size: 26rpx;
+      margin-top: 5rpx;
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap; }
@@ -78,6 +82,8 @@ page {
   .process .process-title {
     display: flex;
     align-items: center; }
+    .process .process-title .process-name {
+      font-size: 30rpx; }
     .process .process-title .line {
       margin-right: 10rpx;
       width: 8rpx;
@@ -93,6 +99,8 @@ page {
   .recommend .recommend-title {
     display: flex;
     align-items: center; }
+    .recommend .recommend-title .recommend-name {
+      font-size: 30rpx; }
     .recommend .recommend-title .line {
       margin-right: 10rpx;
       width: 8rpx;
@@ -110,8 +118,8 @@ page {
       border-radius: 10rpx; }
     .recommend .recommend-list .recommend-item .recommend-item-info {
       margin-left: 30rpx;
-      font-size: 28rpx;
+      font-size: 24rpx;
       color: #999; }
       .recommend .recommend-list .recommend-item .recommend-item-info .recommend-item-title {
-        font-size: 32rpx;
+        font-size: 30rpx;
         color: #000; }

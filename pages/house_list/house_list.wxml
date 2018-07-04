@@ -6,7 +6,7 @@
                 <text class="icon icon-search"></text>
             </view>
             <view>
-                <input bindtap="search" placeholder="搜素"/>
+                <input bindtap="search" placeholder="请输入小区或者商圈名"/>
             </view>
         </view>
         <view class="sort {{sortFixed}}">
@@ -81,6 +81,16 @@
                 <!--租金-->
                 <view wx:if="{{sortIndex===2}}" class="sort-box">
                     <scroll-view scroll-y>
+                        <view class="price-range">
+                            <view class="price-range-title">价格区间</view>
+                            <view class="price-range-value">
+                                <input bindinput="minPriceRange" bindfocus="minPriceRange" value="{{priceRange}}"
+                                       type="number" placeholder="最小"/>
+                                <view>-</view>
+                                <input bindinput="maxPriceRange" bindfocus="maxPriceRange" value="{{priceRange}}"
+                                       type="number" placeholder="最大"/>
+                            </view>
+                        </view>
                         <view class="sort-item">
                             <view class="sort-box-title"></view>
                             <view class="sort-box-tag">
@@ -88,16 +98,16 @@
                                     <view bindtap="rentSelected" data-index="{{index}}" data-data="{{item}}"
                                           class="{{rentIndex[0].title===item.title?'tag-selected':''}}">
                                         <!--class="{{rentIndex[index]===item.title?'tag-selected':''}}">-->
-                                        {{item.title}}/万元
+                                        {{item.title}}
                                     </view>
                                 </block>
                             </view>
                         </view>
-                        <view class="sort-box-btn">
-                            <view bindtap="clearConditions">不限条件</view>
-                            <view bindtap="define">确定</view>
-                        </view>
                     </scroll-view>
+                    <view class="sort-box-btn">
+                        <view bindtap="clearConditions" class="{{rentIndex[0]?'btn-selected':''}}">不限条件</view>
+                        <view bindtap="define">确定</view>
+                    </view>
                 </view>
                 <!--面积-->
                 <view wx:if="{{sortIndex===3}}" class="sort-box">
@@ -114,11 +124,11 @@
                                 </block>
                             </view>
                         </view>
-                        <view class="sort-box-btn">
-                            <view bindtap="clearConditions">不限条件</view>
-                            <view bindtap="define">确定</view>
-                        </view>
                     </scroll-view>
+                    <view class="sort-box-btn">
+                        <view bindtap="clearConditions" class="{{acreageIndex[0]?'btn-selected':''}}">不限条件</view>
+                        <view bindtap="define">确定</view>
+                    </view>
                 </view>
                 <!--更多-->
                 <view wx:if="{{sortIndex===4}}" class="sort-box">
@@ -136,11 +146,11 @@
                                 </view>
                             </view>
                         </block>
-                        <view class="sort-box-btn">
-                            <view bindtap="clearConditions">不限条件</view>
-                            <view bindtap="define">确定</view>
-                        </view>
                     </scroll-view>
+                    <view class="sort-box-btn">
+                        <view bindtap="clearConditions" class="{{otherIndex[0]?'btn-selected':''}}">不限条件</view>
+                        <view bindtap="define">确定</view>
+                    </view>
                 </view>
             </view>
         </view>
@@ -159,9 +169,10 @@
                     <!--<text>/东南角</text>-->
                     <!--<text>/黄金大厦</text>-->
                     <!--</view>-->
-                    <view>{{item.time}}</view>
+                    <view class="house_item-time">{{item.time}}</view>
                     <view>
-                        <text class="house_item-price">{{item.min}}-{{item.max}}元</text>
+                        <!--<text class="house_item-price">{{item.min}}-{{item.max}}元</text>-->
+                        <text class="house_item-price">{{item.min}}元</text>
                         <text class="house_item-desc">/㎡/月</text>
                     </view>
                 </view>

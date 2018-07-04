@@ -320,15 +320,6 @@ Page({
         })
     },
 
-    //户型值改变事件
-    bindHouseStyleValue(e) {
-        let {
-            column,
-            value
-        } = e.detail
-        console.log(this.data.houseStyle.list[column][value])
-    },
-
     //切换发布的表单
     moreChange(e) {
         let bool = e.detail.value === '1'
@@ -344,7 +335,7 @@ Page({
 
     //提交表单
     formSubmit(e) {
-        let {community_name, property, cost, car, location, metroLine, elevator, recommend, content, specific} = e.detail.value
+        let {community_name, property, cost, car, location, metroLine, elevator, content, specific} = e.detail.value
         //location地点
         let province = this.data.address.list[0][location[0]].ID
         let city = this.data.address.list[1][location[1]].ID
@@ -352,7 +343,7 @@ Page({
         //metroLine地铁线
         let site = this.data.metroLine[metroLine].subway_name
         site = site === '无' ? '' : site
-        console.log(areas)
+
         if (areas === -1) {
             return wx.showToast({title: '请选择地点', icon: 'none'})
         }
@@ -367,9 +358,6 @@ Page({
         }
         if (!elevator) {
             return wx.showToast({title: '请选择电梯房', icon: 'none'})
-        }
-        if (!recommend) {
-            return wx.showToast({title: '请选择是否推荐首页', icon: 'none'})
         }
         if (!content) {
             return wx.showToast({title: '请填写小区介绍', icon: 'none'})
@@ -395,8 +383,6 @@ Page({
             car,
             //电梯房
             elevator,
-            //是否推荐首页
-            recommend,
             //小区介绍,
             content,
             //省
@@ -475,7 +461,7 @@ Page({
 
     //住宅提交
     formHouseSubmit(e) {
-        console.log(e.detail.value)
+
         let {location, metroLine, sex, scale, houseStyle, community_index, type, title, specific, area, rent, toward, floor, house_age, decorate, phone, membername, way, circle} = e.detail.value
         //location地点
         let province = this.data.address.list[0][location[0]].ID

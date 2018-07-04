@@ -1,6 +1,4 @@
-@function rpx($rpx:0) {
-  @return $rpx*1rpx;
-}
+@import "../../common";
 
 page {
   background-color: #f2f2f2;
@@ -74,12 +72,15 @@ page {
       &:not(:last-child) {
         border-bottom: rpx(1) solid #e0e0e0;
       }
-      image {
-        width: rpx(222);
-        height: rpx(150);
-        border-radius: rpx(10);
+      .building-item-img {
+        image {
+          width: rpx(222);
+          height: rpx(150);
+          border-radius: rpx(10);
+        }
       }
-      > view {
+
+      .building-item-info {
         margin-left: rpx(30);
         line-height: 1.5;
         > view:nth-child(1) {
@@ -120,7 +121,7 @@ page {
     width: rpx(190);
     text-align: center;
     line-height: 1.5;
-    .icon-s{
+    .icon-s {
       color: #ff5600;
     }
     view {

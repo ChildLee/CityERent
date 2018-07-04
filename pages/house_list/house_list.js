@@ -34,13 +34,17 @@ Page({
         //地铁周边
         subwayAround: '',
         //更多选中
-        otherIndex: {},
+        otherIndex: [],
         //面积选中
-        acreageIndex: {},
+        acreageIndex: [],
         //租金选中
-        rentIndex: {},
+        rentIndex: [],
         list: [],
-        type: undefined
+        type: undefined,
+        //价格区间
+        priceRange: '',
+        rent_min: '',
+        rent_max: ''
     },
 
     onLoad(options) {
@@ -214,7 +218,8 @@ Page({
             rentIndex[0] = data
         }
         this.setData({
-            rentIndex
+            rentIndex,
+            priceRange: ''
         })
 
 
@@ -285,7 +290,8 @@ Page({
         this.setData({
             otherIndex: {},
             acreageIndex: {},
-            rentIndex: {}
+            rentIndex: {},
+            priceRange: ''
         })
     },
 
@@ -297,21 +303,29 @@ Page({
     //其他确定
     define() {
         let {switchIndex, rentIndex, acreageIndex, otherIndex} = this.data
-        let data = Object.create(null)
+
+        let data = {}
         if (switchIndex[0] === 1) {
             Object.assign(data, {areas: switchIndex[1]})
         } else {
             Object.assign(data, {subway_id: this.data.subway_id, site: this.data.subwayAround})
         }
-        for (let i in rentIndex) {
-            Object.assign(data, rentIndex[i])
+
+        if (this.data.rent_min || this.data.rent_max) {
+            Object.assign(data, {rent_min: this.data.rent_min, rent_max: this.data.rent_max})
+        } else {
+            for (let i in rentIndex) {
+                Object.assign(data, rentIndex[i])
+            }
         }
+
         for (let i in acreageIndex) {
             Object.assign(data, acreageIndex[i])
         }
         for (let i in otherIndex) {
             Object.assign(data, otherIndex[i])
         }
+
         delete data.title
 
         app.api.leaseList(Object.assign(data, {
@@ -326,6 +340,19 @@ Page({
             }
         })
         this.closeSort()
-    }
+    },
 
+
+    minPriceRange(e) {
+        this.setData({
+            rent_min: e.detail.value,
+            rentIndex: []
+        })
+    },
+    maxPriceRange(e) {
+        this.setData({
+            rent_max: e.detail.value,
+            rentIndex: []
+        })
+    }
 })

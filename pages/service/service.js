@@ -7,7 +7,7 @@ Page({
     },
     onLoad() {
         this.setData({
-            tel:app.data.tel
+            tel: app.data.tel
         })
     },
     //拨打电话

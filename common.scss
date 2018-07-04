@@ -2,6 +2,8 @@
   @return $rpx*1rpx;
 }
 
+$color: #02ae66;
+
 @mixin ell() {
   overflow: hidden;
   text-overflow: ellipsis;

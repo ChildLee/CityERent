@@ -54,22 +54,22 @@ page {
       align-items: center; }
       .building-box .building-list .building-item:not(:last-child) {
         border-bottom: 1rpx solid #e0e0e0; }
-      .building-box .building-list .building-item image {
+      .building-box .building-list .building-item .building-item-img image {
         width: 222rpx;
         height: 150rpx;
         border-radius: 10rpx; }
-      .building-box .building-list .building-item > view {
+      .building-box .building-list .building-item .building-item-info {
         margin-left: 30rpx;
         line-height: 1.5; }
-        .building-box .building-list .building-item > view > view:nth-child(1) {
+        .building-box .building-list .building-item .building-item-info > view:nth-child(1) {
           font-size: 36rpx; }
-        .building-box .building-list .building-item > view > view:nth-child(2) {
+        .building-box .building-list .building-item .building-item-info > view:nth-child(2) {
           color: #656565; }
-        .building-box .building-list .building-item > view > view:nth-child(3) {
+        .building-box .building-list .building-item .building-item-info > view:nth-child(3) {
           font-size: 36rpx; }
-          .building-box .building-list .building-item > view > view:nth-child(3) text:first-child {
+          .building-box .building-list .building-item .building-item-info > view:nth-child(3) text:first-child {
             color: red; }
-          .building-box .building-list .building-item > view > view:nth-child(3) text:last-child {
+          .building-box .building-list .building-item .building-item-info > view:nth-child(3) text:last-child {
             color: #656565; }
 
 .advisory-blank {

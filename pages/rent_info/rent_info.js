@@ -1,5 +1,6 @@
 // pages/rent_info/rent_info.js
 const app = getApp()
+
 Page({
 
     data: {

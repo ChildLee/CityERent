@@ -102,22 +102,22 @@
                     </radio-group>
                 </view>
             </view>
-            <view class="publish_cell">
-                <view class="publish-name">是否推荐首页</view>
-                <view class="publish-value">
-                    <!--recommend-->
-                    <radio-group name="recommend">
-                        <label>
-                            <radio value="1"></radio>
-                            <text>是</text>
-                        </label>
-                        <label>
-                            <radio value="0"></radio>
-                            <text>否</text>
-                        </label>
-                    </radio-group>
-                </view>
-            </view>
+            <!--<view class="publish_cell">-->
+            <!--<view class="publish-name">是否推荐首页</view>-->
+            <!--<view class="publish-value">-->
+            <!--&lt;!&ndash;recommend&ndash;&gt;-->
+            <!--<radio-group name="recommend">-->
+            <!--<label>-->
+            <!--<radio value="1"></radio>-->
+            <!--<text>是</text>-->
+            <!--</label>-->
+            <!--<label>-->
+            <!--<radio value="0"></radio>-->
+            <!--<text>否</text>-->
+            <!--</label>-->
+            <!--</radio-group>-->
+            <!--</view>-->
+            <!--</view>-->
             <view class="publish_cell">
                 <view class="publish-name">小区介绍</view>
                 <view class="publish-value">

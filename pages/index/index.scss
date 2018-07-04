@@ -20,14 +20,14 @@ page {
   .header-box {
     box-sizing: border-box;
     background-color: #fff;
-    border-radius: rpx(10);
+    border-radius: rpx(5);
     position: absolute;
     top: rpx(30);
     left: 10%;
     width: 80%;
     display: flex;
     align-items: center;
-    padding: rpx(15) rpx(30);
+    padding: rpx(12) rpx(30);
     line-height: rpx(30);
     font-size: rpx(30);
     .header-box-nav {
@@ -38,8 +38,9 @@ page {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
+      font-size: rpx(24);
       .icon {
-        font-size: rpx(24);
+        font-size: rpx(20);
         padding-top: rpx(10);
         color: #999;
       }
@@ -58,10 +59,13 @@ page {
       text {
         flex: none;
       }
+      .icon {
+        font-size: rpx(24);
+      }
       input {
         flex: 1;
         margin-left: rpx(10);
-        font-size: rpx(28);
+        font-size: rpx(24);
       }
     }
   }
@@ -83,7 +87,8 @@ page {
       border-radius: 50%;
     }
     text {
-      font-size: rpx(28);
+      font-size: rpx(26);
+      margin-top: rpx(5);
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
@@ -99,6 +104,9 @@ page {
   .process-title {
     display: flex;
     align-items: center;
+    .process-name {
+      font-size: rpx(30);
+    }
     .line {
       margin-right: rpx(10);
       width: rpx(8);
@@ -118,6 +126,9 @@ page {
   .recommend-title {
     display: flex;
     align-items: center;
+    .recommend-name {
+      font-size: rpx(30);
+    }
     .line {
       margin-right: rpx(10);
       width: rpx(8);
@@ -142,10 +153,10 @@ page {
       }
       .recommend-item-info {
         margin-left: rpx(30);
-        font-size: rpx(28);
+        font-size: rpx(24);
         color: #999;
         .recommend-item-title {
-          font-size: rpx(32);
+          font-size: rpx(30);
           color: #000;
         }
       }
