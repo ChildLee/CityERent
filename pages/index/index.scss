@@ -155,6 +155,9 @@ page {
         margin-left: rpx(30);
         font-size: rpx(24);
         color: #999;
+        > view {
+          padding: rpx(5) 0;
+        }
         .recommend-item-title {
           font-size: rpx(30);
           color: #000;

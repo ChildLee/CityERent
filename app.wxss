@@ -1,5 +1,5 @@
 page {
-  font-size: 32rpx; }
+  font-size: 30rpx; }
 
 .border {
   position: relative; }

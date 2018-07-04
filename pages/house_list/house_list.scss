@@ -191,13 +191,16 @@
       margin-left: rpx(30);
       font-size: rpx(32);
       line-height: 1.3;
+      > view {
+        padding: rpx(5) 0;
+      }
       .house_item-time {
-        font-size: rpx(28);
+        font-size: rpx(26);
         color: #999;
       }
       .house_item-desc {
         color: #999;
-        font-size: rpx(28);
+        font-size: rpx(26);
       }
       .house_item-price {
         color: red;

@@ -18,7 +18,7 @@
     </view>
 
     <view class="building-box">
-        <view class="building-title">楼盘简介</view>
+        <view class="building-title">简介</view>
         <view class="building-info">
             <view>
                 <text>楼盘名称</text>
@@ -89,7 +89,7 @@
     </view>
 
     <view class="building-box">
-        <view class="building-title">楼盘配套</view>
+        <view class="building-title">配套</view>
         <view class="building-info">
             <view>
                 <text>管理费</text>
@@ -120,7 +120,7 @@
     </view>
 
     <view class="building-box">
-        <view class="building-title border-none">楼盘位置</view>
+        <view class="building-title border-none">位置</view>
         <map id="map" longitude="{{community.orientation[0]}}" latitude="{{community.orientation[1]}}"
              markers="{{markers}}">
             <cover-view class="map-pull"></cover-view>
@@ -128,7 +128,7 @@
     </view>
 
     <view class="building-box">
-        <view class="building-title">出租盘源</view>
+        <view class="building-title">出租</view>
         <view class="building-list">
             <block wx:for="{{rentalList}}" wx:key="{{item.lease_id}}">
                 <navigator url="/pages/rent_info/rent_info?id={{item.lease_id}}" hover-class="none"

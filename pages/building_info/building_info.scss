@@ -33,7 +33,8 @@ page {
   margin-top: rpx(20);
   .building-title {
     padding: rpx(20) rpx(30);
-    font-size: rpx(40);
+    font-size: rpx(32);
+    font-weight: 500;
     border-bottom: rpx(1) solid #e0e0e0;
   }
   .building-info {
@@ -82,15 +83,18 @@ page {
 
       .building-item-info {
         margin-left: rpx(30);
-        line-height: 1.5;
+        >view{
+          padding: rpx(5) 0;
+        }
         > view:nth-child(1) {
-          font-size: rpx(36);
+          font-size: rpx(30);
         }
         > view:nth-child(2) {
+          font-size: rpx(24);
           color: #656565;
         }
         > view:nth-child(3) {
-          font-size: rpx(36);
+          font-size: rpx(30);
           text:first-child {
             color: red;
           }

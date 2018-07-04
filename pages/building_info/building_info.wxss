@@ -23,7 +23,8 @@ page {
   margin-top: 20rpx; }
   .building-box .building-title {
     padding: 20rpx 30rpx;
-    font-size: 40rpx;
+    font-size: 32rpx;
+    font-weight: 500;
     border-bottom: 1rpx solid #e0e0e0; }
   .building-box .building-info {
     padding: 0 30rpx;
@@ -59,14 +60,16 @@ page {
         height: 150rpx;
         border-radius: 10rpx; }
       .building-box .building-list .building-item .building-item-info {
-        margin-left: 30rpx;
-        line-height: 1.5; }
+        margin-left: 30rpx; }
+        .building-box .building-list .building-item .building-item-info > view {
+          padding: 5rpx 0; }
         .building-box .building-list .building-item .building-item-info > view:nth-child(1) {
-          font-size: 36rpx; }
+          font-size: 30rpx; }
         .building-box .building-list .building-item .building-item-info > view:nth-child(2) {
+          font-size: 24rpx;
           color: #656565; }
         .building-box .building-list .building-item .building-item-info > view:nth-child(3) {
-          font-size: 36rpx; }
+          font-size: 30rpx; }
           .building-box .building-list .building-item .building-item-info > view:nth-child(3) text:first-child {
             color: red; }
           .building-box .building-list .building-item .building-item-info > view:nth-child(3) text:last-child {

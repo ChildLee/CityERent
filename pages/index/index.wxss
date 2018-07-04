@@ -120,6 +120,8 @@ page {
       margin-left: 30rpx;
       font-size: 24rpx;
       color: #999; }
+      .recommend .recommend-list .recommend-item .recommend-item-info > view {
+        padding: 5rpx 0; }
       .recommend .recommend-list .recommend-item .recommend-item-info .recommend-item-title {
         font-size: 30rpx;
         color: #000; }
