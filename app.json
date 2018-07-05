@@ -20,26 +20,26 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#656565",
-    "selectedColor": "#ff5600",
+    "color": "#999999",
+    "selectedColor": "#00af66",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "首页",
         "iconPath": "/image/tab-home.png",
-        "selectedIconPath": "/image/tab-home1.png"
+        "selectedIconPath": "/image/tab-home_s.png"
       },
       {
         "pagePath": "pages/service/service",
         "text": "客服",
-        "iconPath": "/image/tab-ke.png",
-        "selectedIconPath": "/image/tab-ke1.png"
+        "iconPath": "/image/tab-msg.png",
+        "selectedIconPath": "/image/tab-msg_s.png"
       },
       {
         "pagePath": "pages/my/my",
         "text": "我的",
         "iconPath": "/image/tab-my.png",
-        "selectedIconPath": "/image/tab-my1.png"
+        "selectedIconPath": "/image/tab-my_s.png"
       }
     ]
   }

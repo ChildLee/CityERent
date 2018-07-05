@@ -11,7 +11,7 @@ page {
   .header .header-box {
     box-sizing: border-box;
     background-color: #fff;
-    border-radius: 5rpx;
+    border-radius: 8rpx;
     position: absolute;
     top: 30rpx;
     left: 10%;
@@ -29,10 +29,10 @@ page {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
-      font-size: 24rpx; }
+      font-size: 26rpx; }
       .header .header-box .header-box-nav .icon {
         font-size: 20rpx;
-        padding-top: 10rpx;
+        padding-top: 2rpx;
         color: #999; }
     .header .header-box .header-box-line {
       flex: none;
@@ -55,7 +55,7 @@ page {
 
 .nav-list {
   background-color: #fff;
-  padding: 25rpx 30rpx;
+  padding: 60rpx 30rpx;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap; }
@@ -64,12 +64,13 @@ page {
     align-items: center;
     flex-direction: column; }
     .nav-list .nav-item image {
-      width: 100rpx;
-      height: 100rpx;
+      width: 90rpx;
+      height: 90rpx;
       border-radius: 50%; }
     .nav-list .nav-item text {
+      color: #666;
       font-size: 26rpx;
-      margin-top: 5rpx;
+      margin-top: 20rpx;
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap; }
@@ -77,13 +78,12 @@ page {
 .process {
   background-color: #fff;
   position: relative;
-  padding: 30rpx;
-  margin-top: 20rpx; }
+  padding: 30rpx; }
   .process .process-title {
     display: flex;
     align-items: center; }
     .process .process-title .process-name {
-      font-size: 30rpx; }
+      font-size: 40rpx; }
     .process .process-title .line {
       margin-right: 10rpx;
       width: 8rpx;
@@ -92,15 +92,31 @@ page {
   .process .arrow-box {
     margin-right: 30rpx; }
 
+.border-box {
+  padding: 0 30rpx; }
+  .border-box .border {
+    position: relative; }
+    .border-box .border:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 200%;
+      border-bottom: 1px solid #e0e0e0;
+      box-sizing: border-box;
+      transform: scale(0.5);
+      transform-origin: 0 0;
+      pointer-events: none; }
+
 .recommend {
-  margin-top: 20rpx;
   background-color: #fff;
   padding: 30rpx; }
   .recommend .recommend-title {
     display: flex;
     align-items: center; }
     .recommend .recommend-title .recommend-name {
-      font-size: 30rpx; }
+      font-size: 40rpx; }
     .recommend .recommend-title .line {
       margin-right: 10rpx;
       width: 8rpx;

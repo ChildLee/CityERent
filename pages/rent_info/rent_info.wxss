@@ -94,13 +94,13 @@ page {
     text-align: center;
     line-height: 1.5; }
     .advisory .attention .icon-s {
-      color: #ff5600; }
+      color: #00af66; }
     .advisory .attention view {
       font-size: 24rpx; }
   .advisory button {
     flex: 1;
     border-radius: 0;
-    background-color: #ff5600;
+    background-color: #00af66;
     color: #fff; }
     .advisory button:after {
       border: none; }

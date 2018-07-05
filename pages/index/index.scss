@@ -1,6 +1,4 @@
-@function rpx($rpx:0) {
-  @return $rpx*1rpx;
-}
+@import "../../common";
 
 page {
   background-color: #f2f2f2;
@@ -20,7 +18,7 @@ page {
   .header-box {
     box-sizing: border-box;
     background-color: #fff;
-    border-radius: rpx(5);
+    border-radius: rpx(8);
     position: absolute;
     top: rpx(30);
     left: 10%;
@@ -38,10 +36,10 @@ page {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
-      font-size: rpx(24);
+      font-size: rpx(26);
       .icon {
         font-size: rpx(20);
-        padding-top: rpx(10);
+        padding-top: rpx(2);
         color: #999;
       }
     }
@@ -73,22 +71,24 @@ page {
 
 .nav-list {
   background-color: #fff;
-  padding: rpx(25) rpx(30);
+  padding: rpx(60) rpx(30);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+
   .nav-item {
     display: flex;
     align-items: center;
     flex-direction: column;
     image {
-      width: rpx(100);
-      height: rpx(100);
+      width: rpx(90);
+      height: rpx(90);
       border-radius: 50%;
     }
     text {
+      color: #666;
       font-size: rpx(26);
-      margin-top: rpx(5);
+      margin-top: rpx(20);
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
@@ -100,12 +100,12 @@ page {
   background-color: #fff;
   position: relative;
   padding: rpx(30);
-  margin-top: rpx(20);
+
   .process-title {
     display: flex;
     align-items: center;
     .process-name {
-      font-size: rpx(30);
+      font-size: rpx(40);
     }
     .line {
       margin-right: rpx(10);
@@ -119,15 +119,21 @@ page {
   }
 }
 
+.border-box {
+  padding: 0 rpx(30);
+  .border {
+    @include border();
+  }
+}
+
 .recommend {
-  margin-top: rpx(20);
   background-color: #fff;
   padding: rpx(30);
   .recommend-title {
     display: flex;
     align-items: center;
     .recommend-name {
-      font-size: rpx(30);
+      font-size: rpx(40);
     }
     .line {
       margin-right: rpx(10);

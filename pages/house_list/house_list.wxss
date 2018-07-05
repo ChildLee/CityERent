@@ -24,9 +24,9 @@
     z-index: 10;
     width: 100%; }
   .search .sort-selected {
-    color: #02ae66 !important; }
+    color: #00af66 !important; }
     .search .sort-selected text {
-      color: #02ae66 !important; }
+      color: #00af66 !important; }
   .search .sort {
     color: #333;
     background-color: #fff; }
@@ -134,8 +134,8 @@
         margin-bottom: 30rpx;
         border-radius: 5rpx; }
       .search .sort .sort-list .sort-box .sort-item .tag-selected {
-        background-color: rgba(2, 174, 102, 0.3) !important;
-        color: #02ae66 !important; }
+        background-color: rgba(0, 175, 102, 0.3) !important;
+        color: #00af66 !important; }
       .search .sort .sort-list .sort-box .sort-box-btn {
         background-color: #fff;
         margin: 0 -30rpx;
@@ -168,7 +168,7 @@
           .search .sort .sort-list .sort-box .sort-box-btn > view:first-child {
             background-color: #ededed; }
           .search .sort .sort-list .sort-box .sort-box-btn > view:last-child {
-            background-color: #02ae66;
+            background-color: #00af66;
             color: #fff; }
 
 .pull {

@@ -1,6 +1,6 @@
 <!--pages/service_process/service_process.wxml-->
 
-<view class="title border">看房流程,贴心服务</view>
+<view class="title border">看房流程，贴心服务</view>
 
 <view class="service-list">
     <view class="service-box">

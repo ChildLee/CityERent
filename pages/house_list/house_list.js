@@ -42,7 +42,6 @@ Page({
         list: [],
         type: undefined,
         //价格区间
-        priceRange: '',
         rent_min: '',
         rent_max: ''
     },
@@ -50,6 +49,23 @@ Page({
     onLoad(options) {
         wx.showLoading({title: '加载中'})
         if (options.type) {
+            if (options.type === '1') {
+                wx.setNavigationBarTitle({
+                    title: '写字楼'
+                })
+            } else if (options.type === '2') {
+                wx.setNavigationBarTitle({
+                    title: '商铺'
+                })
+            } else if (options.type === '3') {
+                wx.setNavigationBarTitle({
+                    title: '工业厂房'
+                })
+            } else if (options.type === '4') {
+                wx.setNavigationBarTitle({
+                    title: '住宅'
+                })
+            }
             this.setData({
                 type: options.type
             })
@@ -219,7 +235,8 @@ Page({
         }
         this.setData({
             rentIndex,
-            priceRange: ''
+            rent_min: '',
+            rent_max: ''
         })
 
 
@@ -291,7 +308,9 @@ Page({
             otherIndex: {},
             acreageIndex: {},
             rentIndex: {},
-            priceRange: ''
+            priceRange: '',
+            rent_min: '',
+            rent_max: ''
         })
     },
 

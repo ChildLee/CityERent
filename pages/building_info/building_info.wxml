@@ -156,7 +156,7 @@
         <view class="attention" bindtap="focus" data-focus="{{community.is_focus}}"
               data-id="{{community.community_id}}">
             <text class="icon {{community.is_focus?'icon-s icon-xin-s':'icon-xin'}}"></text>
-            <view>关注</view>
+            <view class="{{community.is_focus?'icon-s':''}}">{{community.is_focus?'已关注':'关注'}}</view>
         </view>
         <button open-type="contact">咨询客服</button>
     </view>

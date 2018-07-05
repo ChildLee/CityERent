@@ -39,4 +39,4 @@ page {
       .service > view button:after {
         border: none; }
     .service > view .icon {
-      color: #ff5600; }
+      color: #00af66; }

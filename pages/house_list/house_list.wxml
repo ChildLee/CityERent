@@ -84,10 +84,10 @@
                         <view class="price-range">
                             <view class="price-range-title">价格区间</view>
                             <view class="price-range-value">
-                                <input bindinput="minPriceRange" bindfocus="minPriceRange" value="{{priceRange}}"
+                                <input bindinput="minPriceRange" bindfocus="minPriceRange" value="{{rent_min}}"
                                        type="number" placeholder="最小"/>
                                 <view>-</view>
-                                <input bindinput="maxPriceRange" bindfocus="maxPriceRange" value="{{priceRange}}"
+                                <input bindinput="maxPriceRange" bindfocus="maxPriceRange" value="{{rent_max}}"
                                        type="number" placeholder="最大"/>
                             </view>
                         </view>
@@ -105,7 +105,7 @@
                         </view>
                     </scroll-view>
                     <view class="sort-box-btn">
-                        <view bindtap="clearConditions" class="{{rentIndex[0]?'btn-selected':''}}">不限条件</view>
+                        <view bindtap="clearConditions" class="{{rentIndex[0]||rent_min||rent_max?'btn-selected':''}}">不限条件</view>
                         <view bindtap="define">确定</view>
                     </view>
                 </view>
@@ -171,8 +171,8 @@
                     <!--</view>-->
                     <view class="house_item-time">{{item.time}}</view>
                     <view>
-                        <!--<text class="house_item-price">{{item.min}}-{{item.max}}元</text>-->
-                        <text class="house_item-price">{{item.min}}元</text>
+                        <text class="house_item-price">{{item.min}}-{{item.max}}元</text>
+                        <!--<text class="house_item-price">{{item.min}}元</text>-->
                         <text class="house_item-desc">/㎡/月</text>
                     </view>
                 </view>

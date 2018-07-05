@@ -19,6 +19,41 @@
 
 
     <view class="building-box">
+        <view class="building-title">简介</view>
+        <view class="building-info">
+            <view>
+                <text>面积</text>
+                <text>：</text>
+                <text>{{leaseInfo.area}}㎡</text>
+            </view>
+            <view>
+                <text>租金</text>
+                <text>：</text>
+                <text>{{leaseInfo.rent}}元/㎡/月</text>
+            </view>
+            <view>
+                <text>楼层</text>
+                <text>：</text>
+                <text>{{leaseInfo.floor}}</text>
+            </view>
+            <view>
+                <text>朝向</text>
+                <text>：</text>
+                <text wx:if="{{leaseInfo.decorate===1}}">东</text>
+                <text wx:if="{{leaseInfo.decorate===2}}">南</text>
+                <text wx:if="{{leaseInfo.decorate===3}}">西</text>
+                <text wx:if="{{leaseInfo.decorate===4}}">北</text>
+                <text wx:if="{{leaseInfo.decorate===5}}">东南</text>
+                <text wx:if="{{leaseInfo.decorate===6}}">西南</text>
+                <text wx:if="{{leaseInfo.decorate===7}}">东北</text>
+                <text wx:if="{{leaseInfo.decorate===8}}">西北</text>
+                <text wx:if="{{leaseInfo.decorate===9}}">南北</text>
+            </view>
+        </view>
+    </view>
+
+
+    <view class="building-box">
         <view class="building-title border-none">楼盘位置</view>
         <map id="map" longitude="{{leaseInfo.orientation[0]}}" latitude="{{leaseInfo.orientation[1]}}"
              markers="{{markers}}">

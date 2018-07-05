@@ -45,15 +45,20 @@
 
     <navigator url="/pages/service_process/service_process" hover-class="none" class="process">
         <view class="process-title">
-            <text class="line"></text>
-            <text class="process-name">看房流程,贴心服务</text>
+            <!--<text class="line"></text>-->
+            <text class="process-name">看房流程，贴心服务</text>
         </view>
         <view class="arrow-box arrow"></view>
     </navigator>
 
+
+    <view class="border-box">
+        <view class="border"></view>
+    </view>
+
     <view class="recommend">
         <view class="recommend-title">
-            <text class="line"></text>
+            <!--<text class="line"></text>-->
             <text class="recommend-name">推荐盘源</text>
         </view>
         <view class="recommend-list">
