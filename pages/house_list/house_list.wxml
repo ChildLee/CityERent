@@ -105,7 +105,9 @@
                         </view>
                     </scroll-view>
                     <view class="sort-box-btn">
-                        <view bindtap="clearConditions" class="{{rentIndex[0]||rent_min||rent_max?'btn-selected':''}}">不限条件</view>
+                        <view bindtap="clearConditions" class="{{rentIndex[0]||rent_min||rent_max?'btn-selected':''}}">
+                            不限条件
+                        </view>
                         <view bindtap="define">确定</view>
                     </view>
                 </view>
