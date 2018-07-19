@@ -1,7 +1,7 @@
 @import "../../common";
 
 page {
-  background-color: #f2f2f2;
+  background-color: #fff;
 }
 
 .header {
@@ -168,6 +168,25 @@ page {
           font-size: rpx(30);
           color: #000;
         }
+      }
+    }
+  }
+}
+
+.count-box {
+  padding: rpx(30) rpx(30) 0;
+  display: flex;
+  .count {
+    flex: 1;
+    line-height: 1.5;
+    view:first-child {
+      color: #999;
+      font-size: rpx(24);
+    }
+    view:last-child {
+      font-size: rpx(55);
+      text:last-child {
+        font-size: .5em;
       }
     }
   }

@@ -1,9 +1,6 @@
-// pages/house_list/house_list.js
 const app = getApp()
 
-
 Page({
-
     data: {
         load: false,
         img: app.data.img,
@@ -21,6 +18,8 @@ Page({
         isAreaList: true,
         //区域选中的下标
         otherList: [],
+        //商铺类型
+        shopType: {},
         //租金
         rentList: [],
         //面积
@@ -53,38 +52,75 @@ Page({
                 wx.setNavigationBarTitle({
                     title: '写字楼'
                 })
+                Promise.all([
+                    this.getLeaseList(options.type),
+                    this.getArea(),
+                    this.getSubway(),
+                    this.other(),
+                    this.maxRent(),
+                    this.maxAacreage()
+                ]).then(() => {
+                    this.setData({
+                        type: options.type,
+                        load: true
+                    })
+                    wx.hideLoading()
+                })
             } else if (options.type === '2') {
                 wx.setNavigationBarTitle({
                     title: '商铺'
+                })
+                Promise.all([
+                    this.getLeaseList(options.type),
+                    this.getArea(),
+                    this.getSubway(),
+                    this.shopType(),
+                    this.maxRent(),
+                    this.maxAacreage()
+                ]).then(() => {
+                    this.setData({
+                        type: options.type,
+                        load: true
+                    })
+                    wx.hideLoading()
                 })
             } else if (options.type === '3') {
                 wx.setNavigationBarTitle({
                     title: '工业厂房'
                 })
+                Promise.all([
+                    this.getLeaseList(options.type),
+                    this.getArea(),
+                    this.getSubway(),
+                    this.other(),
+                    this.maxRent(),
+                    this.maxAacreage()
+                ]).then(() => {
+                    this.setData({
+                        type: options.type,
+                        load: true
+                    })
+                    wx.hideLoading()
+                })
             } else if (options.type === '4') {
                 wx.setNavigationBarTitle({
                     title: '住宅'
                 })
-            }
-            this.setData({
-                type: options.type
-            })
-            this.getLeaseList(options.type).then(res => {
-                return this.getArea()
-            }).then(res => {
-                return this.getSubway()
-            }).then(res => {
-                return this.other()
-            }).then(res => {
-                return this.rent()
-            }).then(res => {
-                return this.acreage()
-            }).then(res => {
-                this.setData({
-                    load: true
+                Promise.all([
+                    this.getLeaseList(options.type),
+                    this.getArea(),
+                    this.getSubway(),
+                    this.other(),
+                    this.rent(),
+                    this.maxAacreage()
+                ]).then(() => {
+                    this.setData({
+                        type: options.type,
+                        load: true
+                    })
+                    wx.hideLoading()
                 })
-                wx.hideLoading()
-            })
+            }
         }
     },
 
@@ -288,6 +324,33 @@ Page({
         })
     },
 
+    //商户类型
+    shopType() {
+        return app.api.shopType().then(res => {
+            this.setData({
+                shopType: res.data
+            })
+        })
+    },
+
+    //写字楼/厂房面积
+    maxAacreage() {
+        return app.api.maxAacreage().then(res => {
+            this.setData({
+                acreageList: res.data.list
+            })
+        })
+    },
+
+    //厂房/写字楼/商户租金
+    maxRent() {
+        return app.api.maxRent().then(res => {
+            this.setData({
+                rentList: res.data.list
+            })
+        })
+    },
+
     //更多选中
     otherSelected(e) {
         let {index, data} = e.currentTarget.dataset
@@ -360,7 +423,6 @@ Page({
         })
         this.closeSort()
     },
-
 
     minPriceRange(e) {
         this.setData({

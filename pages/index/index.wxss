@@ -1,5 +1,5 @@
 page {
-  background-color: #f2f2f2; }
+  background-color: #fff; }
 
 .header {
   position: relative; }
@@ -141,3 +141,17 @@ page {
       .recommend .recommend-list .recommend-item .recommend-item-info .recommend-item-title {
         font-size: 30rpx;
         color: #000; }
+
+.count-box {
+  padding: 30rpx 30rpx 0;
+  display: flex; }
+  .count-box .count {
+    flex: 1;
+    line-height: 1.5; }
+    .count-box .count view:first-child {
+      color: #999;
+      font-size: 24rpx; }
+    .count-box .count view:last-child {
+      font-size: 55rpx; }
+      .count-box .count view:last-child text:last-child {
+        font-size: .5em; }

@@ -133,27 +133,47 @@
                     </view>
                 </view>
                 <!--更多-->
-                <view wx:if="{{sortIndex===4}}" class="sort-box">
-                    <scroll-view scroll-y>
-                        <block wx:for="{{otherList}}" wx:key="{{index}}">
-                            <view class="sort-item">
-                                <view class="sort-box-title">{{item.name}}</view>
-                                <view class="sort-box-tag">
-                                    <block wx:for="{{item.list}}" wx:for-item="i" wx:for-index="idx" wx:key="{{i}}">
-                                        <view bindtap="otherSelected" data-index="{{index}}" data-data="{{i}}"
-                                              class="{{otherIndex[index].title===i.title?'tag-selected':''}}">
-                                            {{i.title}}
-                                        </view>
-                                    </block>
+
+                <block wx:if="{{otherList.length}}">
+                    <view wx:if="{{sortIndex===4}}" class="sort-box">
+                        <scroll-view scroll-y>
+
+                            <block wx:for="{{otherList}}" wx:key="{{index}}">
+                                <view class="sort-item">
+                                    <view class="sort-box-title">{{item.name}}</view>
+                                    <view class="sort-box-tag">
+                                        <block wx:for="{{item.list}}" wx:for-item="i" wx:for-index="idx" wx:key="{{i}}">
+                                            <view bindtap="otherSelected" data-index="{{index}}" data-data="{{i}}"
+                                                  class="{{otherIndex[index].title===i.title?'tag-selected':''}}">
+                                                {{i.title}}
+                                            </view>
+                                        </block>
+                                    </view>
                                 </view>
+                            </block>
+                            <view class="sort-box-btn">
+                                <view bindtap="clearConditions" class="{{otherIndex[0]?'btn-selected':''}}">不限条件</view>
+                                <view bindtap="define">确定</view>
                             </view>
-                        </block>
-                    </scroll-view>
-                    <view class="sort-box-btn">
-                        <view bindtap="clearConditions" class="{{otherIndex[0]?'btn-selected':''}}">不限条件</view>
-                        <view bindtap="define">确定</view>
+                        </scroll-view>
                     </view>
-                </view>
+                </block>
+
+                <block wx:if="{{shopType}}">
+                    <view class="sort-more"  wx:if="{{sortIndex===4}}">
+                        <scroll-view scroll-y class="more-item">
+                            <view>{{shopType.name}}</view>
+                        </scroll-view>
+
+                        <scroll-view scroll-y class="more-item">
+                            <view>不限</view>
+                            <block wx:for="{{shopType.list}}" wx:key="{{index}}">
+                                <view>{{item.title}}</view>
+                            </block>
+                        </scroll-view>
+                    </view>
+                </block>
+
             </view>
         </view>
     </view>
@@ -182,5 +202,10 @@
         </block>
     </view>
 
-    <view class="pull" wx:if="{{sortFixed}}" bindtap="closeSort"></view>
+    <block wx:if="{{sortFixed}}">
+        <view class="pull" bindtap="closeSort"></view>
+    </block>
 </block>
+
+<!--商铺更多-->
+

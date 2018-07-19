@@ -9,7 +9,8 @@ App({
 
     data: {
         //全局图片路径
-        img: 'http://scoket.xiaozhanxiang.com/upload/',
+        // img: 'http://scoket.xiaozhanxiang.com/upload/',
+        img: 'http://182.61.53.108/upload/',
         uploadImg: 'http://scoket.xiaozhanxiang.com/wechar/Community/uploadImag',
         //首页添加的城市名称
         currentCity: '深圳市',

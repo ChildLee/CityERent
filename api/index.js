@@ -61,7 +61,7 @@ export default {
     rent(param) {
         return ajax.post('/lease/rent', param)
     },
-    //面积
+    //商铺/住宅面积
     acreage(param) {
         return ajax.post('/lease/acreage', param)
     },
@@ -92,5 +92,17 @@ export default {
     //添加出租房屋
     addLease(param) {
         return ajax.post('/Community/addLease', param)
+    },
+    //写字楼/厂房面积
+    maxAacreage(param) {
+        return ajax.post('/Lease/maxAacreage', param)
+    },
+    //厂房/写字楼/商户租金
+    maxRent(param) {
+        return ajax.post('/Lease/maxRent', param)
+    },
+    //商户类型
+    shopType(param) {
+        return ajax.post('/Lease/shopType', param)
     }
 }

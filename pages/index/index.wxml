@@ -51,9 +51,25 @@
         <view class="arrow-box arrow"></view>
     </navigator>
 
-
     <view class="border-box">
         <view class="border"></view>
+    </view>
+
+    <view class="count-box">
+        <view class="count">
+            <view>全市均价</view>
+            <view>
+                <text>55777</text>
+                <text>元/平米</text>
+            </view>
+        </view>
+        <view class="count">
+            <view>昨日成交量</view>
+            <view>
+                <text>30</text>
+                <text>套</text>
+            </view>
+        </view>
     </view>
 
     <view class="recommend">
