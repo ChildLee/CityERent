@@ -1,23 +1,23 @@
 <!--pages/attention/attention.wxml-->
 <view class="house_list">
-    <block wx:for="{{focusList}}" wx:key="{{item.community_id}}">
-        <navigator url="/pages/building_info/building_info?id={{item.community_id}}" hover-class="none"
-                   class="house_item">
-            <image src="{{item.community_image?img+item.community_image:'/image/load.png'}}"></image>
-            <view class="house_item-info">
-                <view>{{item.community_name}}</view>
-                <!--<view class="house_item-desc">-->
-                <!--<text>一室一厅</text>-->
-                <!--<text>/66.8㎡</text>-->
-                <!--<text>/东南角</text>-->
-                <!--<text>/黄金大厦</text>-->
-                <!--</view>-->
-                <view>{{item.time}}</view>
-                <view>
-                    <text class="house_item-price">{{item.min}}-{{item.max}}元</text>
-                    <text class="house_item-desc">/㎡/月</text>
-                </view>
-            </view>
-        </navigator>
-    </block>
+  <block wx:for="{{focusList}}" wx:key="{{item.community_id}}">
+    <navigator url="/pages/building_info/building_info?id={{item.community_id}}" hover-class="none"
+               class="house_item">
+      <image src="{{item.community_image?img+item.community_image:'/image/load.png'}}"></image>
+      <view class="house_item-info">
+        <view>{{item.community_name}}</view>
+        <!--<view class="house_item-desc">-->
+        <!--<text>一室一厅</text>-->
+        <!--<text>/66.8㎡</text>-->
+        <!--<text>/东南角</text>-->
+        <!--<text>/黄金大厦</text>-->
+        <!--</view>-->
+        <view>{{item.time}}</view>
+        <view>
+          <text class="house_item-price">{{item.min}}-{{item.max}}元</text>
+          <text class="house_item-desc">/㎡/月</text>
+        </view>
+      </view>
+    </navigator>
+  </block>
 </view>

@@ -1,14 +1,14 @@
 <!--pages/service/service.wxml-->
 
 <view class="service">
-    <view>
-        <button hover-class="none" open-type="contact">
-            <text>在线聊天</text>
-            <text class="icon icon-weixin"></text>
-        </button>
-    </view>
-    <view bindtap="call">
-        <text>服务电话：{{tel}}</text>
-        <text class="icon icon-shouji"></text>
-    </view>
+  <view>
+    <button hover-class="none" open-type="contact">
+      <text>在线聊天</text>
+      <text class="icon icon-weixin"></text>
+    </button>
+  </view>
+  <view bindtap="call">
+    <text>服务电话：{{tel}}</text>
+    <text class="icon icon-shouji"></text>
+  </view>
 </view>

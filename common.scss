@@ -10,6 +10,19 @@ $color: #00af66;
   white-space: nowrap;
 }
 
+@mixin img {
+  position: relative;
+  padding-top: percentage(200/750);
+  height: 0;
+  overflow: hidden;
+  imgage {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
 @mixin border($last:true,$direction:bottom,$color:#e0e0e0) {
   $last: if($last, null, ':not(:last-child)');
   $direction: if($direction, -$direction, null);

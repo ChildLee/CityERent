@@ -1,30 +1,30 @@
 <!--pages/nav/nav.wxml-->
 <view class="nav">
-    <view class="nav-title">选择城市</view>
-    <view class="nav-location" bindtap="switchNav" data-id="" data-name="{{currentCity}}">
-        <text class="icon icon-location"></text>
-        <text>{{currentCity}}</text>
-    </view>
+  <view class="nav-title">选择城市</view>
+  <view class="nav-location" bindtap="switchNav" data-id="" data-name="{{currentCity}}">
+    <text class="icon icon-location"></text>
+    <text>{{currentCity}}</text>
+  </view>
 </view>
 
 <view class="nav">
-    <view class="nav-title">{{area[0].sort}}</view>
-    <view class="nav-all">
-        <block wx:for="{{areas[0].list}}" wx:key="{{index}}">
-            <view bindtap="switchNav" data-id="{{item.ID}}" data-name="{{item.Name}}">{{item.Name}}</view>
-        </block>
-    </view>
+  <view class="nav-title">{{area[0].sort}}</view>
+  <view class="nav-all">
+    <block wx:for="{{areas[0].list}}" wx:key="{{index}}">
+      <view bindtap="switchNav" data-id="{{item.ID}}" data-name="{{item.Name}}">{{item.Name}}</view>
+    </block>
+  </view>
 </view>
 
 <view class="nav-all-title">全部城市（按首字母顺序）</view>
 
 <block wx:for="{{areas}}" wx:for-item="i" wx:if="{{index>0}}" wx:key="{{index}}">
-    <view class="nav">
-        <view class="nav-title">{{i.sort}}</view>
-        <view class="nav-all">
-            <block wx:for="{{i.list}}" wx:key="{{item.ID}}">
-                <view bindtap="switchNav" data-id="{{item.ID}}" data-name="{{item.Name}}">{{item.Name}}</view>
-            </block>
-        </view>
+  <view class="nav">
+    <view class="nav-title">{{i.sort}}</view>
+    <view class="nav-all">
+      <block wx:for="{{i.list}}" wx:key="{{item.ID}}">
+        <view bindtap="switchNav" data-id="{{item.ID}}" data-name="{{item.Name}}">{{item.Name}}</view>
+      </block>
     </view>
+  </view>
 </block>

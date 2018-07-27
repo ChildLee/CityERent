@@ -3,52 +3,52 @@
 <view class="title border">看房流程，贴心服务</view>
 
 <view class="service-list">
-    <view class="service-box">
-        <view class="service-item">
-            <text style="color: #f66143;" class="icon icon-dianhua"></text>
-            <text>联系我们</text>
-        </view>
+  <view class="service-box">
+    <view class="service-item">
+      <text style="color: #f66143;" class="icon icon-dianhua"></text>
+      <text>联系我们</text>
     </view>
-    <view class="service-box">
-        <view class="service-item">
-            <text style="color: #39a8f5;" class="icon icon-kefu"></text>
-            <text>专人跟进</text>
-        </view>
+  </view>
+  <view class="service-box">
+    <view class="service-item">
+      <text style="color: #39a8f5;" class="icon icon-kefu"></text>
+      <text>专人跟进</text>
     </view>
-    <view class="service-box">
-        <view class="service-item">
-            <text style="color: #37b9ff;" class="icon icon-fanganzhichi"></text>
-            <text>制定方案</text>
-        </view>
+  </view>
+  <view class="service-box">
+    <view class="service-item">
+      <text style="color: #37b9ff;" class="icon icon-fanganzhichi"></text>
+      <text>制定方案</text>
     </view>
-    <view class="service-box">
-        <view class="service-item">
-            <text style="color: #28cde4;" class="icon icon-zhaoxiang"></text>
-            <text>实勘实拍</text>
-        </view>
+  </view>
+  <view class="service-box">
+    <view class="service-item">
+      <text style="color: #28cde4;" class="icon icon-zhaoxiang"></text>
+      <text>实勘实拍</text>
     </view>
-    <view class="service-box">
-        <view class="service-item">
-            <text style="color: #4ada84;" class="icon icon-weihuren"></text>
-            <text>回访维护</text>
-        </view>
+  </view>
+  <view class="service-box">
+    <view class="service-item">
+      <text style="color: #4ada84;" class="icon icon-weihuren"></text>
+      <text>回访维护</text>
     </view>
-    <view class="service-box">
-        <view class="service-item">
-            <text style="color: #2cd1b5;" class="icon icon-hezuojigou"></text>
-            <text>协助入住</text>
-        </view>
+  </view>
+  <view class="service-box">
+    <view class="service-item">
+      <text style="color: #2cd1b5;" class="icon icon-hezuojigou"></text>
+      <text>协助入住</text>
     </view>
-    <view class="service-box">
-        <view class="service-item">
-            <text style="color: #fa9e34;" class="icon icon-ren"></text>
-            <text>高效谈判</text>
-        </view>
+  </view>
+  <view class="service-box">
+    <view class="service-item">
+      <text style="color: #fa9e34;" class="icon icon-ren"></text>
+      <text>高效谈判</text>
     </view>
-    <view class="service-box">
-        <view class="service-item">
-            <text style="color: #fcaf37;" class="icon icon-che"></text>
-            <text>专业带看</text>
-        </view>
+  </view>
+  <view class="service-box">
+    <view class="service-item">
+      <text style="color: #fcaf37;" class="icon icon-che"></text>
+      <text>专业带看</text>
     </view>
+  </view>
 </view>

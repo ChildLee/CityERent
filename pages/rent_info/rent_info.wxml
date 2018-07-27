@@ -1,82 +1,82 @@
 <!--pages/rent_info/rent_info.wxml-->
 <block wx:if="{{load}}">
-    <view class="header">
-        <swiper autoplay indicator-dots>
-            <block wx:for="{{leaseInfo.image}}" wx:key="{{index}}">
-                <swiper-item>
-                    <image class="swiper-image" src="{{img+item}}"></image>
-                </swiper-item>
-            </block>
-        </swiper>
-        <view class="title">
-            <view class="title-name">{{leaseInfo.title}}</view>
-            <view class="title-other">
-                <text>{{leaseInfo.dizhi}}</text>
-                <!--<text>共{{leaseInfo.focus}}关注</text>-->
-            </view>
-        </view>
+  <view class="header">
+    <swiper autoplay indicator-dots>
+      <block wx:for="{{leaseInfo.image}}" wx:key="{{index}}">
+        <swiper-item>
+          <image class="swiper-image" src="{{img+item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="title">
+      <view class="title-name">{{leaseInfo.title}}</view>
+      <view class="title-other">
+        <text>{{leaseInfo.dizhi}}</text>
+        <!--<text>共{{leaseInfo.focus}}关注</text>-->
+      </view>
     </view>
+  </view>
 
 
-    <view class="building-box">
-        <view class="building-title">简介</view>
-        <view class="building-info">
-            <view>
-                <text>面积</text>
-                <text>：</text>
-                <text>{{leaseInfo.area}}㎡</text>
-            </view>
-            <view>
-                <text>租金</text>
-                <text>：</text>
-                <text>{{leaseInfo.rent}}元/㎡/月</text>
-            </view>
-            <view>
-                <text>楼层</text>
-                <text>：</text>
-                <text>{{leaseInfo.floor}}</text>
-            </view>
-            <view>
-                <text>朝向</text>
-                <text>：</text>
-                <text wx:if="{{leaseInfo.decorate===1}}">东</text>
-                <text wx:if="{{leaseInfo.decorate===2}}">南</text>
-                <text wx:if="{{leaseInfo.decorate===3}}">西</text>
-                <text wx:if="{{leaseInfo.decorate===4}}">北</text>
-                <text wx:if="{{leaseInfo.decorate===5}}">东南</text>
-                <text wx:if="{{leaseInfo.decorate===6}}">西南</text>
-                <text wx:if="{{leaseInfo.decorate===7}}">东北</text>
-                <text wx:if="{{leaseInfo.decorate===8}}">西北</text>
-                <text wx:if="{{leaseInfo.decorate===9}}">南北</text>
-            </view>
-        </view>
+  <view class="building-box">
+    <view class="building-title">简介</view>
+    <view class="building-info">
+      <view>
+        <text>面积</text>
+        <text>：</text>
+        <text>{{leaseInfo.area}}㎡</text>
+      </view>
+      <view>
+        <text>租金</text>
+        <text>：</text>
+        <text>{{leaseInfo.rent}}元/㎡/月</text>
+      </view>
+      <view>
+        <text>楼层</text>
+        <text>：</text>
+        <text>{{leaseInfo.floor}}</text>
+      </view>
+      <view>
+        <text>朝向</text>
+        <text>：</text>
+        <text wx:if="{{leaseInfo.decorate===1}}">东</text>
+        <text wx:if="{{leaseInfo.decorate===2}}">南</text>
+        <text wx:if="{{leaseInfo.decorate===3}}">西</text>
+        <text wx:if="{{leaseInfo.decorate===4}}">北</text>
+        <text wx:if="{{leaseInfo.decorate===5}}">东南</text>
+        <text wx:if="{{leaseInfo.decorate===6}}">西南</text>
+        <text wx:if="{{leaseInfo.decorate===7}}">东北</text>
+        <text wx:if="{{leaseInfo.decorate===8}}">西北</text>
+        <text wx:if="{{leaseInfo.decorate===9}}">南北</text>
+      </view>
     </view>
+  </view>
 
 
-    <view class="building-box">
-        <view class="building-title border-none">楼盘位置</view>
-        <map id="map" longitude="{{leaseInfo.orientation[0]}}" latitude="{{leaseInfo.orientation[1]}}"
-             markers="{{markers}}">
-            <cover-view class="map-pull"></cover-view>
-        </map>
+  <view class="building-box">
+    <view class="building-title border-none">楼盘位置</view>
+    <map id="map" longitude="{{leaseInfo.orientation[0]}}" latitude="{{leaseInfo.orientation[1]}}"
+         markers="{{markers}}">
+      <cover-view class="map-pull"></cover-view>
+    </map>
+  </view>
+
+
+  <view class="building-box">
+    <view class="building-title">房屋介绍</view>
+    <view class="building-list">
+      <text class="small">{{leaseInfo.content}}</text>
     </view>
+  </view>
 
+  <view class="advisory-blank"></view>
 
-    <view class="building-box">
-        <view class="building-title">房屋介绍</view>
-        <view class="building-list">
-            <text class="small">{{leaseInfo.content}}</text>
-        </view>
-    </view>
-
-    <view class="advisory-blank"></view>
-
-    <view class="advisory">
-        <!--<view class="attention" bindtap="focus" data-focus="{{community.is_focus}}"-->
-        <!--data-id="{{community.community_id}}">-->
-        <!--<text class="icon {{community.is_focus?'icon-s icon-xin-s':'icon-xin'}}"></text>-->
-        <!--<view>关注</view>-->
-        <!--</view>-->
-        <button open-type="contact">咨询客服</button>
-    </view>
+  <view class="advisory">
+    <!--<view class="attention" bindtap="focus" data-focus="{{community.is_focus}}"-->
+    <!--data-id="{{community.community_id}}">-->
+    <!--<text class="icon {{community.is_focus?'icon-s icon-xin-s':'icon-xin'}}"></text>-->
+    <!--<view>关注</view>-->
+    <!--</view>-->
+    <button open-type="contact">咨询客服</button>
+  </view>
 </block>

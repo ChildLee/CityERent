@@ -1,163 +1,163 @@
 <!-- pages/building_info/building_info.wxml -->
 <block wx:if="{{load}}">
-    <view class="header">
-        <swiper autoplay indicator-dots>
-            <block wx:for="{{community.image}}" wx:key="{{index}}">
-                <swiper-item>
-                    <image class="swiper-image" src="{{img+item}}"></image>
-                </swiper-item>
-            </block>
-        </swiper>
-        <view class="title">
-            <view class="title-name">{{community.community_name}}</view>
-            <view class="title-other">
-                <text>{{community.site}}</text>
-                <text>共{{community.focus}}关注</text>
-            </view>
-        </view>
+  <view class="header">
+    <swiper autoplay indicator-dots>
+      <block wx:for="{{community.image}}" wx:key="{{index}}">
+        <swiper-item>
+          <image class="swiper-image" src="{{img+item}}"></image>
+        </swiper-item>
+      </block>
+    </swiper>
+    <view class="title">
+      <view class="title-name">{{community.community_name}}</view>
+      <view class="title-other">
+        <text>{{community.site}}</text>
+        <text>共{{community.focus}}关注</text>
+      </view>
     </view>
+  </view>
 
-    <view class="building-box">
-        <view class="building-title">简介</view>
-        <view class="building-info">
+  <view class="building-box">
+    <view class="building-title">简介</view>
+    <view class="building-info">
+      <view>
+        <text>楼盘名称</text>
+        <text>：</text>
+        <text>{{community.community_name}}</text>
+      </view>
+      <view>
+        <text>地址</text>
+        <text>：</text>
+        <text>{{community.specific}}</text>
+      </view>
+      <!--<view>-->
+      <!--<text>开发商</text>-->
+      <!--<text>：</text>-->
+      <!--<text>中国平安保险（集团）有限公司</text>-->
+      <!--</view>-->
+      <!--<view>-->
+      <!--<text>战地面积</text>-->
+      <!--<text>：</text>-->
+      <!--<text>18931㎡</text>-->
+      <!--</view>-->
+      <!--<view>-->
+      <!--<text>竣工时间</text>-->
+      <!--<text>：</text>-->
+      <!--<text>2016年3月</text>-->
+      <!--</view>-->
+      <!--<view>-->
+      <!--<text>总建筑面积</text>-->
+      <!--<text>：</text>-->
+      <!--<text>30.29-40.95万㎡</text>-->
+      <!--</view>-->
+      <!--<view>-->
+      <!--<text>办公面积</text>-->
+      <!--<text>：</text>-->
+      <!--<text>25.6㎡</text>-->
+      <!--</view>-->
+      <!--<view>-->
+      <!--<text>商业面积</text>-->
+      <!--<text>：</text>-->
+      <!--<text>4.5-9.5万㎡</text>-->
+      <!--</view>-->
+      <!--<view>-->
+      <!--<text>物业类型</text>-->
+      <!--<text>：</text>-->
+      <!--<text>写字楼</text>-->
+      <!--</view>-->
+      <!--<view>-->
+      <!--<text>总层数</text>-->
+      <!--<text>：</text>-->
+      <!--<text>地上500层,地下54层</text>-->
+      <!--</view>-->
+      <!--<view>-->
+      <!--<text>单层面积</text>-->
+      <!--<text>：</text>-->
+      <!--<text>6000㎡</text>-->
+      <!--</view>-->
+      <!--<view>-->
+      <!--<text>标准层高</text>-->
+      <!--<text>：</text>-->
+      <!--<text>5米</text>-->
+      <!--</view>-->
+      <!--<view>-->
+      <!--<text>使用率</text>-->
+      <!--<text>：</text>-->
+      <!--<text>80%以上</text>-->
+      <!--</view>-->
+    </view>
+  </view>
+
+  <view class="building-box">
+    <view class="building-title">配套</view>
+    <view class="building-info">
+      <view>
+        <text>管理费</text>
+        <text>：</text>
+        <text>{{community.cost}}元/㎡/月</text>
+      </view>
+      <!--<view>-->
+      <!--<text>电梯数</text>-->
+      <!--<text>：</text>-->
+      <!--<text>48部</text>-->
+      <!--</view>-->
+      <!--<view>-->
+      <!--<text>空调类型</text>-->
+      <!--<text>：</text>-->
+      <!--<text>集中式中央空调</text>-->
+      <!--</view>-->
+      <view>
+        <text>车位总数</text>
+        <text>：</text>
+        <text>{{community.car}}</text>
+      </view>
+      <view>
+        <text>物业公司</text>
+        <text>：</text>
+        <text>{{community.property}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="building-box">
+    <view class="building-title border-none">位置</view>
+    <map id="map" longitude="{{community.orientation[0]}}" latitude="{{community.orientation[1]}}"
+         markers="{{markers}}">
+      <cover-view class="map-pull"></cover-view>
+    </map>
+  </view>
+
+  <view class="building-box">
+    <view class="building-title">出租</view>
+    <view class="building-list">
+      <block wx:for="{{rentalList}}" wx:key="{{item.lease_id}}">
+        <navigator url="/pages/rent_info/rent_info?id={{item.lease_id}}" hover-class="none"
+                   class="building-item">
+          <view class="building-item-img">
+            <image src="{{item.garden_image?img+item.garden_image:'/image/load.png'}}"></image>
+          </view>
+          <view class="building-item-info">
+            <view>{{item.title}}</view>
+            <!--<view>200㎡/12层/朝南</view>-->
+            <view>{{item.create_time}}</view>
             <view>
-                <text>楼盘名称</text>
-                <text>：</text>
-                <text>{{community.community_name}}</text>
+              <text>{{item.rent}}元</text>
+              <text>/㎡/月</text>
             </view>
-            <view>
-                <text>地址</text>
-                <text>：</text>
-                <text>{{community.specific}}</text>
-            </view>
-            <!--<view>-->
-            <!--<text>开发商</text>-->
-            <!--<text>：</text>-->
-            <!--<text>中国平安保险（集团）有限公司</text>-->
-            <!--</view>-->
-            <!--<view>-->
-            <!--<text>战地面积</text>-->
-            <!--<text>：</text>-->
-            <!--<text>18931㎡</text>-->
-            <!--</view>-->
-            <!--<view>-->
-            <!--<text>竣工时间</text>-->
-            <!--<text>：</text>-->
-            <!--<text>2016年3月</text>-->
-            <!--</view>-->
-            <!--<view>-->
-            <!--<text>总建筑面积</text>-->
-            <!--<text>：</text>-->
-            <!--<text>30.29-40.95万㎡</text>-->
-            <!--</view>-->
-            <!--<view>-->
-            <!--<text>办公面积</text>-->
-            <!--<text>：</text>-->
-            <!--<text>25.6㎡</text>-->
-            <!--</view>-->
-            <!--<view>-->
-            <!--<text>商业面积</text>-->
-            <!--<text>：</text>-->
-            <!--<text>4.5-9.5万㎡</text>-->
-            <!--</view>-->
-            <!--<view>-->
-            <!--<text>物业类型</text>-->
-            <!--<text>：</text>-->
-            <!--<text>写字楼</text>-->
-            <!--</view>-->
-            <!--<view>-->
-            <!--<text>总层数</text>-->
-            <!--<text>：</text>-->
-            <!--<text>地上500层,地下54层</text>-->
-            <!--</view>-->
-            <!--<view>-->
-            <!--<text>单层面积</text>-->
-            <!--<text>：</text>-->
-            <!--<text>6000㎡</text>-->
-            <!--</view>-->
-            <!--<view>-->
-            <!--<text>标准层高</text>-->
-            <!--<text>：</text>-->
-            <!--<text>5米</text>-->
-            <!--</view>-->
-            <!--<view>-->
-            <!--<text>使用率</text>-->
-            <!--<text>：</text>-->
-            <!--<text>80%以上</text>-->
-            <!--</view>-->
-        </view>
+          </view>
+        </navigator>
+      </block>
     </view>
+  </view>
 
-    <view class="building-box">
-        <view class="building-title">配套</view>
-        <view class="building-info">
-            <view>
-                <text>管理费</text>
-                <text>：</text>
-                <text>{{community.cost}}元/㎡/月</text>
-            </view>
-            <!--<view>-->
-            <!--<text>电梯数</text>-->
-            <!--<text>：</text>-->
-            <!--<text>48部</text>-->
-            <!--</view>-->
-            <!--<view>-->
-            <!--<text>空调类型</text>-->
-            <!--<text>：</text>-->
-            <!--<text>集中式中央空调</text>-->
-            <!--</view>-->
-            <view>
-                <text>车位总数</text>
-                <text>：</text>
-                <text>{{community.car}}</text>
-            </view>
-            <view>
-                <text>物业公司</text>
-                <text>：</text>
-                <text>{{community.property}}</text>
-            </view>
-        </view>
+  <view class="advisory-blank"></view>
+
+  <view class="advisory">
+    <view class="attention" bindtap="focus" data-focus="{{community.is_focus}}"
+          data-id="{{community.community_id}}">
+      <text class="icon {{community.is_focus?'icon-s icon-xin-s':'icon-xin'}}"></text>
+      <view class="{{community.is_focus?'icon-s':''}}">{{community.is_focus?'已关注':'关注'}}</view>
     </view>
-
-    <view class="building-box">
-        <view class="building-title border-none">位置</view>
-        <map id="map" longitude="{{community.orientation[0]}}" latitude="{{community.orientation[1]}}"
-             markers="{{markers}}">
-            <cover-view class="map-pull"></cover-view>
-        </map>
-    </view>
-
-    <view class="building-box">
-        <view class="building-title">出租</view>
-        <view class="building-list">
-            <block wx:for="{{rentalList}}" wx:key="{{item.lease_id}}">
-                <navigator url="/pages/rent_info/rent_info?id={{item.lease_id}}" hover-class="none"
-                           class="building-item">
-                    <view class="building-item-img">
-                        <image src="{{item.garden_image?img+item.garden_image:'/image/load.png'}}"></image>
-                    </view>
-                    <view class="building-item-info">
-                        <view>{{item.title}}</view>
-                        <!--<view>200㎡/12层/朝南</view>-->
-                        <view>{{item.create_time}}</view>
-                        <view>
-                            <text>{{item.rent}}元</text>
-                            <text>/㎡/月</text>
-                        </view>
-                    </view>
-                </navigator>
-            </block>
-        </view>
-    </view>
-
-    <view class="advisory-blank"></view>
-
-    <view class="advisory">
-        <view class="attention" bindtap="focus" data-focus="{{community.is_focus}}"
-              data-id="{{community.community_id}}">
-            <text class="icon {{community.is_focus?'icon-s icon-xin-s':'icon-xin'}}"></text>
-            <view class="{{community.is_focus?'icon-s':''}}">{{community.is_focus?'已关注':'关注'}}</view>
-        </view>
-        <button open-type="contact">咨询客服</button>
-    </view>
+    <button open-type="contact">咨询客服</button>
+  </view>
 </block>
