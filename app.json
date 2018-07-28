@@ -3,7 +3,6 @@
     "pages/index/index",
     "pages/building_info/building_info",
     "pages/publish_info/publish_info",
-    "pages/house_list/house_list",
     "pages/my/my",
     "pages/login/login",
     "pages/nav/nav",
@@ -11,7 +10,16 @@
     "pages/service/service",
     "pages/attention/attention",
     "pages/search/search",
-    "pages/rent_info/rent_info"
+    "pages/rent_info/rent_info",
+    "pages/become_manager/become_manager",
+    "pages/manager_register/manager_register",
+    "pages/manager_review/manager_review",
+    "pages/manager_result/manager_result",
+    "pages/manager_terms/manager_terms",
+    "pages/house_factory/house_factory",
+    "pages/house_floor/house_floor",
+    "pages/house_live/house_live",
+    "pages/house_shop/house_shop"
   ],
   "window": {
     "backgroundTextStyle": "light",

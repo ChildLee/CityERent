@@ -3,6 +3,39 @@ let app = getApp()
 
 Page({
 
+  //经理人注册
+  managerRegister(e) {
+    if (!e.detail.encryptedData) {
+      return
+    }
+    let {encryptedData, iv} = e.detail
+    wx.login({
+      success: (res) => {
+        app.api.login({
+          code: res.code,
+          encryptedData,
+          iv
+        }).then(res => {
+          if (res.id) {
+            Object.assign(app.data, res)
+            wx.setStorageSync('userInfo', res)
+          }
+          const agent = res['agent']
+          if (agent === 1) {
+            wx.showToast({title: '请不要重复申请', icon: 'none'})
+          } else if (agent === 2) {
+            wx.navigateTo({url: '/pages/manager_review/manager_review'})
+          } else if (agent === 3) {
+            wx.navigateTo({url: '/pages/manager_result/manager_result'})
+          } else {
+            wx.navigateTo({url: '/pages/manager_register/manager_register'})
+          }
+        })
+
+      }
+    })
+  },
+
   //获取手机号
   getPhoneNumber(e) {
     let {encryptedData, iv} = e.detail

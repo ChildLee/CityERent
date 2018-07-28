@@ -10,4 +10,8 @@
     <text class="icon icon-weixin"></text>
     <text>账号登录</text>
   </button>
+  <button bindgetphonenumber="managerRegister" open-type="getPhoneNumber">
+    <text class="icon icon-manager"></text>
+    <text>成为经理人</text>
+  </button>
 </view>

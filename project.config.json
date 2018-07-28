@@ -11,7 +11,7 @@
     "newFeature": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.2.0",
+  "libVersion": "2.2.1",
   "appid": "wx3261ca1ac35e152e",
   "projectname": "CityERent",
   "isGameTourist": false,
@@ -33,7 +33,7 @@
       "list": []
     },
     "miniprogram": {
-      "current": -1,
+      "current": 15,
       "list": [
         {
           "id": -1,
@@ -103,8 +103,32 @@
         },
         {
           "id": -1,
-          "name": "canvas",
-          "pathName": "pages/canvas/canvas",
+          "name": "成为经理人",
+          "pathName": "pages/become_manager/become_manager",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "注册经理人",
+          "pathName": "pages/manager_register/manager_register",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "经理审核中",
+          "pathName": "pages/manager_review/manager_review",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "经理审核结果",
+          "pathName": "pages/manager_result/manager_result",
+          "query": ""
+        },
+        {
+          "id": -1,
+          "name": "经理注册条款",
+          "pathName": "pages/manager_terms/manager_terms",
           "query": ""
         }
       ]

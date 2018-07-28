@@ -13,8 +13,11 @@
   margin-top: 60rpx;
   padding: 0 30rpx;
   height: 90rpx;
-  line-height: 90rpx; }
+  line-height: 90rpx;
+  display: flex;
+  justify-content: space-between; }
   .login button {
+    width: 334rpx;
     background-color: #00ae66;
     color: #fff;
     font-size: 32rpx;

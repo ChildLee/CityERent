@@ -26,7 +26,10 @@
   padding: 0 rpx(30);
   height: rpx(90);
   line-height: rpx(90);
+  display: flex;
+  justify-content: space-between;
   button {
+    width: rpx(334);
     background-color: #00ae66;
     color: #fff;
     font-size: rpx(32);

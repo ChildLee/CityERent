@@ -105,8 +105,16 @@ export default {
   shopType(param) {
     return ajax.post('/Lease/shopType', param)
   },
+  //商户类型
+  factoryType(param) {
+    return ajax.post('/Lease/factoryType', param)
+  },
   //首页行情(仅深圳有显示)
   rentNumber(param) {
     return ajax.post('/Lease/rentNumber', param)
+  },
+  //申请身成为经纪人
+  agent(param) {
+    return ajax.post('/login/agent', param)
   }
 }

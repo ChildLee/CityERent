@@ -46,6 +46,18 @@ Page({
     }
   },
 
+  //出租
+  rent() {
+    const {agent} = wx.getStorageSync('userInfo')
+    if (!agent) {
+      wx.showToast({title: '请登录!', icon: 'none'})
+    } else if (agent !== 1) {
+      wx.showToast({title: '您不是经理人,无权发布!', icon: 'none'})
+    } else {
+      wx.navigateTo({url: '/pages/publish_info/publish_info'})
+    }
+  },
+
   //首页行情
   rentNumber() {
     return app.api.rentNumber()
