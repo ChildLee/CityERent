@@ -1,0 +1,24 @@
+<view class="process">
+  <view class="process-list">
+    <view class="process-item">
+      <view class="process-line"></view>
+      <view class="process-number">1</view>
+      <view class="process-name">提交证件信息</view>
+    </view>
+    <view class="process-item process-selected">
+      <view class="process-line"></view>
+      <view class="process-number">2</view>
+      <view class="process-name">信息核实中</view>
+    </view>
+    <view class="process-item">
+      <view class="process-line"></view>
+      <view class="process-number">3</view>
+      <view class="process-name">信息核实结果</view>
+    </view>
+  </view>
+</view>
+
+<view class="review">
+  <view class="icon icon-review"></view>
+  <view class="review-name">审核通过</view>
+</view>

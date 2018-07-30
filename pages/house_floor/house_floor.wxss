@@ -1,0 +1,222 @@
+.search {
+  box-sizing: border-box;
+  height: 144rpx; }
+  .search .search-bar {
+    margin: 0 30rpx;
+    background-color: #e4e4e4;
+    border-radius: 10rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    display: flex;
+    align-items: center; }
+    .search .search-bar > view:first-child {
+      flex: none; }
+      .search .search-bar > view:first-child .icon {
+        font-size: 24rpx;
+        padding: 15rpx; }
+    .search .search-bar > view:last-child {
+      flex: 1; }
+      .search .search-bar > view:last-child input {
+        font-size: 24rpx; }
+  .search .sort.fixed {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%; }
+  .search .sort-selected {
+    color: #00af66 !important; }
+    .search .sort-selected text {
+      color: #00af66 !important; }
+  .search .sort {
+    color: #333;
+    background-color: #fff; }
+    .search .sort .sort-name {
+      display: flex;
+      padding: 20rpx 0;
+      font-size: 28rpx; }
+      .search .sort .sort-name {
+        position: relative; }
+        .search .sort .sort-name:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 200%;
+          height: 200%;
+          border-bottom: 1px solid #e0e0e0;
+          box-sizing: border-box;
+          transform: scale(0.5);
+          transform-origin: 0 0;
+          pointer-events: none; }
+      .search .sort .sort-name > view {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25%; }
+        .search .sort .sort-name > view .icon {
+          color: #999;
+          font-size: 20rpx; }
+    .search .sort .sort-list .sort-more {
+      max-height: 640rpx;
+      display: flex; }
+      .search .sort .sort-list .sort-more .more-item {
+        flex: 1;
+        padding-left: 30rpx; }
+        .search .sort .sort-list .sort-more .more-item:not(:first-child) {
+          border-left: 1rpx solid #ccc; }
+        .search .sort .sort-list .sort-more .more-item view {
+          box-sizing: border-box;
+          height: 80rpx;
+          line-height: 80rpx; }
+          .search .sort .sort-list .sort-more .more-item view:not(:last-child) {
+            position: relative; }
+            .search .sort .sort-list .sort-more .more-item view:not(:last-child):after {
+              content: '';
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 200%;
+              height: 200%;
+              border-bottom: 1px solid #e0e0e0;
+              box-sizing: border-box;
+              transform: scale(0.5);
+              transform-origin: 0 0;
+              pointer-events: none; }
+    .search .sort .sort-list .sort-box {
+      max-height: 640rpx;
+      padding: 0 30rpx; }
+      .search .sort .sort-list .sort-box .price-range {
+        margin-top: 20rpx;
+        margin-bottom: 50rpx; }
+        .search .sort .sort-list .sort-box .price-range .price-range-title {
+          font-size: 28rpx;
+          line-height: 2; }
+        .search .sort .sort-list .sort-box .price-range .price-range-value {
+          display: flex;
+          justify-content: space-between;
+          align-items: center; }
+          .search .sort .sort-list .sort-box .price-range .price-range-value > input {
+            border: 1rpx solid #ccc;
+            font-size: 24rpx;
+            text-align: center;
+            width: 45%; }
+          .search .sort .sort-list .sort-box .price-range .price-range-value > view {
+            margin-top: -10rpx; }
+      .search .sort .sort-list .sort-box scroll-view {
+        max-height: 640rpx; }
+      .search .sort .sort-list .sort-box .sort-item:not(:last-child) {
+        position: relative; }
+        .search .sort .sort-list .sort-box .sort-item:not(:last-child):after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 200%;
+          height: 200%;
+          border-bottom: 1px solid #e0e0e0;
+          box-sizing: border-box;
+          transform: scale(0.5);
+          transform-origin: 0 0;
+          pointer-events: none; }
+      .search .sort .sort-list .sort-box .sort-item .sort-box-title {
+        margin: 30rpx 0; }
+      .search .sort .sort-list .sort-box .sort-item .sort-box-tag > view {
+        color: #666666;
+        text-align: center;
+        width: 150rpx;
+        height: 50rpx;
+        line-height: 50rpx;
+        font-size: 24rpx;
+        display: inline-block;
+        border-right: 10rpx;
+        background-color: #ededed;
+        margin-right: 20rpx;
+        margin-bottom: 30rpx;
+        border-radius: 5rpx; }
+      .search .sort .sort-list .sort-box .sort-item .tag-selected {
+        background-color: rgba(0, 175, 102, 0.3) !important;
+        color: #00af66 !important; }
+      .search .sort .sort-list .sort-box .sort-box-btn {
+        background-color: #fff;
+        margin: 0 -30rpx;
+        padding: 20rpx 30rpx;
+        display: flex;
+        text-align: center;
+        justify-content: space-between;
+        color: #999; }
+        .search .sort .sort-list .sort-box .sort-box-btn {
+          position: relative; }
+          .search .sort .sort-list .sort-box .sort-box-btn:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200%;
+            height: 200%;
+            border-top: 1px solid #e0e0e0;
+            box-sizing: border-box;
+            transform: scale(0.5);
+            transform-origin: 0 0;
+            pointer-events: none; }
+        .search .sort .sort-list .sort-box .sort-box-btn .btn-selected {
+          color: #333; }
+        .search .sort .sort-list .sort-box .sort-box-btn > view {
+          width: 49%;
+          font-size: 30rpx;
+          line-height: 80rpx;
+          border-radius: 5rpx; }
+          .search .sort .sort-list .sort-box .sort-box-btn > view:first-child {
+            background-color: #ededed; }
+          .search .sort .sort-list .sort-box .sort-box-btn > view:last-child {
+            background-color: #00af66;
+            color: #fff; }
+
+.pull {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+.house_list {
+  padding: 0 30rpx; }
+  .house_list .house_item {
+    padding: 30rpx 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center; }
+    .house_list .house_item:not(:last-child) {
+      position: relative; }
+      .house_list .house_item:not(:last-child):after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 200%;
+        height: 200%;
+        border-bottom: 1px solid #e0e0e0;
+        box-sizing: border-box;
+        transform: scale(0.5);
+        transform-origin: 0 0;
+        pointer-events: none; }
+    .house_list .house_item image {
+      flex: none;
+      width: 145rpx;
+      height: 145rpx;
+      border-radius: 10rpx; }
+    .house_list .house_item .house_item-info {
+      margin-left: 30rpx;
+      font-size: 32rpx;
+      line-height: 1.3; }
+      .house_list .house_item .house_item-info > view {
+        padding: 5rpx 0; }
+      .house_list .house_item .house_item-info .house_item-time {
+        font-size: 26rpx;
+        color: #999; }
+      .house_list .house_item .house_item-info .house_item-desc {
+        color: #999;
+        font-size: 26rpx; }
+      .house_list .house_item .house_item-info .house_item-price {
+        color: red; }

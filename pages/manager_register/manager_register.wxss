@@ -1,0 +1,92 @@
+.process {
+  padding: 0 30rpx;
+  font-size: 24rpx; }
+  .process .process-line {
+    border-top: 1px solid #b5b5b5; }
+  .process .process-list {
+    display: flex;
+    justify-content: space-between; }
+    .process .process-list .process-item {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center; }
+      .process .process-list .process-item .process-number {
+        position: relative;
+        z-index: 1;
+        width: 40rpx;
+        height: 40rpx;
+        line-height: 40rpx;
+        text-align: center;
+        background-color: #c5c3c3;
+        border-radius: 50%;
+        color: #ffffff; }
+      .process .process-list .process-item .process-name {
+        margin-top: 15rpx;
+        color: #333333; }
+      .process .process-list .process-item .process-line {
+        content: '';
+        position: absolute;
+        top: 18rpx;
+        width: 100%;
+        border: 1px solid #b5b5b5; }
+      .process .process-list .process-item:first-child .process-line {
+        right: 0;
+        width: 50%; }
+      .process .process-list .process-item:not(:first-child):not(:last-child) {
+        flex: 1; }
+      .process .process-list .process-item:last-child .process-line {
+        left: 0;
+        width: 50%; }
+    .process .process-list .process-selected .process-line {
+      border-color: #00ae66; }
+    .process .process-list .process-selected .process-number {
+      background-color: #00ae66;
+      color: #ffffff; }
+    .process .process-list .process-selected .process-name {
+      color: #00ae66; }
+
+.form {
+  padding: 30rpx;
+  display: flex;
+  align-items: center; }
+  .form view {
+    width: 180rpx;
+    text-align: justify;
+    text-align-last: justify; }
+  .form input {
+    border-radius: 6rpx;
+    width: 100%;
+    padding: 0 15rpx;
+    border: 1px solid #c1c1c1; }
+
+.card {
+  padding: 30rpx;
+  display: flex;
+  justify-content: space-between; }
+  .card image {
+    width: 335rpx;
+    height: 180rpx; }
+
+.agree {
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  font-size: 24rpx; }
+  .agree view:last-child {
+    color: #00ae66; }
+
+.btn-box {
+  padding: 30rpx; }
+  .btn-box .btn {
+    color: #ffffff;
+    border-radius: 6rpx;
+    text-align: center;
+    font-size: 28rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    background-color: #00ae66; }
+
+radio .wx-radio-input {
+  width: 30rpx;
+  height: 30rpx; }

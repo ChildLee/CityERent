@@ -1,0 +1,18 @@
+page {
+  background-color: #eeeeee; }
+
+image {
+  width: 100%; }
+
+.btn-box {
+  display: flex;
+  justify-content: center; }
+  .btn-box .become_manager {
+    width: 568rpx;
+    height: 82rpx;
+    line-height: 82rpx;
+    background-color: #00ae66;
+    border-radius: 82rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #ffffff; }

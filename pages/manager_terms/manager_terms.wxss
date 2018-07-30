@@ -1,0 +1,7 @@
+.terms {
+  padding: 0 30rpx;
+  font-size: 24rpx; }
+  .terms .terms-title {
+    font-size: 32rpx;
+    text-align: center;
+    font-weight: bold; }

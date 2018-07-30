@@ -1,0 +1,24 @@
+@import "../../common";
+
+page {
+  background-color: #eeeeee;
+}
+
+image {
+  width: 100%;
+}
+
+.btn-box {
+  display: flex;
+  justify-content: center;
+  .become_manager {
+    width: rpx(568);
+    height: rpx(82);
+    line-height: rpx(82);
+    background-color: #00ae66;
+    border-radius: rpx(82);
+    text-align: center;
+    font-size: rpx(28);
+    color: #ffffff;
+  }
+}

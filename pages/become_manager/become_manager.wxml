@@ -1,0 +1,7 @@
+<!--pages/become_manager/become_manager.wxml-->
+
+<image src="/image/manager-bg.png" mode="widthFix"></image>
+
+<view class="btn-box">
+  <view class="become_manager" bindtap="become">立即成为经理人</view>
+</view>

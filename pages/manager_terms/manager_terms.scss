@@ -1,0 +1,11 @@
+@import "../../common";
+
+.terms {
+  padding: 0 rpx(30);
+  font-size: rpx(24);
+  .terms-title {
+    font-size: rpx(32);
+    text-align: center;
+    font-weight: bold;
+  }
+}
