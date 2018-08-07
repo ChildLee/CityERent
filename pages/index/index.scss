@@ -18,7 +18,7 @@ page {
   .header-box {
     box-sizing: border-box;
     position: absolute;
-    top: rpx(30);
+    top: rpx(35);
     left: 5%;
     display: flex;
     align-items: center;
@@ -29,6 +29,7 @@ page {
     border-radius: rpx(8);
     font-size: rpx(22);
     background-color: #fff;
+    box-shadow: 0 0 rpx(15) #ddd;
     .header-box-nav {
       flex: none;
       display: flex;
