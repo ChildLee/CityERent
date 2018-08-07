@@ -22,7 +22,7 @@
   </view>
   <view class="nav-list">
     <navigator url="/pages/house_floor/house_floor?type=1" hover-class="none" class="nav-item">
-      <image src="/image/nav1.png"></image>
+      <image src="/image/nav3.png"></image>
       <text>写字楼</text>
     </navigator>
     <navigator url="/pages/house_shop/house_shop?type=2" hover-class="none" class="nav-item">
@@ -30,7 +30,7 @@
       <text>商铺</text>
     </navigator>
     <navigator url="/pages/house_factory/house_factory?type=3" hover-class="none" class="nav-item">
-      <image src="/image/nav3.png"></image>
+      <image src="/image/nav1.png"></image>
       <text>工业厂房</text>
     </navigator>
     <navigator url="/pages/house_live/house_live?type=4" hover-class="none" class="nav-item">

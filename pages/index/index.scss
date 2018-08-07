@@ -17,17 +17,18 @@ page {
 
   .header-box {
     box-sizing: border-box;
-    background-color: #fff;
-    border-radius: rpx(8);
     position: absolute;
     top: rpx(30);
-    left: 10%;
-    width: 80%;
+    left: 5%;
     display: flex;
     align-items: center;
+    width: 90%;
+    height: rpx(78.125);
     padding: rpx(12) rpx(30);
     line-height: rpx(30);
-    font-size: rpx(30);
+    border-radius: rpx(8);
+    font-size: rpx(22);
+    background-color: #fff;
     .header-box-nav {
       flex: none;
       display: flex;
@@ -36,10 +37,9 @@ page {
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
-      font-size: rpx(26);
+      font-size: rpx(22);
       .icon {
-        font-size: rpx(20);
-        padding-top: rpx(2);
+        font-size: rpx(22);
         color: #999;
       }
     }
@@ -58,12 +58,12 @@ page {
         flex: none;
       }
       .icon {
-        font-size: rpx(24);
+        font-size: rpx(22);
       }
       input {
         flex: 1;
         margin-left: rpx(10);
-        font-size: rpx(24);
+        font-size: rpx(22);
       }
     }
   }
