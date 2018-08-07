@@ -116,5 +116,9 @@ export default {
   //申请身成为经纪人
   agent(param) {
     return ajax.post('/login/agent', param)
+  },
+  //方式
+  whole(param) {
+    return ajax.post('/Lease/whole', param)
   }
 }

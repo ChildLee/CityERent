@@ -39,7 +39,7 @@
     </navigator>
     <view class="nav-item" bindtap="rent">
       <image src="/image/nav5.png"></image>
-      <text>出租</text>
+      <text>发布房源</text>
     </view>
   </view>
 

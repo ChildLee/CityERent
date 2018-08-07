@@ -20,9 +20,10 @@
           <text class="icon icon-downArrow"></text>
         </view>
         <view data-index="3" bindtap="bindSort" class="{{sortIndex===3?'sort-selected':''}}">
-          <text>面积</text>
+          <text>方式</text>
           <text class="icon icon-downArrow"></text>
         </view>
+
         <view data-index="4" bindtap="bindSort" class="{{sortIndex===4?'sort-selected':''}}">
           <text>更多</text>
           <text class="icon icon-downArrow"></text>

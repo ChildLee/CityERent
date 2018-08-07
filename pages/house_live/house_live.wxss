@@ -220,3 +220,8 @@
         font-size: 26rpx; }
       .house_list .house_item .house_item-info .house_item-price {
         color: red; }
+
+.shared-rent {
+  padding: 20rpx 0; }
+  .shared-rent:not(:last-child) {
+    border-bottom: 1px solid #ddd; }

@@ -54,7 +54,7 @@ Page({
       this.getSubway(),
       this.other(),
       this.rent(),
-      this.maxAacreage()
+      this.whole()
     ]).then(() => {
       this.setData({
         type: options.type,
@@ -62,7 +62,6 @@ Page({
       })
       wx.hideLoading()
     })
-
   },
 
   //获取(厂房/商铺/写字楼/住宅)列表
@@ -225,15 +224,6 @@ Page({
     // })
   },
 
-  //面积
-  acreage() {
-    return app.api.acreage().then(res => {
-      this.setData({
-        acreageList: res.data.list
-      })
-    })
-  },
-
   //面积选中
   acreageSelected(e) {
     let {index, data} = e.currentTarget.dataset
@@ -256,9 +246,12 @@ Page({
     // })
   },
 
+
   //更多
   other() {
     return app.api.other().then(res => {
+      delete res.data[0]
+      delete res.data[1]
       this.setData({
         otherList: res.data
       })
@@ -274,9 +267,9 @@ Page({
     })
   },
 
-  //写字楼/厂房面积
-  maxAacreage() {
-    return app.api.maxAacreage().then(res => {
+  //方式
+  whole() {
+    return app.api.whole().then(res => {
       this.setData({
         acreageList: res.data.list
       })

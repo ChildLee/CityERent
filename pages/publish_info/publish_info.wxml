@@ -7,11 +7,11 @@
       <radio-group bindchange="moreChange">
         <label>
           <radio checked value="1"></radio>
-          <text>小区</text>
+          <text>添加小区</text>
         </label>
         <label>
           <radio value="2"></radio>
-          <text>住宅</text>
+          <text>发布房源</text>
         </label>
       </radio-group>
     </view>
