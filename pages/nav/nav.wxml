@@ -10,7 +10,7 @@
 <view class="nav">
   <view class="nav-title">{{area[0].sort}}</view>
   <view class="nav-all">
-    <block wx:for="{{areas[0].list}}" wx:key="{{index}}">
+    <block wx:for="{{city[0].list}}" wx:key="{{index}}">
       <view bindtap="switchNav" data-id="{{item.ID}}" data-name="{{item.Name}}">{{item.Name}}</view>
     </block>
   </view>
@@ -18,7 +18,7 @@
 
 <view class="nav-all-title">全部城市（按首字母顺序）</view>
 
-<block wx:for="{{areas}}" wx:for-item="i" wx:if="{{index>0}}" wx:key="{{index}}">
+<block wx:for="{{city}}" wx:for-item="i" wx:if="{{index>0}}" wx:key="{{index}}">
   <view class="nav">
     <view class="nav-title">{{i.sort}}</view>
     <view class="nav-all">

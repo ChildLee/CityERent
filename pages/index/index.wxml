@@ -31,7 +31,7 @@
     </navigator>
     <navigator url="/pages/house_factory/house_factory?type=3" hover-class="none" class="nav-item">
       <image src="/image/nav1.png"></image>
-      <text>工业厂房</text>
+      <text>厂房</text>
     </navigator>
     <navigator url="/pages/house_live/house_live?type=4" hover-class="none" class="nav-item">
       <image src="/image/nav4.png"></image>
