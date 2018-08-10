@@ -29,6 +29,11 @@
   <image src="{{cardBack?cardBack:'/image/card1.png'}}" bindtap="cardBack"></image>
 </view>
 
+<view class="card">
+  <image src="{{handheld?handheld:'/image/card3.png'}}" bindtap="handheld"></image>
+  <image src="/image/card0.png" bindtap=""></image>
+</view>
+
 <view class="agree">
   <radio-group bindchange="agree">
     <radio value="true" color="#00ae66"></radio>

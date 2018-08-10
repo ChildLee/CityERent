@@ -44,6 +44,19 @@ Page({
     })
   },
 
+  handheld() {
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['compressed'],
+      sourceType: ['album', 'camera'],
+      success: (res) => {
+        this.setData({
+          handheld: res['tempFilePaths'][0]
+        })
+      }
+    })
+  },
+
   agree(e) {
     this.data.agree = Boolean(e.detail.value)
   },
@@ -64,12 +77,14 @@ Page({
     }
     Promise.all([
       this.uploadImg(this.data.cardFront),
-      this.uploadImg(this.data.cardBack)
+      this.uploadImg(this.data.cardBack),
+      this.uploadImg(this.data.handheld)
     ]).then(res => {
       return app.api.agent({
         id: app.data.id,
         card_side: JSON.parse(res[0].data).list.file,
         card_back: JSON.parse(res[1].data).list.file,
+        handheld: JSON.parse(res[2].data).list.file,
         name: this.data.name
       })
     }).then(res => {
