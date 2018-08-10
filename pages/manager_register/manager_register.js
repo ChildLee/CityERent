@@ -67,7 +67,7 @@ Page({
       wx.showToast({title: '请输入姓名', icon: 'none'})
       return
     }
-    if (!this.data.cardFront || !this.data.cardBack) {
+    if (!this.data.cardFront || !this.data.cardBack || !this.data.handheld) {
       wx.showToast({title: '请上传身份证照片', icon: 'none'})
       return
     }
@@ -107,6 +107,13 @@ Page({
           resolve(res)
         }
       })
+    })
+  },
+
+  preview() {
+    wx.previewImage({
+      current: 'https://project.xiaozhanxiang.com/upload/admin/static/2018/06/andheld.png',
+      urls: ['https://project.xiaozhanxiang.com/upload/admin/static/2018/06/andheld.png']
     })
   }
 })

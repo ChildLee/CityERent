@@ -31,7 +31,7 @@
 
 <view class="card">
   <image src="{{handheld?handheld:'/image/card3.png'}}" bindtap="handheld"></image>
-  <image src="/image/card0.png" bindtap=""></image>
+  <image src="/image/card0.png" bindtap="preview"></image>
 </view>
 
 <view class="agree">
