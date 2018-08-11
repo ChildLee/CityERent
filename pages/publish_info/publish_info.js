@@ -3,6 +3,11 @@ const app = getApp()
 
 Page({
   data: {
+    /********************event********************/
+    type: {
+      index: 0,
+      list: ['写字楼', '商铺', '工业厂房', '住宅']
+    },
     showCanvas: false,
     //房屋类型
     houseType: {
@@ -13,11 +18,6 @@ Page({
     payWay: {
       index: 0,
       list: ['请选择', '押一付一', '押一付三', '半年付', '年付']
-    },
-    //付款方式
-    type: {
-      index: 0,
-      list: ['请选择', '写字楼', '商铺', '工业厂房', '住宅']
     },
     //房屋装修
     houseDecoration: {
@@ -136,19 +136,23 @@ Page({
     this.getProvince()
   },
 
+  /********************event********************/
+
+  // 类型值改变事件
+  bindType(e) {
+    this.data.type.index = Number(e.detail.value)
+    this.setData({
+      type: this.data.type
+    })
+  },
+
+
   //初始化省
   getProvince() {
     return app.api.province().then(res => {
       this.setData({
         'address.list[0]': this.data.address.list[0].concat(res.list)
       })
-    })
-  },
-
-  //类型值改变事件
-  bindType(e) {
-    this.setData({
-      'type.index': e.detail.value
     })
   },
 
@@ -166,10 +170,6 @@ Page({
     })
   },
 
-  //获取地址
-  // getAddress(e) {
-  //
-  // },
   cancelAddressIndex() {
     this.setData({
       'address.index': [0, 0, 0]
@@ -344,33 +344,33 @@ Page({
     let site = this.data.metroLine[metroLine].subway_name
     site = site === '无' ? '' : site
 
-    if (areas === -1) {
-      return wx.showToast({title: '请选择地点', icon: 'none'})
-    }
-    if (!property) {
-      return wx.showToast({title: '请填写物业', icon: 'none'})
-    }
-    if (!cost) {
-      return wx.showToast({title: '请填写物业费', icon: 'none'})
-    }
-    if (!car) {
-      return wx.showToast({title: '请填写车位', icon: 'none'})
-    }
-    if (!elevator) {
-      return wx.showToast({title: '请选择电梯房', icon: 'none'})
-    }
-    if (!content) {
-      return wx.showToast({title: '请填写小区介绍', icon: 'none'})
-    }
-    if (!specific) {
-      return wx.showToast({title: '请填写详细地址', icon: 'none'})
-    }
-    if (!this.data.orientation.length) {
-      return wx.showToast({title: '请选择经纬度', icon: 'none'})
-    }
-    if (!this.data.communityMainImg) {
-      return wx.showToast({title: '请上传小区主图', icon: 'none'})
-    }
+    // if (areas === -1) {
+    //   return wx.showToast({title: '请选择地点', icon: 'none'})
+    // }
+    // if (!property) {
+    //   return wx.showToast({title: '请填写物业', icon: 'none'})
+    // }
+    // if (!cost) {
+    //   return wx.showToast({title: '请填写物业费', icon: 'none'})
+    // }
+    // if (!car) {
+    //   return wx.showToast({title: '请填写车位', icon: 'none'})
+    // }
+    // if (!elevator) {
+    //   return wx.showToast({title: '请选择电梯房', icon: 'none'})
+    // }
+    // if (!content) {
+    //   return wx.showToast({title: '请填写小区介绍', icon: 'none'})
+    // }
+    // if (!specific) {
+    //   return wx.showToast({title: '请填写详细地址', icon: 'none'})
+    // }
+    // if (!this.data.orientation.length) {
+    //   return wx.showToast({title: '请选择经纬度', icon: 'none'})
+    // }
+    // if (!this.data.communityMainImg) {
+    //   return wx.showToast({title: '请上传小区主图', icon: 'none'})
+    // }
 
     let param = {
       //小区标题
@@ -400,6 +400,7 @@ Page({
     }
 
     app.api.addCommunity(param).then(res => {
+      console.log(res)
       if (res.code === 100) {
         return wx.showToast({title: res.msg, icon: 'none'})
       }
@@ -427,9 +428,8 @@ Page({
           })
         }
       }
-    }).then(res => {
       wx.navigateBack({})
-      wx.showToast({title: '小区添加成功', icon: 'none'})
+      wx.showToast({title: res['msg'], icon: 'none'})
     })
   },
 
@@ -459,10 +459,10 @@ Page({
     })
   },
 
-  //住宅提交
+  //发布房源
   formHouseSubmit(e) {
-
-    let {location, metroLine, sex, scale, houseStyle, community_index, type, title, specific, area, rent, toward, floor, house_age, decorate, phone, membername, way, circle} = e.detail.value
+    console.log(e)
+    let {location, metroLine, sex, scale, houseStyle, community_index, title, specific, area, rent, toward, floor, house_age, decorate, phone, membername, way, circle} = e.detail.value
     //location地点
     let province = this.data.address.list[0][location[0]].ID
     let city = this.data.address.list[1][location[1]].ID
@@ -492,20 +492,11 @@ Page({
     if (!house_age) {
       return wx.showToast({title: '请添加楼龄', icon: 'none'})
     }
-    if (!toward) {
-      return wx.showToast({title: '请添加朝向', icon: 'none'})
-    }
-    if (!floor) {
-      return wx.showToast({title: '请添加楼层', icon: 'none'})
-    }
     if (!way) {
       return wx.showToast({title: '请选择付款方式', icon: 'none'})
     }
     if (!circle) {
       return wx.showToast({title: '请添加商圈名称', icon: 'none'})
-    }
-    if (!type) {
-      return wx.showToast({title: '请选择类型', icon: 'none'})
     }
     if (areas === -1) {
       return wx.showToast({title: '请选择地点', icon: 'none'})
@@ -522,6 +513,7 @@ Page({
     if (!this.data.orientation.length) {
       return wx.showToast({title: '请选择经纬度', icon: 'none'})
     }
+
     let param = {
       room, hall, toilet, scale, sex,
       province, city, areas, site,
@@ -548,7 +540,7 @@ Page({
       //联系人
       membername,
       //类型
-      type,
+      type: this.data.type.list[this.data.type.index],
       //付款方式
       way,
       //商圈名称
@@ -556,10 +548,14 @@ Page({
     }
 
     app.api.addLease(param).then(res => {
-      if (res.code === 100) {
-        return wx.showToast({title: res.msg, icon: 'none'})
+      if (res.code !== 200) {
+        return wx.showToast({title: res['msg'], icon: 'none'})
       }
       if (res.code === 200) {
+        wx.navigateBack({})
+        wx.showToast({title: res['msg'], icon: 'none'})
+
+
         wx.uploadFile({
           url: app.data.uploadImg,
           filePath: this.data.HouseMainImg,
@@ -568,6 +564,7 @@ Page({
             id: res.data.lease_id
           },
           success: res => {
+
           }
         })
         wx.uploadFile({
@@ -593,11 +590,8 @@ Page({
           })
         }
       }
-    }).then(res => {
-      wx.navigateBack({})
-      wx.showToast({title: '小区添加成功', icon: 'none'})
-    })
 
+    })
   },
 
   //房屋主图
@@ -635,6 +629,20 @@ Page({
           HouseTwoImg: this.data.HouseTwoImg.concat(res['tempFilePaths'][0])
         })
       }
+    })
+  },
+
+  //上传图片
+  uploadImg(path) {
+    return new Promise((resolve, reject) => {
+      wx.uploadFile({
+        url: 'https://project.xiaozhanxiang.com/wechar/login/uploadImg',
+        filePath: path,
+        name: 'file',
+        success: (res) => {
+          resolve(res)
+        }
+      })
     })
   }
 })

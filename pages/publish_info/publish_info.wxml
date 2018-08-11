@@ -1,6 +1,5 @@
-<!-- pages/publish_info/publish_info.wxml -->
-
 <view class="publish_box">
+  <!--发布类型-->
   <view class="publish_cell">
     <view class="publish-name">发布类型</view>
     <view class="publish-value">
@@ -16,7 +15,8 @@
       </radio-group>
     </view>
   </view>
-  <!--写字楼-->
+
+  <!--添加小区-->
   <block wx:if="{{more}}">
     <form bindsubmit="formSubmit" bindreset="formReset">
       <view class="publish_cell">
@@ -175,10 +175,45 @@
 
   <block wx:else>
     <form bindsubmit="formHouseSubmit" bindreset="formReset">
+
+      <view class="publish_cell">
+        <view class="publish-name">类型</view>
+        <view class="publish-value">
+          <picker range="{{type.list}}" bindchange="bindType">
+            {{type.list[type.index]}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
       <view class="publish_cell">
         <view class="publish-name">房屋标题</view>
         <view class="publish-value">
           <input name="title" placeholder="请输入房屋标题"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">房屋装修</view>
+        <view class="publish-value">
+          <picker name="Decorate" bindchange="bindHouseDecoration" value="{{houseDecoration.index}}"
+                  range="{{houseDecoration.list}}">
+            {{houseDecoration.list[houseDecoration.index]}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">付款方式</view>
+        <view class="publish-value">
+          <picker name="way" bindchange="bindPayWay" value="{{payWay.index}}" range="{{payWay.list}}">
+            {{payWay.list[payWay.index]}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">房屋租金(月)</view>
+        <view class="publish-value">
+          <input name="rent" type="digit" placeholder="请输入房屋租金"/>
         </view>
       </view>
       <view class="publish_cell">
@@ -200,44 +235,17 @@
         </view>
       </view>
       <view class="publish_cell">
-        <view class="publish-name">商圈名称</view>
-        <view class="publish-value">
-          <input name="circle" type="digit" placeholder="请输入房屋楼龄"/>
-        </view>
-      </view>
-      <view class="publish_cell">
-        <view class="publish-name">房屋租金(月)</view>
-        <view class="publish-value">
-          <input name="rent" type="digit" placeholder="请输入房屋租金"/>
-        </view>
-      </view>
-      <view class="publish_cell">
-        <view class="publish-name">类型</view>
-        <view class="publish-value">
-          <picker name="type" bindchange="bindType" value="{{type.index}}" range="{{type.list}}">
-            {{type.list[type.index]}}
-          </picker>
-          <text class="icon icon-downArrow"></text>
-        </view>
-      </view>
-      <view class="publish_cell">
-        <view class="publish-name">付款方式</view>
-        <view class="publish-value">
-          <picker name="way" bindchange="bindPayWay" value="{{payWay.index}}" range="{{payWay.list}}">
-            {{payWay.list[payWay.index]}}
-          </picker>
-          <text class="icon icon-downArrow"></text>
-        </view>
-      </view>
-      <view class="publish_cell">
-        <view class="publish-name">房屋装修</view>
-        <view class="publish-value">
-          <picker name="Decorate" bindchange="bindHouseDecoration" value="{{houseDecoration.index}}"
-                  range="{{houseDecoration.list}}">
-            {{houseDecoration.list[houseDecoration.index]}}
-          </picker>
-          <text class="icon icon-downArrow"></text>
-        </view>
+        <view class="publish-name">经纬度</view>
+        <block wx:if="{{!orientation.length}}">
+          <view class="publish-value" bindtap="latitudeAndLongitude">
+            打开地图选点
+          </view>
+        </block>
+        <block wx:else>
+          <view class="publish-value">
+            {{orientation[0]}},{{orientation[1]}}
+          </view>
+        </block>
       </view>
       <view class="publish_cell">
         <view class="publish-name">具体位置</view>
@@ -257,19 +265,6 @@
         <view class="publish-value">
           <input name="specific" placeholder="请输入详细地址"/>
         </view>
-      </view>
-      <view class="publish_cell">
-        <view class="publish-name">经纬度</view>
-        <block wx:if="{{!orientation.length}}">
-          <view class="publish-value" bindtap="latitudeAndLongitude">
-            打开地图选点
-          </view>
-        </block>
-        <block wx:else>
-          <view class="publish-value">
-            {{orientation[0]}},{{orientation[1]}}
-          </view>
-        </block>
       </view>
       <view class="publish_cell">
         <view class="publish-name">地铁线</view>
@@ -294,64 +289,114 @@
         </view>
       </view>
       <view class="publish_cell">
-        <view class="publish-name">房屋朝向</view>
+        <view class="publish-name">商圈名称</view>
         <view class="publish-value">
-          <picker name="toward" bindchange="bindHouseOrientation" value="{{houseOrientation.index}}"
-                  range="{{houseOrientation.list}}">
-            {{houseOrientation.list[houseOrientation.index]}}
-          </picker>
-          <text class="icon icon-downArrow"></text>
+          <input name="circle" type="digit" placeholder="请输入房屋楼龄"/>
         </view>
       </view>
-      <view class="publish_cell">
-        <view class="publish-name">房屋户型</view>
-        <view class="publish-value">
-          <picker name="houseStyle" mode="multiSelector" bindchange="bindHouseStyleIndex"
-                  bindcolumnchange="bindHouseStyleValue"
-                  value="{{houseStyle.index}}" range="{{houseStyle.list}}" range-key="name">
-            {{houseStyle.list[0][houseStyle.index[0]].name}},{{houseStyle.list[1][houseStyle.index[1]].name}},{{houseStyle.list[2][houseStyle.index[2]].name}}
-          </picker>
-          <text class="icon icon-downArrow"></text>
-        </view>
+
+      <!--发布写字楼-->
+      <view hidden="{{type.index===0?false:true}}">
+
       </view>
-      <view class="publish_cell">
-        <view class="publish-name">方式</view>
-        <view class="publish-value">
-          <radio-group name="scale">
-            <label>
-              <radio value="0"></radio>
-              <text>不限</text>
-            </label>
-            <label>
-              <radio value="1"></radio>
-              <text>整租</text>
-            </label>
-            <label>
-              <radio value="2"></radio>
-              <text>合租</text>
-            </label>
-          </radio-group>
+
+      <!--发布商城-->
+      <view hidden="{{type.index===1?false:true}}">
+
+        <view class="publish_cell">
+          <view class="publish-name">房屋朝向</view>
+          <view class="publish-value">
+            <picker name="toward" bindchange="bindHouseOrientation" value="{{houseOrientation.index}}"
+                    range="{{houseOrientation.list}}">
+              {{houseOrientation.list[houseOrientation.index]}}
+            </picker>
+            <text class="icon icon-downArrow"></text>
+          </view>
         </view>
+
       </view>
-      <view class="publish_cell">
-        <view class="publish-name">限制性别</view>
-        <view class="publish-value">
-          <radio-group name="sex">
-            <label>
-              <radio value="0"></radio>
-              <text>不限</text>
-            </label>
-            <label>
-              <radio value="1"></radio>
-              <text>男生</text>
-            </label>
-            <label>
-              <radio value="2"></radio>
-              <text>女生</text>
-            </label>
-          </radio-group>
+
+      <!--发布厂房-->
+      <view hidden="{{type.index===2?false:true}}">
+
+        <view class="publish_cell">
+          <view class="publish-name">房屋朝向</view>
+          <view class="publish-value">
+            <picker name="toward" bindchange="bindHouseOrientation" value="{{houseOrientation.index}}"
+                    range="{{houseOrientation.list}}">
+              {{houseOrientation.list[houseOrientation.index]}}
+            </picker>
+            <text class="icon icon-downArrow"></text>
+          </view>
         </view>
+
       </view>
+
+      <!--发布住宅-->
+      <view hidden="{{type.index===3?false:true}}">
+
+        <view class="publish_cell">
+          <view class="publish-name">房屋朝向</view>
+          <view class="publish-value">
+            <picker name="toward" bindchange="bindHouseOrientation" value="{{houseOrientation.index}}"
+                    range="{{houseOrientation.list}}">
+              {{houseOrientation.list[houseOrientation.index]}}
+            </picker>
+            <text class="icon icon-downArrow"></text>
+          </view>
+        </view>
+        <view class="publish_cell">
+          <view class="publish-name">房屋户型</view>
+          <view class="publish-value">
+            <picker name="houseStyle" mode="multiSelector" bindchange="bindHouseStyleIndex"
+                    bindcolumnchange="bindHouseStyleValue"
+                    value="{{houseStyle.index}}" range="{{houseStyle.list}}" range-key="name">
+              {{houseStyle.list[0][houseStyle.index[0]].name}},{{houseStyle.list[1][houseStyle.index[1]].name}},{{houseStyle.list[2][houseStyle.index[2]].name}}
+            </picker>
+            <text class="icon icon-downArrow"></text>
+          </view>
+        </view>
+        <view class="publish_cell">
+          <view class="publish-name">方式</view>
+          <view class="publish-value">
+            <radio-group name="scale">
+              <label>
+                <radio value="0"></radio>
+                <text>不限</text>
+              </label>
+              <label>
+                <radio value="1"></radio>
+                <text>整租</text>
+              </label>
+              <label>
+                <radio value="2"></radio>
+                <text>合租</text>
+              </label>
+            </radio-group>
+          </view>
+        </view>
+        <view class="publish_cell">
+          <view class="publish-name">限制性别</view>
+          <view class="publish-value">
+            <radio-group name="sex">
+              <label>
+                <radio value="0"></radio>
+                <text>不限</text>
+              </label>
+              <label>
+                <radio value="1"></radio>
+                <text>男生</text>
+              </label>
+              <label>
+                <radio value="2"></radio>
+                <text>女生</text>
+              </label>
+            </radio-group>
+          </view>
+        </view>
+
+      </view>
+
       <view class="publish_cell">
         <view class="publish-name">联系人</view>
         <view class="publish-value">
@@ -415,13 +460,11 @@
           </block>
         </view>
       </view>
+
       <view class="publish_btn">
         <view>
           <button formType="submit">确认</button>
         </view>
-        <!--<view>-->
-        <!--<button formType="reset">重置</button>-->
-        <!--</view>-->
       </view>
     </form>
   </block>
