@@ -5,8 +5,8 @@
     <view class="publish-name">发布类型</view>
     <view class="publish-value">
       <radio-group bindchange="moreChange">
-        <radio value="1" data-index="{{1}}">添加小区</radio>
         <radio checked value="2">发布房源</radio>
+        <radio value="1" data-index="{{1}}">添加小区</radio>
       </radio-group>
     </view>
   </view>
@@ -274,7 +274,7 @@
       <view class="publish_cell">
         <view class="publish-name">联系人</view>
         <view class="publish-value">
-          <input data-name="membername" type="number" placeholder="请输入联系电话" bindinput="getInput"/>
+          <input data-name="membername" type="number" placeholder="请输入联系人" bindinput="getInput"/>
         </view>
       </view>
       <view class="publish_cell">
@@ -484,13 +484,13 @@
       <view class="publish_cell">
         <view class="publish-name">商圈名称</view>
         <view class="publish-value">
-          <input data-name="circle" type="digit" placeholder="请输入房屋楼龄" bindinput="getInput"/>
+          <input data-name="circle" type="digit" placeholder="请输入商圈名称" bindinput="getInput"/>
         </view>
       </view>
       <view class="publish_cell">
         <view class="publish-name">联系人</view>
         <view class="publish-value">
-          <input data-name="membername" type="number" placeholder="请输入联系电话" bindinput="getInput"/>
+          <input data-name="membername" type="number" placeholder="请输入联系人" bindinput="getInput"/>
         </view>
       </view>
       <view class="publish_cell">
@@ -700,7 +700,7 @@
       <view class="publish_cell">
         <view class="publish-name">联系人</view>
         <view class="publish-value">
-          <input data-name="membername" type="number" placeholder="请输入联系电话" bindinput="getInput"/>
+          <input data-name="membername" type="number" placeholder="请输入联系人" bindinput="getInput"/>
         </view>
       </view>
       <view class="publish_cell">
@@ -942,13 +942,13 @@
       <view class="publish_cell">
         <view class="publish-name">商圈名称</view>
         <view class="publish-value">
-          <input data-name="circle" type="digit" placeholder="请输入房屋楼龄" bindinput="getInput"/>
+          <input data-name="circle" type="digit" placeholder="请输入商圈名称" bindinput="getInput"/>
         </view>
       </view>
       <view class="publish_cell">
         <view class="publish-name">联系人</view>
         <view class="publish-value">
-          <input data-name="membername" type="number" placeholder="请输入联系电话" bindinput="getInput"/>
+          <input data-name="membername" type="number" placeholder="请输入联系人" bindinput="getInput"/>
         </view>
       </view>
       <view class="publish_cell">
