@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/building_info/building_info",
-    "pages/publish_info/publish_info",
     "pages/my/my",
     "pages/login/login",
     "pages/nav/nav",
@@ -19,7 +18,8 @@
     "pages/house_factory/house_factory",
     "pages/house_floor/house_floor",
     "pages/house_live/house_live",
-    "pages/house_shop/house_shop"
+    "pages/house_shop/house_shop",
+    "pages/addHouse/addHouse"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -120,5 +120,9 @@ export default {
   //方式
   whole(param) {
     return ajax.post('/Lease/whole', param)
+  },
+  //小区搜索
+  search(param) {
+    return ajax.post('/Community/search', param)
   }
 }

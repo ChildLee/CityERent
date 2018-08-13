@@ -113,16 +113,30 @@ switch {
           margin-right: 10rpx;
           width: 140rpx;
           height: 130rpx; }
+    .publish_box .publish_cell .publish-search {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100rpx;
+      height: 100%;
+      padding: 10rpx;
+      margin-left: 15rpx;
+      border-radius: 10rpx;
+      color: #ffffff;
+      background-color: #ff5600; }
 
 .publish_btn {
   display: flex;
   justify-content: center;
   align-items: center; }
-  .publish_btn button {
+  .publish_btn .btn {
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 160rpx;
     height: 80rpx;
-    line-height: 80rpx;
+    margin-bottom: 20rpx;
+    border-radius: 10rpx;
     background-color: #ff5600;
-    color: #fff;
-    margin: 20rpx; }
+    color: #fff; }

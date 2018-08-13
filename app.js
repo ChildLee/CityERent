@@ -10,7 +10,8 @@ App({
   data: {
     //全局图片路径
     img: 'https://project.xiaozhanxiang.com/upload/',
-    uploadImg: 'https://project.xiaozhanxiang.com/wechar/Community/uploadImag',
+    //图片上传路径
+    uploadImg: 'https://project.xiaozhanxiang.com/wechar/login/uploadImg',
     //首页添加的城市名称
     currentCity: '深圳市',
     //登陆页面添加的id

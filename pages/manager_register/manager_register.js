@@ -100,7 +100,7 @@ Page({
   uploadImg(path) {
     return new Promise((resolve, reject) => {
       wx.uploadFile({
-        url: 'https://project.xiaozhanxiang.com/wechar/login/uploadImg',
+        url: app.data.uploadImg,
         filePath: path,
         name: 'file',
         success: (res) => {

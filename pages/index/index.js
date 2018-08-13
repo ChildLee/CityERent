@@ -48,7 +48,7 @@ Page({
 
   //出租
   rent() {
-    wx.navigateTo({url: '/pages/publish_info/publish_info'})
+    wx.navigateTo({url: '/pages/addHouse/addHouse'})
     // const {agent} = wx.getStorageSync('userInfo')
     // if (agent === undefined) {
     //   wx.showToast({title: '请登录!', icon: 'none'})

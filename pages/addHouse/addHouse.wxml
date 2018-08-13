@@ -1,0 +1,1029 @@
+<view class="publish_box">
+
+  <!--发布类型-->
+  <view class="publish_cell">
+    <view class="publish-name">发布类型</view>
+    <view class="publish-value">
+      <radio-group bindchange="moreChange">
+        <radio value="1" data-index="{{1}}">添加小区</radio>
+        <radio checked value="2">发布房源</radio>
+      </radio-group>
+    </view>
+  </view>
+
+  <!--发布小区-->
+  <block wx:if="{{releaseType===1}}">
+
+    <view class="publish_cell">
+      <view class="publish-name">小区标题</view>
+      <view class="publish-value">
+        <input placeholder="请输入小区标题" data-name="community_name" bindinput="getInput"/>
+      </view>
+    </view>
+    <view class="publish_cell">
+      <view class="publish-name">物业</view>
+      <view class="publish-value">
+        <input placeholder="请输入小区物业" data-name="property" bindinput="getInput"/>
+      </view>
+    </view>
+    <view class="publish_cell">
+      <view class="publish-name">物业费</view>
+      <view class="publish-value">
+        <input placeholder="请输入小区物业费" data-name="cost" bindinput="getInput"/>
+      </view>
+    </view>
+    <view class="publish_cell">
+      <view class="publish-name">车位</view>
+      <view class="publish-value">
+        <input placeholder="请输入小区车位" data-name="car" bindinput="getInput"/>
+      </view>
+    </view>
+    <view class="publish_cell">
+      <view class="publish-name">电梯房</view>
+      <view class="publish-value">
+        <radio-group bindchange="elevatorChange">
+          <radio value="1">是</radio>
+          <radio value="0">否</radio>
+        </radio-group>
+      </view>
+    </view>
+    <view class="publish_cell">
+      <view class="publish-name">地点</view>
+      <view class="publish-value">
+        <picker mode="multiSelector" value="{{cityIndex}}" range-key="Name" range="{{citys}}"
+                bindcolumnchange="cityColumnChange"
+                bindchange="cityChange" bindcancel="cityCancel">
+          {{citys[0][cityIndex[0]].Name}},{{citys[1][cityIndex[1]].Name}},{{citys[2][cityIndex[2]].Name}}
+        </picker>
+        <text class="icon icon-downArrow"></text>
+      </view>
+    </view>
+    <view class="publish_cell">
+      <view class="publish-name">详细地址</view>
+      <view class="publish-value">
+        <input placeholder="请输入详细地址" data-name="specific" bindinput="getInput"/>
+      </view>
+    </view>
+    <view class="publish_cell">
+      <view class="publish-name">经纬度</view>
+      <block wx:if="{{!orientation}}">
+        <view class="publish-value" bindtap="selectLatitudeLongitude">
+          打开地图选点
+        </view>
+      </block>
+      <block wx:else>
+        <view class="publish-value">
+          {{orientation[0]}},{{orientation[1]}}
+        </view>
+      </block>
+    </view>
+    <view class="publish_cell">
+      <view class="publish-name">地铁线</view>
+      <view class="publish-value">
+        <picker value="{{subwayIndex}}" range-key="subway_name" range="{{subwayList}}" bindchange="subwayChange"
+                bindcancel="subwayCancel">
+          {{subwayList[subwayIndex].subway_name}}
+        </picker>
+        <text class="icon icon-downArrow"></text>
+      </view>
+    </view>
+    <view class="publish_cell">
+      <view class="publish-name">小区介绍</view>
+      <view class="publish-value">
+        <textarea maxlength="-1" data-name="content" bindinput="getInput"></textarea>
+      </view>
+    </view>
+    <!--小区图-->
+    <view class="publish_cell">
+      <view class="publish-name">小区主图</view>
+      <view class="publish-value">
+        <block wx:if="{{!community_image}}">
+          <view class="mainPhoto" bindtap="community_image">
+            <image src="/image/photo.png"></image>
+            <text class="photoDesc">上传照片(单张)</text>
+          </view>
+        </block>
+        <block wx:else>
+          <image src="{{img+community_image}}"></image>
+        </block>
+      </view>
+    </view>
+    <view class="publish_cell">
+      <view class="publish-name">小区附图</view>
+      <view class="publish-value">
+        <block wx:for="{{community_vice}}" wx:key="{{index}}">
+          <image src="{{img+item}}"></image>
+        </block>
+        <block wx:if="{{community_vice.length<4}}">
+          <view class="mainPhoto" bindtap="community_vice">
+            <image src="/image/addPhoto.png"></image>
+            <text class="photoDesc">上传照片(多张)</text>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <view class="publish_btn">
+      <view>
+        <view class="btn" bindtap="submitCommunity">确认</view>
+      </view>
+    </view>
+
+  </block>
+
+  <!--发布房源-->
+  <block wx:if="{{releaseType===2}}">
+
+    <!--切换发布类型-->
+    <view class="publish_cell">
+      <view class="publish-name">类型</view>
+      <view class="publish-value">
+        <picker range="{{typeList.list}}" bindchange="bindType">
+          {{typeList.list[typeList.index]}}
+        </picker>
+        <text class="icon icon-downArrow"></text>
+      </view>
+    </view>
+
+    <!--发布写字楼-->
+    <block wx:if="{{type===1}}">
+
+      <view class="publish_cell">
+        <view class="publish-name">房屋标题</view>
+        <view class="publish-value">
+          <input data-name="title" placeholder="请输入房屋标题" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">房屋装修</view>
+        <view class="publish-value">
+          <picker value="{{decorate}}" range="{{decorateList}}" bindchange="decorate">
+            {{decorateList[decorate]}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">付款方式</view>
+        <view class="publish-value">
+          <picker value="{{way}}" range="{{wayList}}" bindchange="payWay">
+            {{wayList[way]}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">每平米租金</view>
+        <view class="publish-value">
+          <input data-name="rent" type="digit" placeholder="请输入房屋租金" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">房屋面积</view>
+        <view class="publish-value">
+          <input data-name="area" type="digit" placeholder="请输入房屋面积/㎡" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">房屋楼层</view>
+        <view class="publish-value">
+          <input data-name="floor" type="number" placeholder="请输入房屋楼层" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">地点</view>
+        <view class="publish-value">
+          <picker mode="multiSelector" value="{{cityIndex}}" range-key="Name" range="{{citys}}"
+                  bindcolumnchange="cityColumnChange"
+                  bindchange="cityChange" bindcancel="cityCancel">
+            {{citys[0][cityIndex[0]].Name}},{{citys[1][cityIndex[1]].Name}},{{citys[2][cityIndex[2]].Name}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">详细地址</view>
+        <view class="publish-value">
+          <input placeholder="请输入详细地址" data-name="specific" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">经纬度</view>
+        <block wx:if="{{!orientation}}">
+          <view class="publish-value" bindtap="selectLatitudeLongitude">
+            打开地图选点
+          </view>
+        </block>
+        <block wx:else>
+          <view class="publish-value">
+            {{orientation[0]}},{{orientation[1]}}
+          </view>
+        </block>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">地铁线</view>
+        <view class="publish-value">
+          <picker value="{{subwayIndex}}" range-key="subway_name" range="{{subwayList}}" bindchange="subwayChange"
+                  bindcancel="subwayCancel">
+            {{subwayList[subwayIndex].subway_name}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">搜索小区</view>
+        <view class="publish-value">
+          <input placeholder="请输小区名" data-name="community_name" bindinput="getInput"/>
+        </view>
+        <view class="publish-search" bindtap="searchCommunity">搜索</view>
+      </view>
+
+      <block wx:if="{{searchCommunity.length>0}}">
+        <view class="publish_cell">
+          <view class="publish-name">搜到的小区</view>
+          <view class="publish-value">
+            <picker range="{{searchCommunity}}"
+                    value="{{searchCommunityIndex}}"
+                    range-key="community_name" bindchange="selectSearchCommunity">
+              {{searchCommunity[searchCommunityIndex].community_name}}
+            </picker>
+            <text class="icon icon-downArrow"></text>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="publish_cell">
+          <view class="publish-name">小区</view>
+          <view class="publish-value">
+            <picker range="{{communityList}}"
+                    value="{{communityIndex}}"
+                    range-key="community_name" bindchange="communityCancel" bindchange="selectCommunity">
+              {{communityList[communityIndex].community_name}}
+            </picker>
+            <text class="icon icon-downArrow"></text>
+          </view>
+        </view>
+      </block>
+
+      <view class="publish_cell">
+        <view class="publish-name">商圈名称</view>
+        <view class="publish-value">
+          <input data-name="circle" type="digit" placeholder="请输入商圈名称" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">联系人</view>
+        <view class="publish-value">
+          <input data-name="membername" type="number" placeholder="请输入联系电话" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">联系电话</view>
+        <view class="publish-value">
+          <input data-name="phone" type="number" placeholder="请输入联系电话" bindinput="getInput"/>
+        </view>
+      </view>
+
+      <!--图-->
+      <view class="publish_cell">
+        <view class="publish-name">楼宇(厂区)主图</view>
+        <view class="publish-value">
+          <block wx:if="{{!garden_image}}">
+            <view class="mainPhoto" bindtap="garden_image">
+              <image src="/image/photo.png"></image>
+              <text class="photoDesc">上传照片(单张)</text>
+            </view>
+          </block>
+          <block wx:else>
+            <image src="{{img+garden_image}}"></image>
+          </block>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">主图</view>
+        <view class="publish-value">
+          <block wx:if="{{!sitting_image}}">
+            <view class="mainPhoto" bindtap="sitting_image">
+              <image src="/image/photo.png"></image>
+              <text class="photoDesc">上传照片(单张)</text>
+            </view>
+          </block>
+          <block wx:else>
+            <image src="{{img+sitting_image}}"></image>
+          </block>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">附图</view>
+        <view class="publish-value">
+          <block wx:for="{{other_image}}" wx:key="{{index}}">
+            <image src="{{img+item}}"></image>
+          </block>
+          <block wx:if="{{other_image.length<4}}">
+            <view class="mainPhoto" bindtap="other_image">
+              <image src="/image/addPhoto.png"></image>
+              <text class="photoDesc">上传照片(多张)</text>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">房屋(合同)照</view>
+        <view class="publish-value">
+          <block wx:if="{{!house_image}}">
+            <view class="mainPhoto" bindtap="house_image">
+              <image src="/image/photo.png"></image>
+              <text class="photoDesc">上传照片(单张)</text>
+            </view>
+          </block>
+          <block wx:else>
+            <image src="{{img+house_image}}"></image>
+          </block>
+        </view>
+      </view>
+
+      <view class="publish_btn">
+        <view>
+          <view class="btn" bindtap="submit">确认</view>
+        </view>
+      </view>
+
+    </block>
+
+    <!--发布商铺-->
+    <block wx:if="{{type===2}}">
+
+      <view class="publish_cell">
+        <view class="publish-name">标题</view>
+        <view class="publish-value">
+          <input data-name="title" placeholder="请输入房屋标题" bindinput="getInput"/>
+        </view>
+      </view>
+      <!--1-->
+      <view class="publish_cell">
+        <view class="publish-name">商铺类型</view>
+        <view class="publish-value">
+          <picker value="{{genre}}" range="{{shopTypeList}}" bindchange="genreChange">
+            {{shopTypeList[genre]}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <!--1-->
+      <view class="publish_cell">
+        <view class="publish-name">装修</view>
+        <view class="publish-value">
+          <picker value="{{decorate}}" range="{{decorateList}}" bindchange="decorate">
+            {{decorateList[decorate]}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">付款方式</view>
+        <view class="publish-value">
+          <picker value="{{way}}" range="{{wayList}}" bindchange="payWay">
+            {{wayList[way]}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">每平米租金</view>
+        <view class="publish-value">
+          <input data-name="rent" type="digit" placeholder="请输入房屋租金" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">房屋面积</view>
+        <view class="publish-value">
+          <input data-name="area" type="digit" placeholder="请输入房屋面积/㎡" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">房屋楼层</view>
+        <view class="publish-value">
+          <input data-name="floor" type="number" placeholder="请输入房屋楼层" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">地点</view>
+        <view class="publish-value">
+          <picker mode="multiSelector" value="{{cityIndex}}" range-key="Name" range="{{citys}}"
+                  bindcolumnchange="cityColumnChange"
+                  bindchange="cityChange" bindcancel="cityCancel">
+            {{citys[0][cityIndex[0]].Name}},{{citys[1][cityIndex[1]].Name}},{{citys[2][cityIndex[2]].Name}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">详细地址</view>
+        <view class="publish-value">
+          <input placeholder="请输入详细地址" data-name="specific" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">经纬度</view>
+        <block wx:if="{{!orientation}}">
+          <view class="publish-value" bindtap="selectLatitudeLongitude">
+            打开地图选点
+          </view>
+        </block>
+        <block wx:else>
+          <view class="publish-value">
+            {{orientation[0]}},{{orientation[1]}}
+          </view>
+        </block>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">地铁线</view>
+        <view class="publish-value">
+          <picker value="{{subwayIndex}}" range-key="subway_name" range="{{subwayList}}" bindchange="subwayChange"
+                  bindcancel="subwayCancel">
+            {{subwayList[subwayIndex].subway_name}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">搜索小区</view>
+        <view class="publish-value">
+          <input placeholder="请输小区名" data-name="community_name" bindinput="getInput"/>
+        </view>
+        <view class="publish-search" bindtap="searchCommunity">搜索</view>
+      </view>
+
+      <block wx:if="{{searchCommunity.length>0}}">
+        <view class="publish_cell">
+          <view class="publish-name">搜到的小区</view>
+          <view class="publish-value">
+            <picker range="{{searchCommunity}}"
+                    value="{{searchCommunityIndex}}"
+                    range-key="community_name" bindchange="selectSearchCommunity">
+              {{searchCommunity[searchCommunityIndex].community_name}}
+            </picker>
+            <text class="icon icon-downArrow"></text>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="publish_cell">
+          <view class="publish-name">小区</view>
+          <view class="publish-value">
+            <picker range="{{communityList}}"
+                    value="{{communityIndex}}"
+                    range-key="community_name" bindchange="communityCancel" bindchange="selectCommunity">
+              {{communityList[communityIndex].community_name}}
+            </picker>
+            <text class="icon icon-downArrow"></text>
+          </view>
+        </view>
+      </block>
+
+      <view class="publish_cell">
+        <view class="publish-name">商圈名称</view>
+        <view class="publish-value">
+          <input data-name="circle" type="digit" placeholder="请输入房屋楼龄" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">联系人</view>
+        <view class="publish-value">
+          <input data-name="membername" type="number" placeholder="请输入联系电话" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">联系电话</view>
+        <view class="publish-value">
+          <input data-name="phone" type="number" placeholder="请输入联系电话" bindinput="getInput"/>
+        </view>
+      </view>
+
+      <!--图-->
+      <view class="publish_cell">
+        <view class="publish-name">楼宇(厂区)主图</view>
+        <view class="publish-value">
+          <block wx:if="{{!garden_image}}">
+            <view class="mainPhoto" bindtap="garden_image">
+              <image src="/image/photo.png"></image>
+              <text class="photoDesc">上传照片(单张)</text>
+            </view>
+          </block>
+          <block wx:else>
+            <image src="{{img+garden_image}}"></image>
+          </block>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">主图</view>
+        <view class="publish-value">
+          <block wx:if="{{!sitting_image}}">
+            <view class="mainPhoto" bindtap="sitting_image">
+              <image src="/image/photo.png"></image>
+              <text class="photoDesc">上传照片(单张)</text>
+            </view>
+          </block>
+          <block wx:else>
+            <image src="{{img+sitting_image}}"></image>
+          </block>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">附图</view>
+        <view class="publish-value">
+          <block wx:for="{{other_image}}" wx:key="{{index}}">
+            <image src="{{img+item}}"></image>
+          </block>
+          <block wx:if="{{other_image.length<4}}">
+            <view class="mainPhoto" bindtap="other_image">
+              <image src="/image/addPhoto.png"></image>
+              <text class="photoDesc">上传照片(多张)</text>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">房屋(合同)照</view>
+        <view class="publish-value">
+          <block wx:if="{{!house_image}}">
+            <view class="mainPhoto" bindtap="house_image">
+              <image src="/image/photo.png"></image>
+              <text class="photoDesc">上传照片(单张)</text>
+            </view>
+          </block>
+          <block wx:else>
+            <image src="{{img+house_image}}"></image>
+          </block>
+        </view>
+      </view>
+
+      <view class="publish_btn">
+        <view>
+          <view class="btn" bindtap="submit">确认</view>
+        </view>
+      </view>
+
+    </block>
+
+    <!--发布厂房-->
+    <block wx:if="{{type===3}}">
+
+      <view class="publish_cell">
+        <view class="publish-name">标题</view>
+        <view class="publish-value">
+          <input data-name="title" placeholder="请输入房屋标题" bindinput="getInput"/>
+        </view>
+      </view>
+      <!--1-->
+      <view class="publish_cell">
+        <view class="publish-name">厂房类型</view>
+        <view class="publish-value">
+          <picker value="{{genre}}" range="{{factoryTypeList}}" bindchange="genreChange">
+            {{factoryTypeList[genre]}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <!--1-->
+      <view class="publish_cell">
+        <view class="publish-name">装修</view>
+        <view class="publish-value">
+          <picker value="{{decorate}}" range="{{decorateList}}" bindchange="decorate">
+            {{decorateList[decorate]}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">付款方式</view>
+        <view class="publish-value">
+          <picker value="{{way}}" range="{{wayList}}" bindchange="payWay">
+            {{wayList[way]}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">每平米租金</view>
+        <view class="publish-value">
+          <input data-name="rent" type="digit" placeholder="请输入房屋租金" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">房屋面积</view>
+        <view class="publish-value">
+          <input data-name="area" type="digit" placeholder="请输入房屋面积/㎡" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">房屋楼层</view>
+        <view class="publish-value">
+          <input data-name="floor" type="number" placeholder="请输入房屋楼层" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">地点</view>
+        <view class="publish-value">
+          <picker mode="multiSelector" value="{{cityIndex}}" range-key="Name" range="{{citys}}"
+                  bindcolumnchange="cityColumnChange"
+                  bindchange="cityChange" bindcancel="cityCancel">
+            {{citys[0][cityIndex[0]].Name}},{{citys[1][cityIndex[1]].Name}},{{citys[2][cityIndex[2]].Name}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">详细地址</view>
+        <view class="publish-value">
+          <input placeholder="请输入详细地址" data-name="specific" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">经纬度</view>
+        <block wx:if="{{!orientation}}">
+          <view class="publish-value" bindtap="selectLatitudeLongitude">
+            打开地图选点
+          </view>
+        </block>
+        <block wx:else>
+          <view class="publish-value">
+            {{orientation[0]}},{{orientation[1]}}
+          </view>
+        </block>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">地铁线</view>
+        <view class="publish-value">
+          <picker value="{{subwayIndex}}" range-key="subway_name" range="{{subwayList}}" bindchange="subwayChange"
+                  bindcancel="subwayCancel">
+            {{subwayList[subwayIndex].subway_name}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">搜索小区</view>
+        <view class="publish-value">
+          <input placeholder="请输小区名" data-name="community_name" bindinput="getInput"/>
+        </view>
+        <view class="publish-search" bindtap="searchCommunity">搜索</view>
+      </view>
+
+      <block wx:if="{{searchCommunity.length>0}}">
+        <view class="publish_cell">
+          <view class="publish-name">搜到的小区</view>
+          <view class="publish-value">
+            <picker range="{{searchCommunity}}"
+                    value="{{searchCommunityIndex}}"
+                    range-key="community_name" bindchange="selectSearchCommunity">
+              {{searchCommunity[searchCommunityIndex].community_name}}
+            </picker>
+            <text class="icon icon-downArrow"></text>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="publish_cell">
+          <view class="publish-name">小区</view>
+          <view class="publish-value">
+            <picker range="{{communityList}}"
+                    value="{{communityIndex}}"
+                    range-key="community_name" bindchange="communityCancel" bindchange="selectCommunity">
+              {{communityList[communityIndex].community_name}}
+            </picker>
+            <text class="icon icon-downArrow"></text>
+          </view>
+        </view>
+      </block>
+
+      <view class="publish_cell">
+        <view class="publish-name">联系人</view>
+        <view class="publish-value">
+          <input data-name="membername" type="number" placeholder="请输入联系电话" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">联系电话</view>
+        <view class="publish-value">
+          <input data-name="phone" type="number" placeholder="请输入联系电话" bindinput="getInput"/>
+        </view>
+      </view>
+
+      <!--图-->
+      <view class="publish_cell">
+        <view class="publish-name">楼宇(厂区)主图</view>
+        <view class="publish-value">
+          <block wx:if="{{!garden_image}}">
+            <view class="mainPhoto" bindtap="garden_image">
+              <image src="/image/photo.png"></image>
+              <text class="photoDesc">上传照片(单张)</text>
+            </view>
+          </block>
+          <block wx:else>
+            <image src="{{img+garden_image}}"></image>
+          </block>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">主图</view>
+        <view class="publish-value">
+          <block wx:if="{{!sitting_image}}">
+            <view class="mainPhoto" bindtap="sitting_image">
+              <image src="/image/photo.png"></image>
+              <text class="photoDesc">上传照片(单张)</text>
+            </view>
+          </block>
+          <block wx:else>
+            <image src="{{img+sitting_image}}"></image>
+          </block>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">附图</view>
+        <view class="publish-value">
+          <block wx:for="{{other_image}}" wx:key="{{index}}">
+            <image src="{{img+item}}"></image>
+          </block>
+          <block wx:if="{{other_image.length<4}}">
+            <view class="mainPhoto" bindtap="other_image">
+              <image src="/image/addPhoto.png"></image>
+              <text class="photoDesc">上传照片(多张)</text>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">房屋(合同)照</view>
+        <view class="publish-value">
+          <block wx:if="{{!house_image}}">
+            <view class="mainPhoto" bindtap="house_image">
+              <image src="/image/photo.png"></image>
+              <text class="photoDesc">上传照片(单张)</text>
+            </view>
+          </block>
+          <block wx:else>
+            <image src="{{img+house_image}}"></image>
+          </block>
+        </view>
+      </view>
+
+      <view class="publish_btn">
+        <view>
+          <view class="btn" bindtap="submit">确认</view>
+        </view>
+      </view>
+
+    </block>
+
+    <!--发布住宅-->
+    <block wx:if="{{type===4}}">
+
+      <view class="publish_cell">
+        <view class="publish-name">房屋标题</view>
+        <view class="publish-value">
+          <input data-name="title" placeholder="请输入房屋标题" bindinput="getInput"/>
+        </view>
+      </view>
+      <!--1-->
+      <view class="publish_cell">
+        <view class="publish-name">房屋朝向</view>
+        <view class="publish-value">
+          <picker value="{{toward}}" range="{{faceList}}" bindchange="faceChange">
+            {{faceList[toward]}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">房屋户型</view>
+        <view class="publish-value">
+          <picker mode="multiSelector" value="{{[room,hall,toilet]}}"
+                  range="{{houseType}}" range-key="name"
+                  bindcancel="houseTypeCancel" bindchange="houseType">
+            {{houseType[0][room].name}}, {{houseType[1][hall].name}}, {{houseType[2][toilet].name}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">方式</view>
+        <view class="publish-value">
+          <radio-group bindchange="roommates">
+            <radio value="0">不限</radio>
+            <radio value="1">整租</radio>
+            <radio value="2">合租</radio>
+          </radio-group>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">限制性别</view>
+        <view class="publish-value">
+          <radio-group bindchange="sexChange">
+            <radio value="0">不限</radio>
+            <radio value="1">限男生</radio>
+            <radio value="2">限女生</radio>
+          </radio-group>
+        </view>
+      </view>
+      <!--1-->
+
+      <view class="publish_cell">
+        <view class="publish-name">房屋装修</view>
+        <view class="publish-value">
+          <picker value="{{decorate}}" range="{{decorateList}}" bindchange="decorate">
+            {{decorateList[decorate]}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">付款方式</view>
+        <view class="publish-value">
+          <picker value="{{way}}" range="{{wayList}}" bindchange="payWay">
+            {{wayList[way]}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">每平米租金</view>
+        <view class="publish-value">
+          <input data-name="rent" type="digit" placeholder="请输入房屋租金" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">房屋面积</view>
+        <view class="publish-value">
+          <input data-name="area" type="digit" placeholder="请输入房屋面积/㎡" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">房屋楼层</view>
+        <view class="publish-value">
+          <input data-name="floor" type="number" placeholder="请输入房屋楼层" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">地点</view>
+        <view class="publish-value">
+          <picker mode="multiSelector" value="{{cityIndex}}" range-key="Name" range="{{citys}}"
+                  bindcolumnchange="cityColumnChange"
+                  bindchange="cityChange" bindcancel="cityCancel">
+            {{citys[0][cityIndex[0]].Name}},{{citys[1][cityIndex[1]].Name}},{{citys[2][cityIndex[2]].Name}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">详细地址</view>
+        <view class="publish-value">
+          <input placeholder="请输入详细地址" data-name="specific" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">经纬度</view>
+        <block wx:if="{{!orientation}}">
+          <view class="publish-value" bindtap="selectLatitudeLongitude">
+            打开地图选点
+          </view>
+        </block>
+        <block wx:else>
+          <view class="publish-value">
+            {{orientation[0]}},{{orientation[1]}}
+          </view>
+        </block>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">地铁线</view>
+        <view class="publish-value">
+          <picker value="{{subwayIndex}}" range-key="subway_name" range="{{subwayList}}" bindchange="subwayChange"
+                  bindcancel="subwayCancel">
+            {{subwayList[subwayIndex].subway_name}}
+          </picker>
+          <text class="icon icon-downArrow"></text>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">搜索小区</view>
+        <view class="publish-value">
+          <input placeholder="请输小区名" data-name="community_name" bindinput="getInput"/>
+        </view>
+        <view class="publish-search" bindtap="searchCommunity">搜索</view>
+      </view>
+
+      <block wx:if="{{searchCommunity.length>0}}">
+        <view class="publish_cell">
+          <view class="publish-name">搜到的小区</view>
+          <view class="publish-value">
+            <picker range="{{searchCommunity}}"
+                    value="{{searchCommunityIndex}}"
+                    range-key="community_name" bindchange="selectSearchCommunity">
+              {{searchCommunity[searchCommunityIndex].community_name}}
+            </picker>
+            <text class="icon icon-downArrow"></text>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="publish_cell">
+          <view class="publish-name">小区</view>
+          <view class="publish-value">
+            <picker range="{{communityList}}"
+                    value="{{communityIndex}}"
+                    range-key="community_name" bindchange="communityCancel" bindchange="selectCommunity">
+              {{communityList[communityIndex].community_name}}
+            </picker>
+            <text class="icon icon-downArrow"></text>
+          </view>
+        </view>
+      </block>
+
+      <view class="publish_cell">
+        <view class="publish-name">商圈名称</view>
+        <view class="publish-value">
+          <input data-name="circle" type="digit" placeholder="请输入房屋楼龄" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">联系人</view>
+        <view class="publish-value">
+          <input data-name="membername" type="number" placeholder="请输入联系电话" bindinput="getInput"/>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">联系电话</view>
+        <view class="publish-value">
+          <input data-name="phone" type="number" placeholder="请输入联系电话" bindinput="getInput"/>
+        </view>
+      </view>
+
+      <!--图-->
+      <view class="publish_cell">
+        <view class="publish-name">楼宇(厂区)主图</view>
+        <view class="publish-value">
+          <block wx:if="{{!garden_image}}">
+            <view class="mainPhoto" bindtap="garden_image">
+              <image src="/image/photo.png"></image>
+              <text class="photoDesc">上传照片(单张)</text>
+            </view>
+          </block>
+          <block wx:else>
+            <image src="{{img+garden_image}}"></image>
+          </block>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">主图</view>
+        <view class="publish-value">
+          <block wx:if="{{!sitting_image}}">
+            <view class="mainPhoto" bindtap="sitting_image">
+              <image src="/image/photo.png"></image>
+              <text class="photoDesc">上传照片(单张)</text>
+            </view>
+          </block>
+          <block wx:else>
+            <image src="{{img+sitting_image}}"></image>
+          </block>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">附图</view>
+        <view class="publish-value">
+          <block wx:for="{{other_image}}" wx:key="{{index}}">
+            <image src="{{img+item}}"></image>
+          </block>
+          <block wx:if="{{other_image.length<4}}">
+            <view class="mainPhoto" bindtap="other_image">
+              <image src="/image/addPhoto.png"></image>
+              <text class="photoDesc">上传照片(多张)</text>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class="publish_cell">
+        <view class="publish-name">房屋(合同)照</view>
+        <view class="publish-value">
+          <block wx:if="{{!house_image}}">
+            <view class="mainPhoto" bindtap="house_image">
+              <image src="/image/photo.png"></image>
+              <text class="photoDesc">上传照片(单张)</text>
+            </view>
+          </block>
+          <block wx:else>
+            <image src="{{img+house_image}}"></image>
+          </block>
+        </view>
+      </view>
+
+      <view class="publish_btn">
+        <view>
+          <view class="btn" bindtap="submit">确认</view>
+        </view>
+      </view>
+
+    </block>
+
+  </block>
+
+</view>

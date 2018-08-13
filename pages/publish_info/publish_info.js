@@ -1,9 +1,8 @@
-// pages/publish_info/publish_info.js
 const app = getApp()
 
 Page({
   data: {
-    /********************event********************/
+    /****event****/
     type: {
       index: 0,
       list: ['写字楼', '商铺', '工业厂房', '住宅']
@@ -554,8 +553,6 @@ Page({
       if (res.code === 200) {
         wx.navigateBack({})
         wx.showToast({title: res['msg'], icon: 'none'})
-
-
         wx.uploadFile({
           url: app.data.uploadImg,
           filePath: this.data.HouseMainImg,
@@ -564,7 +561,6 @@ Page({
             id: res.data.lease_id
           },
           success: res => {
-
           }
         })
         wx.uploadFile({
@@ -590,7 +586,6 @@ Page({
           })
         }
       }
-
     })
   },
 
@@ -629,20 +624,6 @@ Page({
           HouseTwoImg: this.data.HouseTwoImg.concat(res['tempFilePaths'][0])
         })
       }
-    })
-  },
-
-  //上传图片
-  uploadImg(path) {
-    return new Promise((resolve, reject) => {
-      wx.uploadFile({
-        url: 'https://project.xiaozhanxiang.com/wechar/login/uploadImg',
-        filePath: path,
-        name: 'file',
-        success: (res) => {
-          resolve(res)
-        }
-      })
     })
   }
 })
