@@ -28,9 +28,5 @@ App({
     api.tel().then(res => {
       Object.assign(this.data, res.data)
     })
-  },
-
-  onShow: function (options) {
-
   }
 })
