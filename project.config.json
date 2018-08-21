@@ -11,7 +11,7 @@
     "newFeature": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.2.2",
+  "libVersion": "2.2.3",
   "appid": "wx3261ca1ac35e152e",
   "projectname": "CityERent",
   "isGameTourist": false,
@@ -33,18 +33,12 @@
       "list": []
     },
     "miniprogram": {
-      "current": 16,
+      "current": -1,
       "list": [
         {
           "id": -1,
           "name": "写字楼详情",
           "pathName": "pages/building_info/building_info",
-          "query": ""
-        },
-        {
-          "id": -1,
-          "name": "发布信息",
-          "pathName": "pages/publish_info/publish_info",
           "query": ""
         },
         {
@@ -134,7 +128,8 @@
         {
           "id": -1,
           "name": "发布房源",
-          "pathName": "pages/addHouse/addHouse"
+          "pathName": "pages/addHouse/addHouse",
+          "query": ""
         }
       ]
     }

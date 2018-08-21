@@ -1,15 +1,15 @@
 <view class="publish_box">
 
   <!--发布类型-->
-  <view class="publish_cell">
-    <view class="publish-name">发布类型</view>
-    <view class="publish-value">
-      <radio-group bindchange="moreChange">
-        <radio checked value="2">发布房源</radio>
-        <radio value="1" data-index="{{1}}">添加小区</radio>
-      </radio-group>
-    </view>
-  </view>
+  <!--<view class="publish_cell">-->
+  <!--<view class="publish-name">发布类型</view>-->
+  <!--<view class="publish-value">-->
+  <!--<radio-group bindchange="moreChange">-->
+  <!--<radio checked value="2">发布房源</radio>-->
+  <!--<radio value="1" data-index="{{1}}">添加小区</radio>-->
+  <!--</radio-group>-->
+  <!--</view>-->
+  <!--</view>-->
 
   <!--发布小区-->
   <block wx:if="{{releaseType===1}}">
